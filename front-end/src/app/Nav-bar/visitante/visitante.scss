@@ -65,8 +65,8 @@ Sem float, usa flexbox nativo.
 }
 
 .header-area .main-nav .logo img {
-  height: auto;
-  max-width: 100%;
+  max-height: 60px;   /* controla o tamanho da logo */
+  width: auto;        /* mantém proporção */
   display: block;
 }
 
