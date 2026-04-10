@@ -53,12 +53,23 @@
 
             <span class="form__span">ou use sua conta de email</span>
 
-            <input class="form__input" type="text" placeholder="Email">
-            <input class="form__input" type="password" placeholder="Senha">
+            <input class="form__input"
+       type="text"
+       placeholder="Username"
+       [(ngModel)]="username"
+       name="username">
+
+<input class="form__input"
+       type="password"
+       placeholder="Senha"
+       [(ngModel)]="password"
+       name="password">
 
             <a class="form__link">Esqueceu sua senha?</a>
 
-            <button class="form__button button submit">ENTRAR</button>
+            <button class="form__button button submit" (click)="login()">
+  ENTRAR
+</button>
         </form>
     </div>
 
