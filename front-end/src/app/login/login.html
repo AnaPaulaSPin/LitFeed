@@ -43,7 +43,7 @@
         [class.is-txl]="!isSignIn"
         [class.is-z200]="!isSignIn"
     >
-        <form id="b-form" class="form" method="" action="">
+        <form class="form" (ngSubmit)="login()">
             <h2 class="form_title title">Entrar no Site</h2>
 
             <div class="form__icons">
@@ -67,7 +67,9 @@
 
             <a class="form__link" href="#">Esqueceu sua senha?</a>
 
-            <button class="form__button button submit" (click)="login()">
+            <button
+  type="submit"
+  class="form__button button">
   ENTRAR
 </button>
         </form>

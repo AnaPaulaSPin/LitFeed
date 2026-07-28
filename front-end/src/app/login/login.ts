@@ -42,6 +42,7 @@ export class Login {
 
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
+      console.log("Usuário:", user);
       this.router.navigate(['/perfil']);
     } else {
       alert('Usuário ou senha inválidos');
