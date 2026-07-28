@@ -21,14 +21,13 @@
             <h2 class="form_title title">Criar Conta</h2>
 
             <div class="form__icons">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg..." alt="">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg...">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg...">
+                <a href="#"> <img class="form__icon" src="assets\LogoMarcas\IconFacebook.png" alt=""> </a>
+                <a href="#"> <img class="form__icon" src="assets\LogoMarcas\IconGoogle.png" alt=""> </a>
             </div>
 
             <span class="form__span">ou use o email para registro</span>
 
-            <input class="form__input" type="text" placeholder="Nome">
+            <input class="form__input" type="text" placeholder="Usuario">
             <input class="form__input" type="text" placeholder="Email">
             <input class="form__input" type="password" placeholder="Senha">
 
@@ -46,16 +45,15 @@
             <h2 class="form_title title">Entrar no Site</h2>
 
             <div class="form__icons">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg..." alt="">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg...">
-                <img class="form__icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcg...">
+                <a href="#"> <img class="form__icon" src="assets\LogoMarcas\IconFacebook.png" alt=""> </a>
+                <a href="#"> <img class="form__icon" src="assets\LogoMarcas\IconGoogle.png" alt=""> </a>
             </div>
 
             <span class="form__span">ou use sua conta de email</span>
 
             <input class="form__input"
        type="text"
-       placeholder="Username"
+       placeholder="Username/Email"
        [(ngModel)]="username"
        name="username">
 
@@ -65,7 +63,7 @@
        [(ngModel)]="password"
        name="password">
 
-            <a class="form__link">Esqueceu sua senha?</a>
+            <a class="form__link" href="#">Esqueceu sua senha?</a>
 
             <button class="form__button button submit" (click)="login()">
   ENTRAR

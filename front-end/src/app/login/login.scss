@@ -117,13 +117,13 @@ body{
         margin-top: 30px;
         margin-bottom: 12px;
     }
-    &__link{
-        color: $black;
-        font-size: 15px;
-        margin-top: 25px;
-        border-bottom: 1px solid $gray;
-        line-height: 2;
-    }
+    &__link {
+    color: $black;
+    font-size: 15px;
+    margin-top: 25px;
+    line-height: 2;
+    text-decoration: none;
+}
 }
 .title{
     font-size: 34px;
