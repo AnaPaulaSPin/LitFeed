@@ -14,10 +14,17 @@ export class Login {
   isSignIn = true;
 
   // inputs controlados
-  username = '';
-  password = '';
+  loginIdentifier = '';
+  loginPassword = '';
 
-  constructor(private router: Router,  private authService: Auth) {}
+  registerUsername = '';
+  registerEmail = '';
+  registerPassword = '';
+
+  constructor(
+    private router: Router,
+    private authService: Auth
+  ) {}
 
   changeForm() {
     this.isSignIn = !this.isSignIn;
@@ -28,14 +35,22 @@ export class Login {
   }
 
   login() {
-    const user = this.authService.login(this.username, this.password);
+    const user = this.authService.login(
+      this.loginIdentifier,
+      this.loginPassword
+    );
 
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
       this.router.navigate(['/perfil']);
     } else {
       alert('Usuário ou senha inválidos');
-    }
+   }
   }
 
+  cadastrar() {
+    // Aqui você pode implementar a lógica de cadastro, como enviar os dados para um serviço ou API.
+    // Por enquanto, apenas exibe um alerta com os dados de cadastro.
+    alert(`Cadastro realizado com sucesso!\nUsername: ${this.registerUsername}\nEmail: ${this.registerEmail}`);
+  }
 }

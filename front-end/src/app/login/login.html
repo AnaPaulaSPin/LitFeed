@@ -17,6 +17,7 @@
   <button class="back-btn" (click)="goBack()">
     <span class="material-icons">arrow_back</span>
 </button>
+<!-- Criar Conta-->
         <form id="a-form" class="form" method="" action="">
             <h2 class="form_title title">Criar Conta</h2>
 
@@ -35,6 +36,7 @@
         </form>
     </div>
 
+    <!-- Login -->
     <div
         class="container b-container"
         id="b-container"
@@ -52,16 +54,16 @@
             <span class="form__span">ou use sua conta de email</span>
 
             <input class="form__input"
-       type="text"
-       placeholder="Username/Email"
-       [(ngModel)]="username"
-       name="username">
+             type="text"
+             placeholder="Username/Email"
+             [(ngModel)]="loginIdentifier"
+            name="username">
 
-<input class="form__input"
-       type="password"
-       placeholder="Senha"
-       [(ngModel)]="password"
-       name="password">
+            <input class="form__input"
+             type="password"
+             placeholder="Senha"
+             [(ngModel)]="loginPassword"
+            name="password">
 
             <a class="form__link" href="#">Esqueceu sua senha?</a>
 
