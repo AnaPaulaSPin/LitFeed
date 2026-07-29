@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class Login {
-  isSignIn = true;
+  isSignIn = false; // false = login, true = cadastro
 
   // inputs controlados
   loginIdentifier = '';

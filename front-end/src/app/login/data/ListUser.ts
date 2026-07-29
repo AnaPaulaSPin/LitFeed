@@ -8,8 +8,8 @@ export const USERS_FAKE: User[] = [
     username: "anitiesie",
     email: "paulinhasp148@gmail.com",
     senha: "1234",
-    fotoPerfil: "assets/Padrao/UserPadrao.webp",
-    banner: "assets/Padrao/FundoPadrao.png"
+    fotoPerfil: "assets/UsersData/Elsa.jpg",
+    banner: "assets/UsersData/6.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const USERS_FAKE: User[] = [
     username: "bruno13",
     email: "bruno13@gmail.com",
     senha: "1234",
-    fotoPerfil: "assets/Padrao/UserPadrao.webp",
-    banner: "assets/Padrao/FundoPadrao.png"
+    fotoPerfil: "assets/UsersData/bistecone.jpg",
+    banner: "assets/UsersData/7.jpg"
   }
 ];
