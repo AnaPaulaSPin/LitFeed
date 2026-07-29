@@ -7,4 +7,16 @@ import { CardUser } from '../card-user/card-user';
   templateUrl: './perfil.html',
   styleUrl: './perfil.scss',
 })
-export class Perfil {}
+export class Perfil {
+  user: any;
+
+  constructor() {
+    const userData = localStorage.getItem('user');
+    console.log("Usuário:", userData);
+    
+    if (userData) {
+      this.user = JSON.parse(userData);
+    }
+  }
+
+}

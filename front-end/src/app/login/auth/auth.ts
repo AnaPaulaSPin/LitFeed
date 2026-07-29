@@ -11,7 +11,7 @@ export class Auth {
   const user = USERS_FAKE.find(
     u =>
       (u.username === usernameOrEmail || u.email === usernameOrEmail) &&
-      u.password === password
+      u.senha === password
   );
 
   return user;
@@ -21,13 +21,13 @@ export class Auth {
   const user = USERS_FAKE.find(
     u =>
       (u.username === username || u.email === email) &&
-      u.password === password
+      u.senha === password
   );
 
   if (!user) {
     const ultimo = USERS_FAKE[USERS_FAKE.length - 1];
 
-    USERS_FAKE.push({id: ultimo.id + 1, nome, username, email, password });
+    USERS_FAKE.push({id: ultimo.id + 1, nome, username, email, senha: password, fotoPerfil: 'assets/Padrao/UserPadrao.webp', banner: 'assets/Padrao/FundoPadrao.png'});
     alert(`Cadastro realizado com sucesso! Faça login com seu usuário/email e senha.`);
   } else {
     alert('Usuário já existe!');

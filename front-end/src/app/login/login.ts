@@ -21,6 +21,7 @@ export class Login {
   registerEmail = '';
   registerPassword = '';
   registerName = '';
+  user: any;
 
   constructor(
     private router: Router,
