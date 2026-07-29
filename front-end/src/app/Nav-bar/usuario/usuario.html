@@ -14,11 +14,54 @@
               <li class="scroll-to-section"><a href="feed" class="active">Feed</a></li>
               <li class="scroll-to-section"><a href="biblioteca ">Biblioteca</a></li>
               <li class="scroll-to-section"><a href="#about">Destaques</a></li>
-              <li *ngIf="user">
-  <a href="perfil" class="user-menu">
-    <img [src]="user.fotoPerfil" alt="Foto de perfil">
-  </a>
-</li>
+
+
+<div class="user-menu-wrap">
+
+  <button class="mini-photo-wrapper" type="button" (click)="abrirMenu()">
+  <img
+    class="mini-photo"
+     [src]="user.fotoPerfil" alt="Foto de perfil">
+</button>
+
+
+  <div class="menu-container" *ngIf="menuAberto">
+    <ul class="user-menu">
+      <div class="profile-highlight">
+        <img
+  class="mini-photo"
+  [src]="user.fotoPerfil"
+  alt="Foto de perfil"
+  width="36"
+  height="36"
+/>
+        <div class="details">
+          <div id="profile-name">Kenny Lee</div>
+          <div id="profile-footer">Team Hallaway</div>
+        </div>
+      </div>
+      <li class="user-menu__item">
+        <a class="user-menu-link" href="#">
+          <div>Achievements</div>
+        </a>
+      </li>
+      <li class="user-menu__item">
+        <a class="user-menu-link" href="#">
+          <div>Team</div>
+        </a>
+      </li>
+      <li class="user-menu__item">
+        <a class="user-menu-link" href="#">
+          <div>Log History</div>
+        </a>
+      </li>
+      <div class="footer">
+        <li class="user-menu__item"><a class="user-menu-link" href="#" style="color: #F44336;">Logout</a></li>
+        <li class="user-menu__item"><a class="user-menu-link" href="#">Settings</a></li>
+      </div>
+    </ul>
+  </div>
+</div>
 
             </ul>
             <a class='menu-trigger'>

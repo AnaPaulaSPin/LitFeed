@@ -1,14 +1,17 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-usuario',
-  imports: [NgIf],
+  imports: [NgIf, RouterLink],
   templateUrl: './usuario.html',
   styleUrl: './usuario.scss',
 })
 export class Usuario {
   user: any;
+  menuAberto = false;
 
 ngOnInit() {
   const userStorage = localStorage.getItem('user');
@@ -16,5 +19,17 @@ ngOnInit() {
   if (userStorage) {
     this.user = JSON.parse(userStorage);
   }
+}
+
+abrirMenu() {
+  this.menuAberto = !this.menuAberto;
+  console.log('Menu aberto:', this.menuAberto);
+}
+
+logout(){
+  localStorage.removeItem('user');
+  this.user = null;
+  this.menuAberto = false;
+  window.location.href = '/';
 }
 }

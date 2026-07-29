@@ -366,6 +366,154 @@ Estado do header quando fixo após scroll.
   color: #4b8ef1;
 }
 
+// Menu bar
+$nav-link-color: #666666;
+$bg-color: #F3F5F4;
+$navbar-color: #FFFFFF;
+$border-gray: #E0E0E0;
+$hover-gray: #F5F5F5;
+$active-gray: #EBEBEB;
+
+$at-blue-light: #00AFE9;
+$at-blue-dark: #006AB8;
+
+$red: #F44336;
+
+
+@mixin border-radius($radius) {
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+  -ms-border-radius:$radius;
+  border-radius:$radius;
+}
+
+ul {
+  list-style: none;
+}
+
+.user-menu-wrap {
+  position: relative;
+  width: 36px;
+  margin: 50px auto;
+}
+
+.menu-container {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  z-index: 9999;
+}
+
+.user-menu {
+  position: absolute;
+  right: -22px;
+  background-color: #FFFFFF;
+  width: 256px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.15);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+
+
+
+  .profile-highlight {
+
+    display: flex;
+    border-bottom: 1px solid $border-gray;
+    padding: 12px 16px;
+    margin-bottom: 6px;
+
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 25px;
+      object-fit: cover;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      margin: auto 12px;
+
+      #profile-name {
+        font-weight: 600;
+        font-size: 16px;
+
+      }
+
+      #profile-footer {
+        font-weight: 300;
+        font-size: 14px;
+        margin-top: 4px;
+      }
+    }
+
+  }
+
+  .footer {
+  border-top: 1px solid $border-gray;
+  padding-top: 6px;
+  margin-top: 6px;
+
+  .user-menu-link {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+.user-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 16px;
+
+  &:hover {
+    background-color: $hover-gray;
+    color: #333333;
+  }
+}
+
+  &:before {
+    position: absolute;
+    top: -16px;
+    left: 120px;
+    display: inline-block;
+    content: "";
+    border: 8px solid transparent;
+    border-bottom-color: $border-gray;
+  }
+
+  &:after {
+    position: absolute;
+    top: -14px;
+    left: 121px;
+    display: inline-block;
+    content: "";
+    border: 7px solid transparent;
+    border-bottom-color: #FFFFFF;
+  }
+}
+
+.mini-photo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mini-photo-wrapper {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 /*
 =====================================================
 MEDIA QUERIES - RESPONSIVIDADE
