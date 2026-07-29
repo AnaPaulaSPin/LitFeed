@@ -18,7 +18,7 @@
     <span class="material-icons">arrow_back</span>
 </button>
 <!-- Criar Conta-->
-        <form id="a-form" class="form" method="" action="">
+        <form id="a-form" class="form" (ngSubmit)="cadastrar()">
             <h2 class="form_title title">Criar Conta</h2>
 
             <div class="form__icons">
@@ -28,9 +28,10 @@
 
             <span class="form__span">ou use o email para registro</span>
 
-            <input class="form__input" type="text" placeholder="Usuario">
-            <input class="form__input" type="text" placeholder="Email">
-            <input class="form__input" type="password" placeholder="Senha">
+            <input class="form__input" type="text" placeholder="Nome" [(ngModel)]="registerName" name="registerName">
+            <input class="form__input" type="text" placeholder="Usuario" [(ngModel)]="registerUsername" name="registerUsername">
+            <input class="form__input" type="text" placeholder="Email" [(ngModel)]="registerEmail" name="registerEmail">
+            <input class="form__input" type="password" placeholder="Senha" [(ngModel)]="registerPassword" name="registerPassword" >
 
             <button class="form__button button submit">CADASTRAR</button>
         </form>

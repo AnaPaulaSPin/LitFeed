@@ -20,6 +20,7 @@ export class Login {
   registerUsername = '';
   registerEmail = '';
   registerPassword = '';
+  registerName = '';
 
   constructor(
     private router: Router,
@@ -50,8 +51,18 @@ export class Login {
   }
 
   cadastrar() {
-    // Aqui você pode implementar a lógica de cadastro, como enviar os dados para um serviço ou API.
-    // Por enquanto, apenas exibe um alerta com os dados de cadastro.
-    alert(`Cadastro realizado com sucesso!\nUsername: ${this.registerUsername}\nEmail: ${this.registerEmail}`);
+    this.authService.cadastrar(
+      this.registerName,
+      this.registerUsername,
+      this.registerEmail,
+      this.registerPassword
+    );
+
+    this.registerUsername = '';
+    this.registerEmail = '';
+    this.registerPassword = '';
+    this.registerName = '';
+    this.isSignIn = true;
+    
   }
 }
