@@ -62,7 +62,7 @@ export class Login {
     this.registerEmail = '';
     this.registerPassword = '';
     this.registerName = '';
-    this.isSignIn = true;
-    
+    this.isSignIn = false; // Volta para a tela de login após o cadastro
+
   }
 }

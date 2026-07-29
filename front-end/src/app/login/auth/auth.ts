@@ -29,7 +29,6 @@ export class Auth {
 
     USERS_FAKE.push({id: ultimo.id + 1, nome, username, email, password });
     alert(`Cadastro realizado com sucesso! Faça login com seu usuário/email e senha.`);
-
   } else {
     alert('Usuário já existe!');
   }
