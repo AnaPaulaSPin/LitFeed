@@ -36,19 +36,23 @@ export class Login {
     this.router.navigate(['/']);
   }
 
-  login() {
-    const user = this.authService.login(
-      this.loginIdentifier,
-      this.loginPassword
-    );
+ login() {
+  this.authService.login(
+    this.loginIdentifier,
+    this.loginPassword
+  ).subscribe({
+    next: (user) => {
 
-    if (user) {
       localStorage.setItem('user', JSON.stringify(user));
+
       this.router.navigate(['/perfil']);
-    } else {
-      alert('Usuário ou senha inválidos');
-   }
-  }
+    },
+
+    error: (erro) => {
+      alert(erro.error.message ?? 'Usuário ou senha inválidos');
+    }
+  });
+}
 
  cadastrar() {
 

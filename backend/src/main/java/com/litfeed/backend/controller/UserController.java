@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.litfeed.backend.dto.LoginDTO;
 import com.litfeed.backend.dto.UserResponseDTO;
 import com.litfeed.backend.entity.User;
 import com.litfeed.backend.service.UserService;
@@ -40,8 +41,18 @@ public ResponseEntity<UserResponseDTO> cadastrarUsuario(@RequestBody User user){
     UserResponseDTO usuario = service.cadastrar(user);
 
     return ResponseEntity.ok(usuario);
-    
+
 }
+
+@PostMapping("/login")
+public ResponseEntity<UserResponseDTO> login(@RequestBody LoginDTO dados){
+
+    return ResponseEntity.ok(
+        service.login(dados)
+    );
+
+}
+   
 
     @PutMapping("/{id}")
     public void atualizarUsuario(Long id) {

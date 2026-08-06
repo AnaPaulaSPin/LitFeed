@@ -2,6 +2,7 @@ package com.litfeed.backend.service;
 
 import org.springframework.stereotype.Service;
 
+import com.litfeed.backend.dto.LoginDTO;
 import com.litfeed.backend.dto.UserResponseDTO;
 import com.litfeed.backend.entity.User;
 import com.litfeed.backend.exception.BusinessException;
@@ -47,4 +48,42 @@ public class UserService {
         usuarioSalvo.getBiografia()
     );
   }
+
+ public UserResponseDTO login(LoginDTO dados) {
+
+    User user;
+
+    if (dados.usernameOrEmail().contains("@")) {
+
+        user = repository.findByEmail(dados.usernameOrEmail())
+                .orElseThrow(() ->
+                        new BusinessException("Usuário não encontrado")
+                );
+
+    } else {
+
+        user = repository.findByUsername(dados.usernameOrEmail())
+                .orElseThrow(() ->
+                        new BusinessException("Usuário não encontrado")
+                );
+
+    }
+
+    System.out.println("Senha banco: " + user.getSenha());
+    System.out.println("Senha digitada: " + dados.password());
+    if (!user.getSenha().equals(dados.password())) {
+        throw new BusinessException("Senha incorreta");
+    }
+
+
+    return new UserResponseDTO(
+            user.getId(),
+            user.getNome(),
+            user.getUsername(),
+            user.getEmail(),
+            user.getFotoPerfil(),
+            user.getBanner(),
+            user.getBiografia()
+    );
+}
 }

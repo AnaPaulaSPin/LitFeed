@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-import { USERS_FAKE } from '../data/ListUser';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -15,13 +14,7 @@ export class Auth {
 
 
   login(usernameOrEmail: string, password: string) {
-  const user = USERS_FAKE.find(
-    u =>
-      (u.username === usernameOrEmail || u.email === usernameOrEmail) &&
-      u.senha === password
-  );
-
-  return user;
+    return this.http.post(`${this.apiUrl}/login`, { usernameOrEmail, password });
  }
 
  cadastrar(nome: string, username: string, email: string, password: string) {
