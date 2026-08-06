@@ -60,17 +60,17 @@ export class Login {
     ).subscribe({
   next: () => {
     console.log("Usuário cadastrado com sucesso!");
+        this.registerUsername = '';
+        this.registerEmail = '';
+        this.registerPassword = '';
+        this.registerName = '';
+        this.isSignIn = false; // Volta para a tela de login após o cadastro
   },
   error: (erro) => {
     console.log("Erro ao cadastrar:", erro);
   }
 });
 
-    this.registerUsername = '';
-    this.registerEmail = '';
-    this.registerPassword = '';
-    this.registerName = '';
-    this.isSignIn = false; // Volta para a tela de login após o cadastro
-
   }
+
 }

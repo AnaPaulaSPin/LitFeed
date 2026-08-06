@@ -24,6 +24,8 @@ public class UserService {
             throw new RuntimeException("Nome de usuário já cadastrado.");
         }
 
+        
+
 
         repository.save(user);
     }
