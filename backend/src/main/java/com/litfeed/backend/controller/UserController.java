@@ -1,5 +1,7 @@
 package com.litfeed.backend.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.litfeed.backend.dto.UserResponseDTO;
 import com.litfeed.backend.entity.User;
 import com.litfeed.backend.service.UserService;
 
@@ -32,9 +35,13 @@ public class UserController {
     }
 
     @PostMapping
-    public void cadastrarUsuario(@RequestBody User user) {
-        service.cadastrar(user);
-    }
+public ResponseEntity<UserResponseDTO> cadastrarUsuario(@RequestBody User user){
+
+    UserResponseDTO usuario = service.cadastrar(user);
+
+    return ResponseEntity.ok(usuario);
+    
+}
 
     @PutMapping("/{id}")
     public void atualizarUsuario(Long id) {

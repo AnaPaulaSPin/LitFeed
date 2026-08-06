@@ -44,33 +44,42 @@ export class Login {
 
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
-      console.log("Usuário:", user);
       this.router.navigate(['/perfil']);
     } else {
       alert('Usuário ou senha inválidos');
    }
   }
 
-  cadastrar() {
-    this.authService.cadastrar(
-      this.registerName,
-      this.registerUsername,
-      this.registerEmail,
-      this.registerPassword
-    ).subscribe({
-  next: () => {
-    console.log("Usuário cadastrado com sucesso!");
-        this.registerUsername = '';
-        this.registerEmail = '';
-        this.registerPassword = '';
-        this.registerName = '';
-        this.isSignIn = false; // Volta para a tela de login após o cadastro
-  },
-  error: (erro) => {
-    console.log("Erro ao cadastrar:", erro);
-  }
-});
+ cadastrar() {
 
-  }
+  this.authService.cadastrar(
+    this.registerName,
+    this.registerUsername,
+    this.registerEmail,
+    this.registerPassword
+  ).subscribe({
+
+    next: (usuario) => {
+
+      this.user = usuario;
+
+      localStorage.setItem(
+        'user',
+        JSON.stringify(usuario)
+      );
+
+      console.log("Usuário cadastrado:", usuario);
+      this.router.navigate(['/perfil']);
+
+    },
+
+    error: (erro) => {
+      alert(erro.error);
+
+    }
+
+  });
+
+}
 
 }
