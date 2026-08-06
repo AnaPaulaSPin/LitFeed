@@ -6,6 +6,7 @@ import { Perfil } from './perfil/perfil';
 import { Feed } from './feed/feed';
 import { CardUser } from './card-user/card-user';
 import { Login } from './login/login';
+import { EditarPerfil } from './perfil/editar-perfil/editar-perfil';
 
 
 export const routes: Routes = [
@@ -32,6 +33,10 @@ export const routes: Routes = [
       {
         path: 'perfil',
         component: Perfil
+      },
+      {
+        path: 'editar-perfil',
+        component: EditarPerfil
       },
       {
         path: 'feed',

@@ -36,11 +36,29 @@
                 </div>
             </div>
         </div>
-        <div class="ufo-bar-col4">
-            <div class="ufo-bar-col4-inner">
-                <button class="button2 btn-primary2"><i class="uil uil-plus"></i> Subscribe<div class="btn-secondary2"></div></button>
-            </div>
-        </div>
+
+       <div class="ufo-bar-col4">
+  <div class="ufo-bar-col4-inner">
+
+    <button class="button2 btn-primary2" *ngIf="!usuarioAtivo">
+      <i class="uil uil-plus"></i>
+      Seguir
+      <div class="btn-secondary2"></div>
+    </button>
+
+    <button class="button2 btn-primary2" *ngIf="usuarioAtivo" (click)="editarPerfil()">
+      <i class="uil uil-edit"></i>
+      Editar
+      <div class="btn-secondary2"></div>
+    </button>
+
+  </div>
+</div>
+
+
+
+
+
         <div class="ufo-bar-col5">
         </div>
     </div>
