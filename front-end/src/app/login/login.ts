@@ -57,7 +57,14 @@ export class Login {
       this.registerUsername,
       this.registerEmail,
       this.registerPassword
-    );
+    ).subscribe({
+  next: () => {
+    console.log("Usuário cadastrado com sucesso!");
+  },
+  error: (erro) => {
+    console.log("Erro ao cadastrar:", erro);
+  }
+});
 
     this.registerUsername = '';
     this.registerEmail = '';

@@ -1,12 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { USERS_FAKE } from '../data/ListUser';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  // verifica se o usuário existe no array de usuários falsos
+  // verifica se o usuário
+  //  existe no array de usuários falsos
+
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/usuarios';
+
+
   login(usernameOrEmail: string, password: string) {
   const user = USERS_FAKE.find(
     u =>
@@ -18,19 +25,7 @@ export class Auth {
  }
 
  cadastrar(nome: string, username: string, email: string, password: string) {
-  const user = USERS_FAKE.find(
-    u =>
-      (u.username === username || u.email === email) &&
-      u.senha === password
-  );
+  return this.http.post(`${this.apiUrl}`, { nome, username, email, senha: password });
 
-  if (!user) {
-    const ultimo = USERS_FAKE[USERS_FAKE.length - 1];
-
-    USERS_FAKE.push({id: ultimo.id + 1, nome, username, email, senha: password, fotoPerfil: 'assets/Padrao/UserPadrao.webp', banner: 'assets/Padrao/FundoPadrao.png'});
-    alert(`Cadastro realizado com sucesso! Faça login com seu usuário/email e senha.`);
-  } else {
-    alert('Usuário já existe!');
-  }
  }
 }
