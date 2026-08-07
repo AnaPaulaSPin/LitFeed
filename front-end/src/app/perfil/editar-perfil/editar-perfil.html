@@ -12,17 +12,58 @@
 
         <div class="card mb-4 mb-xl-0">
           <div class="card-header">Profile Picture</div>
-          <div class="card-body text-center">
+<div class="card-body text-center">
 
-            <img class="img-account-profile rounded-circle mb-2" id="profile-image" [src]="user.profilePicture" alt>
+  <!-- FOTO DE PERFIL -->
+  <img
+    class="img-account-profile rounded-circle mb-2"
+    id="profile-image"
+    [src]="userFotoPerfil"
+    alt="Foto de perfil"
+  >
 
-            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+  <div class="small font-italic text-muted mb-4">
+    JPG ou PNG no larger than 5 MB
+  </div>
 
-            <form id="image-upload-form">
-              <input type="file" id="image-upload" style="display: none;">
-              <label for="image-upload" class="btn btn-primary">Enviar uma nova imagem</label>
-            </form>
-          </div>
+  <form id="profile-image-upload-form">
+    <input
+      type="file"
+      id="profile-image-upload"
+      style="display: none;"
+      (change)="onFileSelectedUser($event)"
+    >
+
+    <label for="profile-image-upload" class="btn btn-primary">
+      Enviar uma nova imagem
+    </label>
+  </form>
+
+
+  <!-- BANNER -->
+  <br><br><br><br>
+
+  <img
+    class="banner mb-2"
+    id="profile-banner"
+    [src]="userBanner"
+    alt="Banner do perfil"
+  >
+
+  <form id="banner-image-upload-form">
+    <input
+      type="file"
+      id="banner-image-upload"
+      style="display: none;"
+      (change)="onFileSelectedBanner($event)"
+    >
+
+    <label for="banner-image-upload" class="btn btn-primary">
+      Enviar uma nova imagem
+    </label>
+  </form>
+
+</div>
         </div>
       </div>
       <div class="col-xl-8">
@@ -32,31 +73,31 @@
             <form action="your_action_url_here" method="POST">
               <div class="mb-3">
                 <label class="small mb-1" for="inputUsername">Username</label>
-                <input class="form-control" id="inputUsername" name="username" type="text" placeholder="Enter your username" [(ngModel)]="user.username" name="username">
+                <input class="form-control" id="inputUsername" name="username" type="text" placeholder="Insira seu username" [(ngModel)]="username" name="username">
               </div>
               <div class="row gx-3 mb-3">
                 <div class="col-md-6">
                   <label class="small mb-1" for="inputFirstName">Nome</label>
-                  <input class="form-control" id="inputFirstName" name="nome" type="text" placeholder="Enter your first name" [(ngModel)]="user.nome" name="nome">
+                  <input class="form-control" id="inputFirstName" name="nome" type="text" placeholder="Insira seu nome" [(ngModel)]="nome" name="nome">
                 </div>
               </div>
               <div class="mb-3">
                 <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                <input class="form-control" id="inputEmailAddress" name="email" type="email" placeholder="Enter your email address" [(ngModel)]="user.email" name="email">
+                <input class="form-control" id="inputEmailAddress" name="email" type="email" placeholder="Insira seu email" [(ngModel)]="email" name="email">
               </div>
               <div class="row gx-3 mb-3">
                 <div class="col-md-6">
                   <label class="small mb-1" for="inputBirthday">Senha</label>
-                  <input class="form-control" id="inputBirthday" name="birthday" type="password" placeholder="Digite sua senha atual" [(ngModel)]="user.senha" name="senha">
+                  <input class="form-control" id="inputBirthday" name="senha" type="password" placeholder="Digite sua senha atual" [(ngModel)]="senha" name="senha">
                 </div>
               </div>
               <div class="row gx-3 mb-3">
                 <div class="col-md-6">
                   <label class="small mb-1" for="inputBirthday">Senha</label>
-                  <input class="form-control" id="inputBirthday" name="birthday" type="password" placeholder="Digite sua nova senha" [(ngModel)]="user.novaSenha" name="novaSenha">
+                  <input class="form-control" id="inputBirthday" name="senhaNova" type="password" placeholder="Digite sua nova senha" [(ngModel)]="senhaNova" name="senhaNova">
                 </div>
               </div>
-              <button class="btn btn-primary" type="submit">Save changes</button>
+              <button class="btn btn-primary" type="submit" (click)="salvarPerfil()">Salvar as Mudanças</button>
             </form>
           </div>
         </div>

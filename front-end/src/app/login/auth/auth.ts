@@ -15,10 +15,31 @@ export class Auth {
 
   login(usernameOrEmail: string, password: string) {
     return this.http.post(`${this.apiUrl}/login`, { usernameOrEmail, password });
- }
+  }
 
- cadastrar(nome: string, username: string, email: string, password: string) {
-  return this.http.post(`${this.apiUrl}`, { nome, username, email, senha: password });
+  cadastrar(nome: string, username: string, email: string, password: string) {
+   return this.http.post(`${this.apiUrl}`, { nome, username, email, senha: password });
+  }
 
- }
+  atualizarUsuario(
+  id: number,
+  nome?: string,
+  username?: string,
+  email?: string,
+  senha?: string,
+  novaSenha?: string,
+  banner?: string,
+  fotoPerfil?: string
+) {
+  return this.http.put(`${this.apiUrl}/${id}`, {
+    nome,
+    username,
+    email,
+    senha,
+    novaSenha,
+    banner,
+    fotoPerfil
+  });
+}
+
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.litfeed.backend.dto.LoginDTO;
 import com.litfeed.backend.dto.UserResponseDTO;
+import com.litfeed.backend.dto.UserUptadeDTO;
 import com.litfeed.backend.entity.User;
 import com.litfeed.backend.exception.BusinessException;
 import com.litfeed.backend.repository.UserRepository;
@@ -86,4 +87,50 @@ public class UserService {
             user.getBiografia()
     );
 }
+
+  public UserResponseDTO atualizarUsuario(Long id, UserUptadeDTO dados) {
+
+    User usuario = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+            
+    if(dados.novaSenha() != null && !dados.novaSenha().isEmpty()) {
+        if(usuario.getSenha() == null || !usuario.getSenha().equals(dados.senha())) {
+            throw new BusinessException("Senha atual incorreta");
+        }
+        usuario.setSenha(dados.novaSenha());
+    } 
+
+    if (dados.nome() != null) {
+        usuario.setNome(dados.nome());
+    }
+
+    if (dados.username() != null) {
+        usuario.setUsername(dados.username());
+    }
+
+    if (dados.email() != null) {
+        usuario.setEmail(dados.email());
+    }
+
+    if (dados.fotoPerfil() != null && !dados.fotoPerfil().equals(usuario.getFotoPerfil())) {
+        usuario.setFotoPerfil("assets/DataUsers/icons/" + dados.fotoPerfil());
+    }
+
+    if (dados.banner() != null && !dados.banner().equals(usuario.getBanner())) {
+            usuario.setBanner("assets/DataUsers/banner/" + dados.banner());
+   } 
+
+    repository.save(usuario);
+
+    return new UserResponseDTO(
+            usuario.getId(),
+            usuario.getNome(),
+            usuario.getUsername(),
+            usuario.getEmail(),
+            usuario.getFotoPerfil(),
+            usuario.getBanner(),
+            usuario.getBiografia()
+    );
+}
+
 }
