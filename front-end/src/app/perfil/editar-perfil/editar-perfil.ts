@@ -74,6 +74,7 @@ salvarPerfil() {
 
     error: (erro) => {
       alert(erro.error.message ?? 'Erro ao atualizar perfil');
+      window.location.reload();
     }
   });
 }

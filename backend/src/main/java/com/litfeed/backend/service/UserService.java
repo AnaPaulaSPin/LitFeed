@@ -89,6 +89,16 @@ public class UserService {
 }
 
   public UserResponseDTO atualizarUsuario(Long id, UserUptadeDTO dados) {
+    boolean nenhumDadoAlterado =
+            (dados.nome() == null || dados.nome().isBlank()) &&
+            (dados.username() == null || dados.username().isBlank()) &&
+            (dados.email() == null || dados.email().isBlank()) &&
+            (dados.novaSenha() == null || dados.novaSenha().isBlank());
+
+
+    if (nenhumDadoAlterado) {
+        throw new RuntimeException("Nenhuma alteração foi informada.");
+    }
 
     User usuario = repository.findById(id)
             .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
@@ -100,15 +110,15 @@ public class UserService {
         usuario.setSenha(dados.novaSenha());
     } 
 
-    if (dados.nome() != null) {
+    if (!dados.nome().equals(usuario.getNome()) && !dados.nome().isBlank()) {
         usuario.setNome(dados.nome());
     }
 
-    if (dados.username() != null) {
+    if (!dados.username().equals(usuario.getUsername()) && !dados.username().isBlank()) {
         usuario.setUsername(dados.username());
     }
 
-    if (dados.email() != null) {
+    if (!dados.email().equals(usuario.getEmail()) && !dados.email().isBlank()) {
         usuario.setEmail(dados.email());
     }
 

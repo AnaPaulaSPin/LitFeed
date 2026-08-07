@@ -23,7 +23,6 @@ ngOnInit() {
 
 abrirMenu() {
   this.menuAberto = !this.menuAberto;
-  console.log('Menu aberto:', this.menuAberto);
 }
 
 logout(){
