@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { PublicLayout } from './layouts/public-layout/public-layout';
 import { UserLayout } from './layouts/user-layout/user-layout';
-import { Perfil } from './perfil/perfil';
 import { Feed } from './feed/feed';
 import { Login } from './login/login';
 import { EditarPerfil } from './perfil/editar-perfil/editar-perfil';
+import { Perfil } from './perfil/perfil/perfil';
 
 
 export const routes: Routes = [
