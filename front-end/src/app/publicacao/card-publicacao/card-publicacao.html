@@ -1,4 +1,4 @@
-<section class="card-section">
+
   <div class="card">
 
     <!-- Card top -->
@@ -32,40 +32,50 @@
 
         <!-- Menu button (sem Alpine, você ativa depois no Angular) -->
         <div class="menu">
-          <button class="menu-button">
+          <button class="menu-button" (click)="abrirMenu()">
             ⋯
           </button>
 
-          <div class="dropdown">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a class="danger" href="#">Remove</a>
+          <div class="dropdown" [class.hidden]="!MenuAberto">
+            <a href="#">Option</a>
+            <a href="#">Option</a>
+            <a class="danger" href="#">Denunciar</a>
           </div>
         </div>
 
       </div>
 
       <!-- Bio -->
-      <div class="bio">
+      <div class="texto">
         <p>
-          testeee
+          Você não é o último sonho da minha alma. Você é o primeiro sonho, o único sonho do qual eu nunca consegui parar de sonhar.
         </p>
       </div>
 
     </div>
 
     <!-- Footer -->
-    <div class="card-footer">
+<div class="card-footer">
 
-      <a class="action email" href="#">
-        Send Email
-      </a>
+  <button class="card-action click-button" (click)=" republicar()">
+    <img
+      class="icon"
+      [src]="republicado ? 'assets/icons/Publicação/Republicado.png' : 'assets/icons/Publicação/NaoRepublicado.png'"
+      alt=""
+    />
+    <span>republicar</span>
+  </button>
 
-      <a class="action edit" href="#">
-        Edit Profile
-      </a>
+  <button class="card-action click-button" (click)="curtir()">
+    <img
+      class="icon"
+      [src]="curtido ? 'assets/icons/Publicação/Curtida.png' : 'assets/icons/Publicação/NaoCurtida.png'"
+      alt="Curtir"
+    />
+    <span>curtir</span>
+  </button>
 
-    </div>
+</div>
 
   </div>
-</section>
+

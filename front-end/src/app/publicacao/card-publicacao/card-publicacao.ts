@@ -9,6 +9,9 @@ import { Usuario } from '../../Nav-bar/usuario/usuario';
 })
 export class CardPublicacao {
   user: any;
+  MenuAberto = false;
+  curtido = false;
+  republicado = false;
 
   constructor() {
     const userData = localStorage.getItem('user');
@@ -17,4 +20,16 @@ export class CardPublicacao {
       this.user = JSON.parse(userData);
     }
   }
+  abrirMenu() {
+    this.MenuAberto = !this.MenuAberto;
+  }
+
+  curtir() {
+    this.curtido = !this.curtido;
+  }
+
+  republicar() {
+    this.republicado = !this.republicado;
+  }
+
 }
