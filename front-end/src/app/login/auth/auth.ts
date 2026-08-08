@@ -29,7 +29,8 @@ export class Auth {
   senha?: string,
   novaSenha?: string,
   banner?: string,
-  fotoPerfil?: string
+  fotoPerfil?: string,
+  biografia?: string
 ) {
   return this.http.put(`${this.apiUrl}/${id}`, {
     nome,
@@ -38,7 +39,8 @@ export class Auth {
     senha,
     novaSenha,
     banner,
-    fotoPerfil
+    fotoPerfil,
+    biografia
   });
 }
 

@@ -19,7 +19,7 @@ export class EditarPerfil {
   senha: string = '';
   senhaNova: string = '';
   username: string = '';
-
+  biografia: string = '';
   constructor(private authService: Auth) {
     const userData = localStorage.getItem('user');
 
@@ -31,6 +31,7 @@ export class EditarPerfil {
       this.email = this.user.email;
       this.senha = this.user.senha;
       this.username = this.user.username;
+      this.biografia = this.user.biografia;
     }
   }
 
@@ -53,6 +54,7 @@ salvarPerfil() {
   if (this.FilerBanner) {
     this.user.banner = this.FilerBanner.name;
   }
+  console.log('User:', this.user);
 
   this.authService.atualizarUsuario(
     this.user.id,
@@ -62,7 +64,8 @@ salvarPerfil() {
     this.senha,
     this.senhaNova,
     this.user.banner,
-    this.user.fotoPerfil
+    this.user.fotoPerfil,
+    this.biografia
   ).subscribe({
     next: (updatedUser) => {
       localStorage.setItem('user', JSON.stringify(updatedUser));

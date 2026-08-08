@@ -87,14 +87,20 @@
               </div>
               <div class="row gx-3 mb-3">
                 <div class="col-md-6">
-                  <label class="small mb-1" for="inputBirthday">Senha</label>
-                  <input class="form-control" id="inputBirthday" name="senha" type="password" placeholder="Digite sua senha atual" [(ngModel)]="senha" name="senha">
+                  <label class="small mb-1" for="inputBirthday">Biografia</label>
+                  <input class="form-control" id = "biografia" name="biografia" type="text" placeholder="Digite uma biografia curta sobre você" [(ngModel)]="biografia" name="biografia">
                 </div>
               </div>
               <div class="row gx-3 mb-3">
                 <div class="col-md-6">
                   <label class="small mb-1" for="inputBirthday">Senha</label>
-                  <input class="form-control" id="inputBirthday" name="senhaNova" type="password" placeholder="Digite sua nova senha" [(ngModel)]="senhaNova" name="senhaNova">
+                  <input class="form-control" id = "senha" name="senha" type="password" placeholder="Digite sua senha atual" [(ngModel)]="senha" name="senha">
+                </div>
+              </div>
+              <div class="row gx-3 mb-3">
+                <div class="col-md-6">
+                  <label class="small mb-1" for="inputBirthday">Senha</label>
+                  <input class="form-control" id="senhaNova" name="senhaNova" type="password" placeholder="Digite sua nova senha" [(ngModel)]="senhaNova" name="senhaNova">
                 </div>
               </div>
               <button class="btn btn-primary" type="submit" (click)="salvarPerfil()">Salvar as Mudanças</button>

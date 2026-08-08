@@ -33,7 +33,7 @@ public class UserService {
 
     user.setFotoPerfil("assets/Padrao/UserPadrao.webp");
     user.setBanner("assets/Padrao/FundoPadrao.png");
-    user.setBiografia("Escreva aqui um pouco sobre você");
+    user.setBiografia("Um leitor(a) que entrou no LitFeed para compartilhar suas leituras e descobertas literárias.");
 
 
     User usuarioSalvo = repository.save(user);
@@ -120,6 +120,15 @@ public class UserService {
 
     if (!dados.email().equals(usuario.getEmail()) && !dados.email().isBlank()) {
         usuario.setEmail(dados.email());
+    }
+
+    if(!dados.biografia().equals(usuario.getBiografia())) {
+        if(dados.biografia() == null || dados.biografia().isBlank()) {
+            usuario.setBiografia("Um leitor(a) que entrou no LitFeed para compartilhar suas leituras e descobertas literárias.");
+        } else {
+            usuario.setBiografia(dados.biografia());
+        }
+        System.out.println("Biografia atualizada: " + usuario.getBiografia());
     }
 
     if (dados.fotoPerfil() != null && !dados.fotoPerfil().equals(usuario.getFotoPerfil())) {

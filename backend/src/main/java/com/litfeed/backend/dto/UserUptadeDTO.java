@@ -7,6 +7,7 @@ public record UserUptadeDTO(
         String fotoPerfil,
         String banner,
         String senha,
-        String novaSenha) {
+        String novaSenha,
+        String biografia) {
     
 }
