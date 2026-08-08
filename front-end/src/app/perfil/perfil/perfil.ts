@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Publicacao } from '../../publicacao/publicacao/publicacao';
 import { Usuario } from '../../Nav-bar/usuario/usuario';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-perfil',
-  imports: [Publicacao, Usuario],
+  imports: [Publicacao, Usuario, CommonModule],
   templateUrl: './perfil.html',
   styleUrl: './perfil.scss',
 })
