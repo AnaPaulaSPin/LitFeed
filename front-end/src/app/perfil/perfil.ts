@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Usuario } from '../Nav-bar/usuario/usuario';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Publicacao } from '../publicacao/publicacao';
+import { Publicacao } from '../publicacao/publicacao/publicacao';
+
 
 
 @Component({

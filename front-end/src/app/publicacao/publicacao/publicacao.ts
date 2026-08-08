@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CardPublicacao } from './card-publicacao/card-publicacao';
+import { CardPublicacao } from '../card-publicacao/card-publicacao';
 
 @Component({
   selector: 'app-publicacao',
