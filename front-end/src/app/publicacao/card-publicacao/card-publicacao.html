@@ -13,16 +13,16 @@
             <a class="avatar-wrapper" href="#">
               <img
                 class="avatar"
-                src="https://preview.cruip.com/mosaic/images/user-64-01.jpg"
+                [src]="user.fotoPerfil"
                 alt="User 01"
               />
             </a>
 
             <div class="user-text">
-              <h2 class="user-name">Dominik McNeail</h2>
+              <h2 class="user-name">{{ user.nome }}</h2>
               <div class="user-country">
                 <span>→</span>
-                <span>🇮🇹</span>
+                <span>{{ user.biografia }}</span>
               </div>
             </div>
 
@@ -47,7 +47,9 @@
 
       <!-- Bio -->
       <div class="bio">
-        Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.
+        <p>
+          testeee
+        </p>
       </div>
 
     </div>

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { CardUser } from '../card-user/card-user';
 import { Usuario } from '../Nav-bar/usuario/usuario';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Publicacao } from '../publicacao/publicacao';
+
 
 @Component({
   selector: 'app-perfil',
-  imports: [CommonModule, CardUser, Usuario],
+  imports: [CommonModule, Usuario, Publicacao],
   templateUrl: './perfil.html',
   styleUrl: './perfil.scss',
 })
