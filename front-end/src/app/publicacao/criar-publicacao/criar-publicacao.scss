@@ -1,0 +1,158 @@
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.wrap-login100 {
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 130px 33px 95px;
+}
+
+.wrap-login100 button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button2 {
+  display: block;
+  margin: 20px auto 0;
+  position: relative;
+  cursor: pointer;
+  padding: 0.9em 1em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-weight: 300;
+  color: var(--bc);
+  font-size: var(--button-small);
+  background: #9b4de0;
+  background-size: 1100%;
+  border-radius: 50px;
+  border: none;
+  transform: scaleX(1);
+  transition:
+    transform 0.3s cubic-bezier(.175, .885, .32, 1.275),
+    background-position 3s cubic-bezier(.455, .03, .515, .955);
+
+  background-position: 0 50%;
+}
+
+
+.button2:focus,
+.button2:hover {
+  transform: scale3d(1.1, 1.1, 1);
+  background-position: 100% 50%;
+  outline: none;
+}
+
+/*//////////////////////////////////////////////////////////////////*
+*[ formulário de publicação ]*/
+
+.wrap-login100 form {
+  width: 100%;
+}
+
+.h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.wrap-login100 form div {
+  margin-bottom: 15px;
+}
+
+.wrap-login100 label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.wrap-login100 input,
+.wrap-login100 textarea,
+.wrap-login100 select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.wrap-login100 textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.wrap-login100 {
+  position: relative;
+}
+
+.btn-fechar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #9ca3af;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.btn-fechar:hover {
+  color: #9b4de0;
+}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 992px) {
+  .wrap-login100 {
+    padding: 177px 90px 33px 85px;
+  }
+
+  .login100-pic {
+    width: 35%;
+  }
+
+  .login100-form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login100 {
+    padding: 100px 80px 33px 80px;
+  }
+
+  .login100-pic {
+    display: none;
+  }
+
+  .login100-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding: 100px 15px 33px 15px;
+  }
+}

@@ -1,0 +1,78 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+
+      <form>
+        <button type="button" class="btn-fechar" (click)="fecharCard()">
+         ×
+       </button>
+
+        <h2>Criar publicação</h2>
+
+        <!-- Livro relacionado -->
+        <div>
+          <label for="livro">Livro relacionado</label>
+
+          <select id="livro" name="livro">
+            <option value="">Selecione um livro</option>
+            <option value="1">Melhor do que nos filmes</option>
+            <option value="2">É assim que acaba</option>
+            <option value="3">Orgulho e Preconceito</option>
+          </select>
+        </div>
+
+        <!-- Título -->
+        <div>
+          <label for="titulo">Título</label>
+
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            placeholder="Digite o título da publicação"
+          >
+        </div>
+
+        <!-- Conteúdo -->
+        <div>
+          <label for="conteudo">Conteúdo</label>
+
+          <textarea
+            id="conteudo"
+            name="conteudo"
+            placeholder="O que você quer compartilhar?"
+          ></textarea>
+        </div>
+
+        <!-- Gênero -->
+        <div>
+          <label for="genero">Gênero</label>
+
+          <select id="genero" name="genero">
+            <option value="">Selecione um gênero</option>
+            <option value="romance">Romance</option>
+            <option value="fantasia">Fantasia</option>
+            <option value="ficcao">Ficção</option>
+          </select>
+        </div>
+
+        <!-- Mídia -->
+        <div>
+          <label for="midia">Imagem</label>
+
+          <input
+            type="file"
+            id="midia"
+            name="midia"
+          >
+        </div>
+
+        <button type="submit" class="button2" (click)="publicar()">
+          Publicar
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
