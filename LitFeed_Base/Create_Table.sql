@@ -59,3 +59,29 @@ CREATE TABLE Edicao (
         FOREIGN KEY (editora_id)
         REFERENCES editora(id)
 );
+
+CREATE TABLE Publicacao (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario BIGINT NOT NULL,
+    idEdicao BIGINT,
+    idGenero BIGINT,
+    titulo VARCHAR(100) NULL,
+    conteudo TEXT NOT NULL,
+    midia VARCHAR(255),
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT idUsuario
+        FOREIGN KEY (idUsuario)
+        REFERENCES Usuario(id),
+
+    CONSTRAINT idEdicao
+        FOREIGN KEY (idEdicao)
+        REFERENCES Edicao(id),
+
+    CONSTRAINT idGenero
+        FOREIGN KEY (idGenero)
+        REFERENCES Genero(id)
+);
+
+
+
