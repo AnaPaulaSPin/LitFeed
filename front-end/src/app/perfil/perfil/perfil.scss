@@ -252,6 +252,15 @@ footer {
   border-bottom: 3px solid transparent;
 }
 
+.user-info-bar2 button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
 /* linha animada */
 .ufo-bar2-block::after {
   content: "";

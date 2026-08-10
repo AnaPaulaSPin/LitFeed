@@ -65,39 +65,92 @@
     </div>
 
     <div class="user-info-bar2">
-        <div class="ufo-bar2-col1">
-        </div>
-        <div id="ufo-home" class="ufo-bar2-col2 ufo-bar2-block">
-            <div class="ufo-bar2-col2-inner flexbox">
-                <span><i class="uil uil-trophy"></i></span>
-                <h3>Publicações</h3>
-            </div>
-        </div>
-        <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block">
-            <div class="ufo-bar2-col3-inner flexbox">
-                <span><i class="uil uil-star"></i></span>
-                <h3>Biblioteca </h3>
-            </div>
-        </div>
-        <div id="ufo-images" class="ufo-bar2-col4 ufo-bar2-block">
-            <div class="ufo-bar2-col4-inner flexbox">
-                <span><i class="uil uil-comment-alt"></i></span>
-                <h3>Favoritos </h3>
-            </div>
-        </div>
-        <div id="ufo-about" class="ufo-bar2-col6 ufo-bar2-block">
-            <div class="ufo-bar2-col6-inner flexbox">
-                <span><i class="uil uil-user"></i></span>
-                <h3>Sobre mim</h3>
-            </div>
-        </div>
-        <div class="ufo-bar2-col7">
+
+  <div class="ufo-bar2-col1"></div>
+
+  <button
+    id="ufo-home"
+    class="ufo-bar2-col2 ufo-bar2-block"
+    type="button"
+    (click)="ativarPublicacoes()">
+
+    <div class="ufo-bar2-col2-inner flexbox">
+      <span><i class="uil uil-trophy"></i></span>
+      <h3>Publicações</h3>
+    </div>
+
+  </button>
+
+
+  <button
+    id="ufo-videos"
+    class="ufo-bar2-col3 ufo-bar2-block"
+    type="button"
+    (click)="ativarListas()">
+
+    <div class="ufo-bar2-col3-inner flexbox">
+      <span><i class="uil uil-star"></i></span>
+      <h3>Listas</h3>
+    </div>
+
+  </button>
+
+
+  <button
+    id="ufo-images"
+    class="ufo-bar2-col4 ufo-bar2-block"
+    type="button"
+    (click)="ativarFavoritos()">
+
+    <div class="ufo-bar2-col4-inner flexbox">
+      <span><i class="uil uil-comment-alt"></i></span>
+      <h3>Favoritos</h3>
+    </div>
+
+  </button>
+
+
+  <button
+    id="ufo-about"
+    class="ufo-bar2-col6 ufo-bar2-block"
+    type="button"
+    (click)="ativarSobre()">
+
+    <div class="ufo-bar2-col6-inner flexbox">
+      <span><i class="uil uil-user"></i></span>
+      <h3>Sobre mim</h3>
+    </div>
+
+  </button>
+
+  <div class="ufo-bar2-col7"></div>
+
+</div>
+
+    <div *ngIf="publicacoesAtivas">
+       <app-publicacao> </app-publicacao>
+    </div>
+
+    <div *ngIf="listaAtiva">
+       <app-listas> </app-listas>
+    </div>
+
+    <div *ngIf="favoritosAtivos">
+      <app-favoritos> </app-favoritos>
+    </div>
+
+    <div *ngIf="!publicacoesAtivas && !listaAtiva && !favoritosAtivos">
+        <div class="sobre-mim">
+            <h2>Sobre mim</h2>
+            <p>{{user.sobre}}</p>
         </div>
     </div>
 
-    <app-publicacao> </app-publicacao>
 
-    <button class="criar" *ngIf="usuarioAtivo" (click)="criarPublicacao()">
+
+
+
+    <button class="criar" *ngIf="usuarioAtivo" (click)="criarPublicacao()" >
         <i class="uil uil-plus"></i>
         <img src = "assets\icons\Publicação\mais.png" alt="">
     </button>
