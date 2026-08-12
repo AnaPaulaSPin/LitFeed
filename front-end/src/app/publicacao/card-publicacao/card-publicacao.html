@@ -52,7 +52,12 @@
           {{publicacao.conteudo}}
         </p>
       </div>
+      <div *ngIf="publicacao.edicao != null">
+        <app-card-livro
+         [edicao]="publicacao.edicao"> </app-card-livro>
+      </div>
     </div>
+
 
     <!-- Footer -->
 <div class="card-footer">

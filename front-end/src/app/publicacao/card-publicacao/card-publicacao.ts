@@ -1,11 +1,13 @@
+import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Usuario } from '../../Nav-bar/usuario/usuario';
 import { Publicacao } from '../../models/publicacao';
+import { CardLivro } from '../../Card/card-livro/card-livro';
 
 
 @Component({
   selector: 'app-card-publicacao',
-  imports: [Usuario],
+  imports: [Usuario, CardLivro, NgIf],
   templateUrl: './card-publicacao.html',
   styleUrl: './card-publicacao.scss',
 })
@@ -22,6 +24,7 @@ export class CardPublicacao {
     if (userData) {
       this.user = JSON.parse(userData);
     }
+
   }
   abrirMenu() {
     this.MenuAberto = !this.MenuAberto;
