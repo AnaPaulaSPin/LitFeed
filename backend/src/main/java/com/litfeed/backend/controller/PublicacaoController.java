@@ -42,4 +42,11 @@ public class PublicacaoController {
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
     }
+
+    @GetMapping("/usuario/{idUsuario}")
+public List<Publicacao> listarPorUsuario(@PathVariable Long idUsuario) {
+    return service.listarPorUsuario(idUsuario);
+}
+
+
 }

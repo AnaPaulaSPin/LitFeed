@@ -32,4 +32,8 @@ public class PublicacaoService {
     public void deletar(Long id) {
         repository.deleteById(id);
     }
+
+    public List<Publicacao> listarPorUsuario(Long idUsuario) {
+      return repository.findByUsuarioId(idUsuario);
+   }
 }

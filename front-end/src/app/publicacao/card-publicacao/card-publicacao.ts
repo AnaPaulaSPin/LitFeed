@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Usuario } from '../../Nav-bar/usuario/usuario';
+import { Publicacao } from '../../models/publicacao';
+
 
 @Component({
   selector: 'app-card-publicacao',
@@ -12,6 +14,7 @@ export class CardPublicacao {
   MenuAberto = false;
   curtido = false;
   republicado = false;
+  @Input() publicacao!: Publicacao
 
   constructor() {
     const userData = localStorage.getItem('user');

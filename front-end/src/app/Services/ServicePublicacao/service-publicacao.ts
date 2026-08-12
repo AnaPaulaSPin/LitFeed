@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Publicacao } from '../../publicacao/publicacao/publicacao';
+import { Publicacao } from '../../models/publicacao';
+
 
 @Injectable({
   providedIn: 'root',
@@ -25,4 +26,10 @@ export class ServicePublicacao {
   deletarPublicacao(id: number) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  listarPublicacoesPorUsuario(idUsuario: number) {
+  return this.http.get<Publicacao[]>(
+    `${this.apiUrl}/usuario/${idUsuario}`
+  );
+}
 }

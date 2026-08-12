@@ -60,4 +60,5 @@ public UserResponseDTO atualizarUsuario(@PathVariable Long id, @RequestBody User
     public void excluirUsuario(Long id) {
 
     }
+
 }

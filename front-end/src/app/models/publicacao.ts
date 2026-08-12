@@ -3,13 +3,13 @@ import { Genero } from "./genero";
 import { User } from "./users";
 
 
-export interface publicacao {
-  id: number;
-  usuario: User;
-  genero: Genero;
-  edicao: Edicao;
-  titulo: string;
-  conteudo: string;
-  midia: string;
-  dataCriacao: Date;
+export class Publicacao {
+  id?: number;
+  usuario: any;
+  edicao?: any;
+  genero?: any;
+  titulo?: string;
+  conteudo?: string;
+  midia?: string;
+  dataCriacao?: string;
 }

@@ -1,4 +1,7 @@
 <div class="publicacoes">
-  <app-card-publicacao> </app-card-publicacao>
+  <app-card-publicacao
+    *ngFor="let publicacao of listaPublicacoes"
+    [publicacao]="publicacao">
+  </app-card-publicacao>
 </div>
 

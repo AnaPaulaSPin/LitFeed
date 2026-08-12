@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Publicacao } from '../../publicacao/publicacao/publicacao';
+import { PublicacaoModel } from '../../publicacao/publicacao/publicacao';
 import { Usuario } from '../../Nav-bar/usuario/usuario';
 import { CommonModule } from '@angular/common';
 import { CriarPublicacao } from '../../publicacao/criar-publicacao/criar-publicacao';
@@ -9,7 +9,7 @@ import { Favoritos } from '../../favoritos/favoritos';
 
 @Component({
   selector: 'app-perfil',
-  imports: [Publicacao, Usuario, CommonModule, CriarPublicacao, Listas, Favoritos],
+  imports: [PublicacaoModel, Usuario, CommonModule, CriarPublicacao, Listas, Favoritos],
   templateUrl: './perfil.html',
   styleUrl: './perfil.scss',
 })
