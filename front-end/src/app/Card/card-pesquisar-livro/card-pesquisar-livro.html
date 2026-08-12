@@ -1,24 +1,41 @@
 <div class="card-pesquisa-livro">
 
   <div class="card-header">
+
     <button type="button" (click)="fechar.emit()">
-  ×
-</button>
+      ×
+    </button>
   </div>
 
   <div class="barra-pesquisa">
     <input
       type="text"
       placeholder="Pesquisar livro..."
+      #nomeLivro
     >
 
-    <span class="icone-pesquisa">
+    <button
+      type="button"
+      class="btn-pesquisar-livro"
+      (click)="pesquisarLivro(nomeLivro.value)"
+    >
       <i class="uil uil-search"></i>
-    </span>
+    </button>
   </div>
 
-  <div class="resultados-livros">
-    <!-- resultados dos livros -->
+  <div class="resultado-pesquisa">
+
+    <div *ngFor="let edicao of listaEdicoes">
+      <label>Edições disponíveis</label>
+      <button
+        type="button"
+        (click)="selecionarEdicao(edicao)"
+      >
+        <app-card-livro [edicao]="edicao"></app-card-livro>>
+      </button>
+
+    </div>
+
   </div>
 
 </div>

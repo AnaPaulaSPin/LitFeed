@@ -19,4 +19,9 @@ public class LivroService {
     public List<Livro> listarLivros() {
         return repository.findAll();
     }
+
+    public Livro buscarPorNome(String nome) {
+    return repository.findByTitulo(nome)
+            .orElse(null);
+}
 }

@@ -1,12 +1,21 @@
 <div class="card-livro">
 
-  <img [src]="livro.capa" [alt]="livro.titulo">
+  <img [src]="edicao.capa" [alt]="edicao.livro.titulo">
 
   <div class="card-livro-info">
-    <h3>{{ livro.titulo }}</h3>
-    <p>Autor: {{ livro.autor.nome }}</p>
-    <p>Generos: {{livro.genero.nome}} </p>
-    <p>ISBN: {{livro.isbn}} </p>
+
+    <h3>{{ edicao.livro.titulo }}</h3>
+
+    <p>Autor: {{ edicao.livro.autor.nome }}</p>
+
+    <p>Editora: {{ edicao.editora.nome }}</p>
+
+    <p>Ano: {{ edicao.ano }}</p>
+
+    <p>ISBN: {{ edicao.livro.isbn }}</p>
+
+    <p>Páginas: {{ edicao.total_paginas }}</p>
+
   </div>
 
 </div>
