@@ -11,13 +11,14 @@
 
         <!-- Título -->
         <div>
-          <label for="titulo">Título</label>
+          <label for="titulo" >Título</label>
 
           <input
             type="text"
             id="titulo"
             name="titulo"
             placeholder="Digite o título da publicação"
+            [(ngModel)]="titulo"
           >
         </div>
 
@@ -29,6 +30,7 @@
             id="conteudo"
             name="conteudo"
             placeholder="O que você quer compartilhar?"
+            [(ngModel)]="conteudo"
           ></textarea>
         </div>
 
@@ -80,7 +82,11 @@
             type="file"
             id="midia"
             name="midia"
+            (change)="selecionarMidia($event)"
           >
+        </div>
+        <div *ngIf="midia">
+          <img [src]="midia" alt="Prévia da imagem">
         </div>
 
         <button type="submit" class="button2" (click)="publicar()">
