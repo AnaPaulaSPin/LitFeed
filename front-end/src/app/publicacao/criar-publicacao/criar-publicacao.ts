@@ -19,11 +19,7 @@ import { CardPesquisarLivro } from '../../Card/card-pesquisar-livro/card-pesquis
 export class CriarPublicacao {
 
   user: any;
-
-  listaLivros: Livro[] = [];
   listaGeneros: Genero[] = [];
-
-  livroSelecionado: Livro | null = null;
   edicaoSelecionada: Edicao | null = null;
   generoSelecionado: Genero | null = null;
   pesquisaLivroAberta = false;
@@ -49,7 +45,6 @@ export class CriarPublicacao {
       this.user = JSON.parse(userData);
     }
 
-    this.carregarLivros();
     this.carregarGeneros();
   }
 
@@ -72,7 +67,7 @@ export class CriarPublicacao {
 
     const publicacao = {
       usuario: this.user,
-      edicao: null,
+      edicao: this.edicaoSelecionada,
       genero: this.generoSelecionado,
       titulo: this.titulo,
       conteudo: this.conteudo,
@@ -98,27 +93,6 @@ export class CriarPublicacao {
 
   fecharCard() {
     this.fechar.emit();
-  }
-
-carregarLivros() {
-
-    this.livroService.listarLivros().subscribe({
-
-      next: (livros) => {
-        console.log('Livros recebidos:', livros);
-
-        this.listaLivros = livros;
-
-        setTimeout(() => {
-          this.cdr.detectChanges();
-        });
-      },
-
-      error: (erro) => {
-        console.error('Erro ao carregar livros:', erro);
-      }
-
-    });
   }
 
   carregarGeneros() {
