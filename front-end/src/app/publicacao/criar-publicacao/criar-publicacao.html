@@ -10,15 +10,15 @@
         <h2>Criar publicação</h2>
 
         <!-- Livro relacionado -->
+         
         <div>
           <label for="livro">Livro relacionado</label>
 
-          <select id="livro" name="livro">
+            <select id="livro" name="livro">
             <option value="">Selecione um livro</option>
-            <option value="1">Melhor do que nos filmes</option>
-            <option value="2">É assim que acaba</option>
-            <option value="3">Orgulho e Preconceito</option>
-          </select>
+            <option *ngFor="let livro of listaLivros" [value]="livro.id"> {{ livro.titulo }}</option>
+            </select>
+
         </div>
 
         <!-- Título -->

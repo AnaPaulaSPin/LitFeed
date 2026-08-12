@@ -1,7 +1,9 @@
-import { Auth } from './auth/auth';
+
 import { Component } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuariosAuth } from '../Services/Usuarios/UsuariosAuth';
+
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,7 @@ export class Login {
 
   constructor(
     private router: Router,
-    private authService: Auth
+    private authService: UsuariosAuth
   ) {}
 
   changeForm() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Auth } from '../../login/auth/auth';
+import { UsuariosAuth } from '../../Services/Usuarios/UsuariosAuth';
+
 
 @Component({
   selector: 'app-editar-perfil',
@@ -20,7 +21,7 @@ export class EditarPerfil {
   senhaNova: string = '';
   username: string = '';
   biografia: string = '';
-  constructor(private authService: Auth) {
+  constructor(private authService: UsuariosAuth) {
     const userData = localStorage.getItem('user');
 
     if (userData) {

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class Auth {
+export class UsuariosAuth {
   // verifica se o usuário
   //  existe no array de usuários falsos
 
