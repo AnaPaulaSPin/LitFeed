@@ -1,17 +1,20 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Livros } from '../../Services/Livros/livros';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Livro } from '../../models/livro';
+import { CardLivro } from '../../Card/card-livro/card-livro';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-publicacao',
-  imports: [NgFor],
+  imports: [NgFor, CardLivro, NgIf,FormsModule ],
   templateUrl: './criar-publicacao.html',
   styleUrl: './criar-publicacao.scss',
 })
 export class CriarPublicacao {
   user: any;
   listaLivros: Livro[] = [];
+  livroSelecionado: any = null;
   @Output() fechar = new EventEmitter<void>();
 
   constructor(private livroService: Livros) {
@@ -44,5 +47,8 @@ export class CriarPublicacao {
     }
   });
 }
+  selecionarLivro(livro: any) {
+    this.livroSelecionado = livro;
+   }
 
 }

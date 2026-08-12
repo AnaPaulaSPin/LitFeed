@@ -9,18 +9,6 @@
 
         <h2>Criar publicação</h2>
 
-        <!-- Livro relacionado -->
-         
-        <div>
-          <label for="livro">Livro relacionado</label>
-
-            <select id="livro" name="livro">
-            <option value="">Selecione um livro</option>
-            <option *ngFor="let livro of listaLivros" [value]="livro.id"> {{ livro.titulo }}</option>
-            </select>
-
-        </div>
-
         <!-- Título -->
         <div>
           <label for="titulo">Título</label>
@@ -55,6 +43,36 @@
             <option value="ficcao">Ficção</option>
           </select>
         </div>
+
+<!-- Livro relacionado -->
+<div>
+  <label for="livro">Livro relacionado</label>
+
+  <select
+    id="livro"
+    name="livro"
+    [(ngModel)]="livroSelecionado">
+
+    <option [ngValue]="null">Não relacionar um livro</option>
+
+    <option
+      *ngFor="let livro of listaLivros"
+      [ngValue]="livro">
+      {{ livro.titulo }}
+    </option>
+
+  </select>
+</div>
+
+<!-- Prévia do Livro -->
+<div>
+  <app-card-livro
+    *ngIf="livroSelecionado"
+    [livro]="livroSelecionado">
+  </app-card-livro>
+
+</div>
+
 
         <!-- Mídia -->
         <div>

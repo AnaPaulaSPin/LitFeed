@@ -9,9 +9,10 @@
 
 .wrap-login100 {
   width: 960px;
+  max-height: 95vh;
   background: #fff;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-y: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -20,8 +21,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 40px 130px 33px 95px;
+  box-sizing: border-box;
 }
-
 .wrap-login100 button {
   display: block;
   margin: 0 auto;
@@ -120,39 +121,26 @@
   color: #9b4de0;
 }
 
-/*------------------------------------------------------------------
-[ Responsive ]*/
+/*//////////////////////////////////////////////////////////////////*
+*[ Responsive ]*/
 
 @media (max-width: 992px) {
   .wrap-login100 {
-    padding: 177px 90px 33px 85px;
-  }
-
-  .login100-pic {
-    width: 35%;
-  }
-
-  .login100-form {
-    width: 50%;
+    width: 90%;
+    padding: 30px 50px 30px 50px;
   }
 }
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 100px 80px 33px 80px;
-  }
-
-  .login100-pic {
-    display: none;
-  }
-
-  .login100-form {
-    width: 100%;
+    width: 90%;
+    padding: 30px;
   }
 }
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    width: 95%;
+    padding: 25px 15px;
   }
 }
