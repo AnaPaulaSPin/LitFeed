@@ -35,12 +35,10 @@
         <!-- Gênero -->
         <div>
           <label for="genero">Gênero</label>
+          <select  id="genero" name="genero" [(ngModel)]="generoSelecionado">
+            <option [ngValue]="null"> Selecione um gênero </option>
 
-          <select id="genero" name="genero">
-            <option value="">Selecione um gênero</option>
-            <option value="romance">Romance</option>
-            <option value="fantasia">Fantasia</option>
-            <option value="ficcao">Ficção</option>
+            <option *ngFor="let genero of listaGeneros" [ngValue]="genero"> {{ genero.nome }} </option>
           </select>
         </div>
 
