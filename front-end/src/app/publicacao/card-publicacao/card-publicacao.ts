@@ -32,4 +32,8 @@ export class CardPublicacao {
     this.republicado = !this.republicado;
   }
 
+  comentarios(){
+
+  }
+
 }

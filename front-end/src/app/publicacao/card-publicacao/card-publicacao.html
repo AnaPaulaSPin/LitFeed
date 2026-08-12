@@ -57,6 +57,15 @@
     <!-- Footer -->
 <div class="card-footer">
 
+  <button class="card-action click-button" (click)="curtir()">
+    <img
+      class="icon"
+      [src]="curtido ? 'assets/icons/Publicação/Curtida.png' : 'assets/icons/Publicação/NaoCurtida.png'"
+      alt="Curtir"
+    />
+    <span>curtir</span>
+  </button>
+
   <button class="card-action click-button" (click)=" republicar()">
     <img
       class="icon"
@@ -66,14 +75,16 @@
     <span>republicar</span>
   </button>
 
-  <button class="card-action click-button" (click)="curtir()">
+  <button class="card-action click-button" (click)="comentarios()">
     <img
       class="icon"
-      [src]="curtido ? 'assets/icons/Publicação/Curtida.png' : 'assets/icons/Publicação/NaoCurtida.png'"
+      src="assets/icons/Publicação/Comentarios.png"
       alt="Curtir"
     />
-    <span>curtir</span>
+    <span>Comentarios</span>
   </button>
+
+
 
 </div>
 
