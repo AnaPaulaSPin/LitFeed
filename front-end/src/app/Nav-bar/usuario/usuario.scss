@@ -512,306 +512,89 @@ ul {
   cursor: pointer;
 }
 
-/*
-=====================================================
-MEDIA QUERIES - RESPONSIVIDADE
-=====================================================
-*/
+/* ==========================================
+   RESPONSIVIDADE - TABLET
+   ========================================== */
 
-/* --- DESKTOP GRANDE (1200px+) --- */
-@media (min-width: 1200px) {
+@media (max-width: 1024px) {
+
   .header-area .main-nav {
-    padding: 0 30px;
+    padding: 0 20px;
   }
-}
 
-/* --- TABLET GRANDE (992px - 1199px) --- */
-@media (max-width: 1199px) {
   .header-area .main-nav .nav li {
     padding: 0 12px;
   }
-}
-
-/* --- TABLET (768px - 991px) --- */
-@media (max-width: 991px) {
-  .header-area .main-nav .nav li {
-    padding: 0 10px;
-  }
 
   .header-area .main-nav .nav li a {
     font-size: 14px;
   }
 
-  .background-header .nav li a.active:after {
+  .header-area .main-nav .logo img {
+    max-height: 55px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVIDADE - CELULAR
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  .header-area {
+    height: 70px;
+  }
+
+  .header-area .main-nav {
+    min-height: 70px;
+    height: 70px;
+    padding: 0 15px;
+  }
+
+  .header-area .main-nav .logo {
+    height: 70px;
+  }
+
+  .header-area .main-nav .logo img {
+    max-height: 50px;
+  }
+
+  /* Esconde o menu normal */
+  .header-area .main-nav .nav {
     display: none;
   }
+
+  /* Mostra o botão hambúrguer */
+  .header-area .main-nav .menu-trigger {
+    display: block;
+  }
 }
 
-/* --- MOBILE GRANDE (568px - 767px) --- */
-@media (max-width: 767px) {
-  /* Header adaptado para mobile */
-  .header-area {
-    padding: 0 15px;
-    height: 70px;
-  }
+@media (max-width: 768px) {
 
-  .header-area .main-nav {
-    height: 70px;
-    min-height: 70px;
-    padding: 0;
-    flex-wrap: wrap;
-  }
-
-  /* Logo em mobile */
-  .header-area .main-nav .logo {
-    height: 70px;
-    flex: 1;
-    justify-content: flex-start;
-  }
-
-  /* Menu hambúrguer visível em mobile */
-  .header-area .main-nav .menu-trigger {
-    display: block !important;
-  }
-
-  /* Menu oculto por padrão em mobile */
-  .header-area .main-nav .nav {
+  .header-area .main-nav .nav.active {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 70px;
-    left: 0;
-    right: 0;
+    left: 15px;
+    right: 15px;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+  }
+
+  .header-area .main-nav .nav.active li {
     width: 100%;
-    flex-direction: column;
-    display: none !important;
-    background: #fff;
-    border-top: 1px solid #eee;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.03);
-    z-index: 998;
-    margin: 0;
+    height: auto;
     padding: 0;
   }
 
-  /* Menu visível quando ativado */
-  .header-area .main-nav .nav.active {
-    display: flex !important;
-  }
-
-  /* Items do menu em mobile */
-  .header-area .main-nav .nav li {
-    width: 100%;
-    height: auto;
-    padding: 0 !important;
-    margin: 0;
-    border-bottom: 1px solid #e7e7e7;
-  }
-
-  .header-area .main-nav .nav li a {
-    padding: 15px 20px;
-    height: auto;
-    line-height: 1;
-    background: #fff;
-    font-size: 14px;
-    border: none;
+  .header-area .main-nav .nav.active li a {
     display: block;
     width: 100%;
-    box-sizing: border-box;
+    padding: 14px 20px;
   }
-
-  .header-area .main-nav .nav li a:hover,
-  .header-area .main-nav .nav li a.active {
-    background: #f7f7f7;
-    color: #4b8ef1 !important;
-  }
-
-  /* Submenu em mobile */
-  .header-area .main-nav .nav li.submenu ul {
-    position: relative;
-    visibility: visible;
-    opacity: 1;
-    z-index: 1;
-    transform: none;
-    transition: none;
-    top: 0;
-    width: 100%;
-    box-shadow: none;
-    max-height: 0;
-    overflow: hidden;
-    background: #f7f7f7;
-  }
-
-  .header-area .main-nav .nav li.submenu ul.active {
-    max-height: 500px;
-    transition: max-height 0.3s ease 0s;
-  }
-
-  .header-area .main-nav .nav li.submenu ul li a {
-    padding: 12px 20px 12px 40px;
-    height: auto;
-    line-height: 1;
-    background: #f7f7f7;
-    font-size: 13px;
-    border: none;
-  }
-
-  .header-area .main-nav .nav li.submenu:after {
-    position: static;
-    font-size: 14px;
-    top: auto;
-    right: auto;
-    transform: none !important;
-    margin-left: 10px;
-    float: right;
-  }
-
-  .header-area .main-nav .nav li:nth-child(6),
-  .header-area .main-nav .nav li:last-child {
-    padding: 0 !important;
-  }
-
-  .background-header .main-nav .nav {
-    margin-top: 0 !important;
-  }
-
-  .background-header .main-nav .logo {
-    line-height: 1;
-    height: 70px;
-  }
-}
-
-/* --- MOBILE PEQUENO (até 567px) --- */
-@media (max-width: 567px) {
-  .header-area {
-    height: 60px;
-  }
-
-  .header-area .main-nav {
-    height: 60px;
-    min-height: 60px;
-  }
-
-  .header-area .main-nav .logo {
-    height: 60px;
-  }
-
-  .header-area .main-nav .menu-trigger {
-    right: 10px;
-  }
-
-  .header-area .main-nav .nav {
-    top: 60px;
-  }
-}
-
-.user-menu img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/*
-=====================================================
-PRELOADER
-=====================================================
-Tela de carregamento que aparece no início.
-*/
-
-.js-preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  visibility: visible;
-  z-index: 10000;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-/* Estado quando carregamento completo */
-.js-preloader.loaded {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/*
---- ANIMAÇÕES DO PRELOADER ---
-Animação suave dos pontos de carregamento.
-*/
-@-webkit-keyframes dot {
-  50% {
-    -webkit-transform: translateX(96px);
-    transform: translateX(96px);
-  }
-}
-
-@keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
-}
-
-@-webkit-keyframes dots {
-  50% {
-    -webkit-transform: translateX(-31px);
-    transform: translateX(-31px);
-  }
-}
-
-@keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
-}
-
-/* Container do preloader */
-.preloader-inner {
-  position: relative;
-  width: 142px;
-  height: 40px;
-  background: transparent;
-}
-
-/* Ponto animado principal */
-.preloader-inner .dot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 12px;
-  left: 15px;
-  background: #4b8ef1;
-  border-radius: 50%;
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  -webkit-animation: dot 2.8s infinite;
-  animation: dot 2.8s infinite;
-}
-
-/* Container dos pontos adicionais */
-.preloader-inner .dots {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  margin-top: 12px;
-  margin-left: 31px;
-  -webkit-animation: dots 2.8s infinite;
-  animation: dots 2.8s infinite;
-}
-
-/* Cada ponto individual */
-.preloader-inner .dots span {
-  display: block;
-  float: left;
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
-  background: #4b8ef1;
-  border-radius: 50%;
 }
