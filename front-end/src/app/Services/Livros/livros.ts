@@ -20,7 +20,7 @@ export class Livros {
   }
 
   buscarEdicoes(idLivro: number) {
-  return this.http.get<Edicao[]>(`${this.apiUrl}/${idLivro}/edicoes`);
+    return this.http.get<Edicao[]>(`http://localhost:8080/edicoes/livro/${idLivro}`)
   }
 
 }

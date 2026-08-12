@@ -1,5 +1,5 @@
 import { NgIf, NgFor } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { Edicao } from '../../models/edicao';
 import { CardLivro } from '../card-livro/card-livro';
 import { NgModel } from '@angular/forms';
@@ -17,7 +17,9 @@ export class CardPesquisarLivro {
   pesquisaLivroAberta = false;
   listaEdicoes: Edicao[] = [];
 
-  constructor(private livrosService: Livros) {}
+  constructor(private livrosService: Livros,
+    private cdr: ChangeDetectorRef
+  ) {}
 
 
   selecionarEdicao(livro: Edicao) {
@@ -30,7 +32,17 @@ pesquisarLivro(nome: string) {
       if (livro) {
         console.log('Livro encontrado:', livro);
 
-        // Próximo passo: buscar as edições desse livro
+        this.livrosService.buscarEdicoes(livro.id).subscribe({
+          next: (edicoes) => {
+            this.listaEdicoes = edicoes;
+            console.log('Edições encontradas:', edicoes);
+            this.cdr.detectChanges();
+          },
+          error: (erro) => {
+            console.error('Erro ao buscar edições:', erro);
+          }
+        });
+
       } else {
         alert('Livro não encontrado.');
       }

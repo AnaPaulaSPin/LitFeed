@@ -1,6 +1,6 @@
 .card-pesquisa-livro {
-  width: 500px;
-  min-height: 300px;
+  width: 600px;
+  min-height: 500px;
 
   padding: 20px 24px 24px;
 
@@ -168,10 +168,40 @@
   // RESULTADOS
   // =========================
 
-  .resultados-livros {
-    width: 100%;
-    min-height: 150px;
+.resultado-pesquisa {
+  width: 100%;
+  min-height: 150px;
+  margin-top: 20px;
 
-    margin-top: 20px;
+  .titulo-edicoes {
+    display: block;
+
+    margin-bottom: 16px;
+
+    text-align: center;
+
+    color: #2e3440;
+    font-size: 15px;
+    font-weight: 600;
   }
+
+  .lista-edicoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .botao-edicao {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+  }
+}
 }

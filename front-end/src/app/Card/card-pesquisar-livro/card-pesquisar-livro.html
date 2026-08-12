@@ -23,19 +23,24 @@
     </button>
   </div>
 
-  <div class="resultado-pesquisa">
+<div class="resultado-pesquisa">
 
-    <div *ngFor="let edicao of listaEdicoes">
-      <label>Edições disponíveis</label>
-      <button
-        type="button"
-        (click)="selecionarEdicao(edicao)"
-      >
-        <app-card-livro [edicao]="edicao"></app-card-livro>>
-      </button>
+  <label class="titulo-edicoes">Edições disponíveis</label>
 
-    </div>
+  <div class="lista-edicoes">
+
+    <button
+      *ngFor="let edicao of listaEdicoes"
+      type="button"
+      class="botao-edicao"
+      (click)="selecionarEdicao(edicao)">
+
+      <app-card-livro [edicao]="edicao"></app-card-livro>
+
+    </button>
 
   </div>
+
+</div>
 
 </div>
