@@ -12,6 +12,14 @@ VALUES ('Intrínseca');
 INSERT INTO Genero (nome)
 VALUES ('Comédia Romântica');
 
+-- Gênero
+INSERT INTO Genero (nome)
+VALUES ('Suspense');
+
+-- Gênero
+INSERT INTO Genero (nome)
+VALUES ('Comédia');
+
 -- Livro 1
 INSERT INTO Livro (
     titulo,
