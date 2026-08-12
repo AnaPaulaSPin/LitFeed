@@ -1,0 +1,154 @@
+.card-pesquisa-livro {
+  width: 500px;
+  min-height: 300px;
+
+  padding: 20px 24px 24px;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  box-sizing: border-box;
+
+  // =========================
+  // CABEÇALHO
+  // =========================
+
+  .card-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    height: 28px;
+    margin-bottom: 18px;
+  }
+
+  // =========================
+  // BOTÃO FECHAR
+  // =========================
+
+  .btn-fechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: #5b6475;
+
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 28px;
+
+    cursor: pointer;
+
+    &:hover {
+      color: #2e3440;
+      background: transparent;
+    }
+
+    &:focus,
+    &:active {
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+  }
+
+  // =========================
+  // BARRA DE PESQUISA
+  // =========================
+
+  .barra-pesquisa {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 46px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border: 1px solid #e1e4eb;
+    border-radius: 10px;
+
+    background: #f5f7fb;
+
+    // Remove qualquer efeito estranho ao clicar na barra
+    outline: none;
+    box-shadow: none;
+
+    &:focus-within {
+      border: 1px solid #6c63ff;
+      outline: none;
+      box-shadow: none;
+    }
+
+    input {
+      flex: 1;
+
+      width: 100%;
+      min-width: 0;
+
+      margin: 0;
+      padding: 0;
+
+      border: 0;
+      outline: 0;
+
+      background: transparent;
+
+      color: #2e3440;
+
+      font-family: inherit;
+      font-size: 14px;
+
+      box-shadow: none;
+
+      &::placeholder {
+        color: #8a92a3;
+      }
+
+      &:focus {
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+
+    .icone-pesquisa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      color: #5b6475;
+      font-size: 20px;
+    }
+  }
+
+  // =========================
+  // RESULTADOS
+  // =========================
+
+  .resultados-livros {
+    width: 100%;
+    min-height: 150px;
+
+    margin-top: 20px;
+  }
+}

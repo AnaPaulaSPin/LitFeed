@@ -8,10 +8,11 @@ import { CardLivro } from '../../Card/card-livro/card-livro';
 import { FormsModule } from '@angular/forms';
 import { Edicao } from '../../models/edicao';
 import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';
+import { CardPesquisarLivro } from '../../Card/card-pesquisar-livro/card-pesquisar-livro';
 
 @Component({
   selector: 'app-criar-publicacao',
-  imports: [NgFor, CardLivro, NgIf, FormsModule],
+  imports: [NgFor, CardLivro, NgIf, FormsModule, CardPesquisarLivro],
   templateUrl: './criar-publicacao.html',
   styleUrl: './criar-publicacao.scss',
 })
@@ -25,6 +26,7 @@ export class CriarPublicacao {
   livroSelecionado: Livro | null = null;
   edicaoSelecionada: Edicao | null = null;
   generoSelecionado: Genero | null = null;
+  pesquisaLivroAberta = false;
 
   titulo: any;
   conteudo: any;
@@ -98,7 +100,7 @@ export class CriarPublicacao {
     this.fechar.emit();
   }
 
-  carregarLivros() {
+carregarLivros() {
 
     this.livroService.listarLivros().subscribe({
 
@@ -139,5 +141,18 @@ export class CriarPublicacao {
 
     });
   }
+
+  abrirPesquisaLivro(){
+    this.pesquisaLivroAberta = true;
+  }
+
+  fecharPesquisaLivro() {
+   this.pesquisaLivroAberta = false;
+  }
+
+  selecionarEdicao(edicao: Edicao) {
+  this.edicaoSelecionada = edicao;
+  this.pesquisaLivroAberta = false;
+}
 
 }
