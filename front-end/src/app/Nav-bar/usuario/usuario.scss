@@ -4,13 +4,37 @@ HEADER - BARRA DE NAVEGAÇÃO PRINCIPAL
 =====================================================
 Componente responsável pela navegação principal do site.
 Mantém alinhamento correto: LOGO à esquerda, NAV à direita.
-Responsivo para mobile, tablet e desktop.
+Responsivo para mobile pequeno, mobile, tablet, desktop e telas grandes.
+
+NOTA IMPORTANTE:
+O arquivo original misturava sintaxe SCSS (variáveis $, @mixin,
+seletores aninhados) dentro de um arquivo .css puro. Isso não
+funciona em CSS puro sem um compilador Sass. Abaixo, tudo foi
+convertido para CSS válido usando variáveis nativas (--var) e
+seletores "achatados".
 */
+
+:root {
+  --nav-link-color: #666666;
+  --bg-color: #F3F5F4;
+  --navbar-color: #FFFFFF;
+  --border-gray: #E0E0E0;
+  --hover-gray: #F5F5F5;
+  --active-gray: #EBEBEB;
+  --at-blue-light: #00AFE9;
+  --at-blue-dark: #006AB8;
+  --red: #F44336;
+  --accent: #4b8ef1;
+  --text-dark: #2a2a2a;
+
+  /* alturas do header por breakpoint, usadas em vários lugares */
+  --header-h-desktop: 80px;
+  --header-h-tablet: 70px;
+  --header-h-mobile: 60px;
+}
 
 /*
 --- CONTAINER HEADER FIXO ---
-Posiciona o header no topo da página sem se mover
-durante o scroll. Garante que sempre esteja visível.
 */
 .header-area {
   position: fixed !important;
@@ -18,11 +42,10 @@ durante o scroll. Garante que sempre esteja visível.
   left: 0;
   right: 0;
   width: 100%;
-  height: 80px;
+  height: var(--header-h-desktop);
   z-index: 9999;
   background-color: #fff;
   border-bottom: 1px solid rgba(42, 42, 42, 0.2);
-  -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
   padding: 0;
   margin: 0;
@@ -31,33 +54,30 @@ durante o scroll. Garante que sempre esteja visível.
 
 /*
 --- ESTRUTURA FLEXBOX DO NAV ---
-Usa flexbox para manter logo à esquerda e nav à direita.
-Centraliza verticalmente todos os itens.
 */
 .header-area .main-nav {
-  min-height: 80px;
-  height: 80px;
+  min-height: var(--header-h-desktop);
+  height: var(--header-h-desktop);
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: transparent;
-  padding: 0 15px;
+  /* esquerda com espaço pequeno e fixo (logo quase colada);
+     direita mantém o respiro fluido para o menu */
+  padding: 0 clamp(15px, 3vw, 40px) 0 16px;
   box-sizing: border-box;
   margin: 0;
 }
 
 /*
---- LOGO POSITIONING ---
-Logo fica à esquerda, centralizada verticalmente.
-Sem float, usa flexbox nativo.
+--- LOGO ---
 */
 .header-area .main-nav .logo {
   flex-shrink: 0;
-  height: 80px;
+  height: var(--header-h-desktop);
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   margin: 0;
   padding: 0;
@@ -65,15 +85,14 @@ Sem float, usa flexbox nativo.
 }
 
 .header-area .main-nav .logo img {
-  max-height: 60px;   /* controla o tamanho da logo */
-  width: auto;        /* mantém proporção */
+  /* clamp evita "saltos" bruscos de tamanho entre breakpoints */
+  max-height: clamp(40px, 6vw, 60px);
+  width: auto;
   display: block;
 }
 
 /*
---- MENU NAVEGAÇÃO À DIREITA ---
-Menu fica à direita, usa flexbox para espaçamento uniforme.
-Sem float, alinhamento natural com flexbox.
+--- MENU DE NAVEGAÇÃO ---
 */
 .header-area .main-nav .nav {
   display: flex;
@@ -83,31 +102,25 @@ Sem float, alinhamento natural com flexbox.
   margin: 0;
   padding: 0;
   background-color: transparent;
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  flex-wrap: nowrap;
 }
 
 .header-area .main-nav .nav li {
   margin: 0;
-  padding: 0 20px;
-  height: 80px;
+  padding: 0 clamp(10px, 1.5vw, 20px);
+  height: var(--header-h-desktop);
   display: flex;
   align-items: center;
   position: relative;
 }
 
-/*
---- LINKS DE NAVEGAÇÃO ---
-Estilo padrão dos links de navegação.
-Transição suave ao passar o mouse.
-*/
 .header-area .main-nav .nav li a {
   display: block;
   font-weight: 500;
   font-size: 15px;
-  color: #2a2a2a;
+  color: var(--text-dark);
   text-transform: capitalize;
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   height: auto;
   line-height: 1;
@@ -117,19 +130,11 @@ Transição suave ao passar o mouse.
   white-space: nowrap;
 }
 
-/*
---- HOVER E ACTIVE STATE ---
-Mudança de cor ao passar o mouse ou quando ativo.
-*/
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #4b8ef1 !important;
+  color: var(--accent) !important;
 }
 
-/*
---- ÚLTIMO ITEM (BOTÃO CTA) ---
-Último item ou 6º item pode ser um botão especial.
-*/
 .header-area .main-nav .nav li:nth-child(6),
 .header-area .main-nav .nav li:last-child {
   padding: 0 20px;
@@ -144,67 +149,60 @@ Mudança de cor ao passar o mouse ou quando ativo.
 
 .header-area .main-nav .nav li:nth-child(6) a:hover,
 .header-area .main-nav .nav li:last-child a:hover {
-  color: #4b8ef1 !important;
+  color: var(--accent) !important;
 }
 
 /*
 --- SUBMENU (DROPDOWN) ---
-Dropdown com efeito suave de apareecimento.
-Posicionado absoluto abaixo do item pai.
 */
 .header-area .main-nav .nav li.submenu {
   position: relative;
   padding-right: 30px;
 }
 
-/* Ícone de seta para submenu */
 .header-area .main-nav .nav li.submenu:after {
   font-family: FontAwesome;
   content: "\f107";
   font-size: 12px;
-  color: #2a2a2a;
+  color: var(--text-dark);
   position: absolute;
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
-/* Lista de submenu - oculta por padrão */
 .header-area .main-nav .nav li.submenu ul {
   position: absolute;
   width: 200px;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  top: 80px;
+  top: var(--header-h-desktop);
   left: 0;
   opacity: 0;
   transform: translateY(-10px);
   visibility: hidden;
   z-index: -1;
-  -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Items do submenu */
 .header-area .main-nav .nav li.submenu ul li {
   margin: 0;
   padding: 0;
   list-style: none;
+  height: auto;
 }
 
 .header-area .main-nav .nav li.submenu ul li a {
   display: block;
   background: #f7f7f7;
-  color: #2a2a2a !important;
+  color: var(--text-dark) !important;
   padding: 0 20px;
   height: 40px;
   line-height: 40px;
-  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   position: relative;
   font-size: 13px;
@@ -215,14 +213,12 @@ Posicionado absoluto abaixo do item pai.
   opacity: 1;
 }
 
-/* Hover no submenu */
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #4b8ef1 !important;
+  color: var(--accent) !important;
   padding-left: 25px;
 }
 
-/* Mostrar submenu ao passar mouse */
 .header-area .main-nav .nav li.submenu:hover ul {
   visibility: visible;
   opacity: 1;
@@ -231,15 +227,12 @@ Posicionado absoluto abaixo do item pai.
   transition-delay: 0s, 0s, 0.3s;
 }
 
-/* Mostrar seta ao hover */
 .header-area .main-nav .nav li.submenu:hover:after {
   transform: translateY(-50%) rotate(180deg);
 }
 
 /*
 --- HEADER COM BACKGROUND (scroll) ---
-Quando o header recebe a classe background-header,
-aplica estilos diferentes (para quando há fundo).
 */
 .background-header {
   background-color: #fff !important;
@@ -248,32 +241,31 @@ aplica estilos diferentes (para quando há fundo).
 }
 
 .background-header .main-nav {
-  min-height: 80px;
-  height: 80px;
+  min-height: var(--header-h-desktop);
+  height: var(--header-h-desktop);
 }
 
 .background-header .main-nav .logo {
-  line-height: 80px;
+  line-height: var(--header-h-desktop);
 }
 
 .background-header .main-nav .nav li {
-  height: 80px;
+  height: var(--header-h-desktop);
 }
 
 .background-header .main-nav .nav li a {
-  color: #2a2a2a;
+  color: var(--text-dark);
   line-height: 40px;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #4b8ef1 !important;
+  color: var(--accent) !important;
   opacity: 1;
 }
 
 /*
 --- MENU HAMBÚRGUER (MOBILE) ---
-Ícone de menu para dispositivos móveis.
 */
 .header-area .main-nav .menu-trigger {
   cursor: pointer;
@@ -292,13 +284,11 @@ aplica estilos diferentes (para quando há fundo).
   margin: 0;
 }
 
-/* Linhas do menu hambúrguer */
 .header-area .main-nav .menu-trigger span,
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
-  -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
-  background-color: #2a2a2a;
+  background-color: var(--text-dark);
   display: block;
   position: absolute;
   width: 30px;
@@ -320,22 +310,19 @@ aplica estilos diferentes (para quando há fundo).
 
 .header-area .main-nav .menu-trigger span:before {
   top: -10px;
-  -webkit-transform-origin: 33% 100%;
   transform-origin: 33% 100%;
   z-index: 10;
 }
 
 .header-area .main-nav .menu-trigger span:after {
   top: 10px;
-  -webkit-transform-origin: 33% 0;
   transform-origin: 33% 0;
 }
 
-/* Menu hambúrguer ativo (X) */
 .header-area .main-nav .menu-trigger.active span,
 .header-area .main-nav .menu-trigger.active span:before,
 .header-area .main-nav .menu-trigger.active span:after {
-  background-color: #2a2a2a;
+  background-color: var(--text-dark);
   width: 100%;
 }
 
@@ -344,49 +331,31 @@ aplica estilos diferentes (para quando há fundo).
 }
 
 .header-area .main-nav .menu-trigger.active span:before {
-  -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
   transform: translateY(6px) translateX(1px) rotate(45deg);
 }
 
 .header-area .main-nav .menu-trigger.active span:after {
-  -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
 }
 
 /*
 --- STICKY HEADER STATE ---
-Estado do header quando fixo após scroll.
 */
 .header-area.header-sticky {
-  min-height: 80px;
-  height: 80px;
+  min-height: var(--header-h-desktop);
+  height: var(--header-h-desktop);
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #4b8ef1;
+  color: var(--accent);
 }
 
-// Menu bar
-$nav-link-color: #666666;
-$bg-color: #F3F5F4;
-$navbar-color: #FFFFFF;
-$border-gray: #E0E0E0;
-$hover-gray: #F5F5F5;
-$active-gray: #EBEBEB;
-
-$at-blue-light: #00AFE9;
-$at-blue-dark: #006AB8;
-
-$red: #F44336;
-
-
-@mixin border-radius($radius) {
-  -moz-border-radius:$radius;
-  -webkit-border-radius:$radius;
-  -ms-border-radius:$radius;
-  border-radius:$radius;
-}
-
+/*
+=====================================================
+MENU DE USUÁRIO (avatar / dropdown de perfil)
+Convertido de SCSS para CSS puro (sem nesting/mixins)
+=====================================================
+*/
 ul {
   list-style: none;
 }
@@ -394,13 +363,12 @@ ul {
 .user-menu-wrap {
   position: relative;
   width: 50px;
-  margin: 100px;
 }
 
 .menu-container {
   position: absolute;
   top: 45px;
-  right: -6;
+  right: -6px; /* corrigido: valor sem unidade era inválido */
   z-index: 9999;
 }
 
@@ -409,55 +377,72 @@ ul {
   right: -165px;
   background-color: #FFFFFF;
   width: 275px;
+  max-width: 90vw; /* evita que o dropdown "vaze" da tela em mobile */
   border-radius: 2px;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 7px;
   padding-bottom: 9px;
   margin-top: 3px;
+}
 
+.user-menu:before {
+  position: absolute;
+  top: -16px;
+  left: 120px;
+  display: inline-block;
+  content: "";
+  border: 8px solid transparent;
+  border-bottom-color: var(--border-gray);
+}
 
+.user-menu:after {
+  position: absolute;
+  top: -14px;
+  left: 121px;
+  display: inline-block;
+  content: "";
+  border: 7px solid transparent;
+  border-bottom-color: #FFFFFF;
+}
 
-  .profile-highlight {
+.user-menu .profile-highlight {
+  display: flex;
+  padding: 23px 0px;
+  margin-bottom: 1px;
+}
 
-    display: flex;
-    padding: 23px 0px;
-    margin-bottom: 1px;
+.user-menu .profile-highlight img {
+  width: 48px;
+  height: 48px;
+  border-radius: 25px;
+  object-fit: cover;
+}
 
-    img {
-      width: 48px;
-      height: 48px;
-      border-radius: 25px;
-      object-fit: cover;
-    }
+.user-menu .profile-highlight .details {
+  display: flex;
+  flex-direction: column;
+  margin: auto 10px;
+}
 
-    .details {
-      display: flex;
-      flex-direction: column;
-      margin: auto 10px;
+.user-menu .profile-highlight .details #profile-name {
+  font-weight: 600;
+  font-size: 16px;
+}
 
-      #profile-name {
-        font-weight: 600;
-        font-size: 16px;
+.user-menu .profile-highlight .details #profile-footer {
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 4px;
+}
 
-      }
-
-      #profile-footer {
-        font-weight: 300;
-        font-size: 14px;
-        margin-top: 4px;
-      }
-    }
-
-  }
-
-  .footer {
+.user-menu .footer {
   padding-top: 1px;
   margin-top: 1px;
+}
 
-  .user-menu-link {
-    font-size: 10px;
-    padding: 1px 16px;
-  }
+.user-menu .footer .user-menu-link {
+  font-size: 10px;
+  padding: 1px 16px;
 }
 
 .user-menu-link {
@@ -468,32 +453,11 @@ ul {
   font-weight: 400;
   font-size: 14px;
   padding: 10px 16px;
-
-  &:hover {
-    background-color: $hover-gray;
-    color: #333333;
-  }
 }
 
-  &:before {
-    position: absolute;
-    top: -16px;
-    left: 120px;
-    display: inline-block;
-    content: "";
-    border: 8px solid transparent;
-    border-bottom-color: $border-gray;
-  }
-
-  &:after {
-    position: absolute;
-    top: -14px;
-    left: 121px;
-    display: inline-block;
-    content: "";
-    border: 7px solid transparent;
-    border-bottom-color: #FFFFFF;
-  }
+.user-menu-link:hover {
+  background-color: var(--hover-gray);
+  color: #333333;
 }
 
 .mini-photo {
@@ -513,11 +477,18 @@ ul {
 }
 
 /* ==========================================
-   RESPONSIVIDADE - TABLET
+   RESPONSIVIDADE - TELA GRANDE (desktops grandes)
    ========================================== */
+@media (min-width: 1440px) {
+  .header-area .main-nav .nav li a {
+    font-size: 16px;
+  }
+}
 
+/* ==========================================
+   RESPONSIVIDADE - TABLET / NOTEBOOK PEQUENO
+   ========================================== */
 @media (max-width: 1024px) {
-
   .header-area .main-nav {
     padding: 0 20px;
   }
@@ -529,34 +500,24 @@ ul {
   .header-area .main-nav .nav li a {
     font-size: 14px;
   }
-
-  .header-area .main-nav .logo img {
-    max-height: 55px;
-  }
 }
 
 /* ==========================================
-   RESPONSIVIDADE - CELULAR
+   RESPONSIVIDADE - TABLET / CELULAR GRANDE
    ========================================== */
-
 @media (max-width: 768px) {
-
   .header-area {
-    height: 70px;
+    height: var(--header-h-tablet);
   }
 
   .header-area .main-nav {
-    min-height: 70px;
-    height: 70px;
+    min-height: var(--header-h-tablet);
+    height: var(--header-h-tablet);
     padding: 0 15px;
   }
 
   .header-area .main-nav .logo {
-    height: 70px;
-  }
-
-  .header-area .main-nav .logo img {
-    max-height: 50px;
+    height: var(--header-h-tablet);
   }
 
   /* Esconde o menu normal */
@@ -568,15 +529,12 @@ ul {
   .header-area .main-nav .menu-trigger {
     display: block;
   }
-}
-
-@media (max-width: 768px) {
 
   .header-area .main-nav .nav.active {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: var(--header-h-tablet);
     left: 15px;
     right: 15px;
     width: auto;
@@ -584,6 +542,8 @@ ul {
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     padding: 10px 0;
+    max-height: calc(100vh - var(--header-h-tablet) - 20px);
+    overflow-y: auto; /* evita menu cortado em telas baixas */
   }
 
   .header-area .main-nav .nav.active li {
@@ -596,5 +556,89 @@ ul {
     display: block;
     width: 100%;
     padding: 14px 20px;
+  }
+
+  /* Em mobile o submenu deixa de ser dropdown flutuante
+     e vira uma lista expandida dentro do próprio item */
+  .header-area .main-nav .nav.active li.submenu ul {
+    position: static;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    z-index: 1;
+    display: none; /* controlado via classe .open, adicionada por JS */
+  }
+
+  .header-area .main-nav .nav.active li.submenu.open ul {
+    display: block;
+  }
+
+  .user-menu {
+    right: -60px;
+  }
+
+  .user-menu:before,
+  .user-menu:after {
+    left: auto;
+    right: 70px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVIDADE - CELULAR PADRÃO
+   ========================================== */
+@media (max-width: 480px) {
+  .header-area {
+    height: var(--header-h-mobile);
+  }
+
+  .header-area .main-nav {
+    min-height: var(--header-h-mobile);
+    height: var(--header-h-mobile);
+    padding: 0 12px;
+  }
+
+  .header-area .main-nav .logo {
+    height: var(--header-h-mobile);
+  }
+
+  .header-area .main-nav .logo img {
+    max-height: 38px;
+  }
+
+  .header-area .main-nav .nav.active {
+    top: var(--header-h-mobile);
+    left: 8px;
+    right: 8px;
+  }
+
+  .header-area .main-nav .nav.active li a {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .user-menu {
+    right: -30px;
+    width: min(275px, 92vw);
+  }
+
+  .user-menu:before,
+  .user-menu:after {
+    right: 40px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVIDADE - CELULAR MUITO PEQUENO
+   ========================================== */
+@media (max-width: 360px) {
+  .header-area .main-nav .logo img {
+    max-height: 32px;
+  }
+
+  .header-area .main-nav .menu-trigger {
+    right: 8px;
   }
 }

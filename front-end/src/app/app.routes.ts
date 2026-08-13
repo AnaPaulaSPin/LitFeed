@@ -6,6 +6,7 @@ import { Feed } from './feed/feed';
 import { Login } from './login/login';
 import { EditarPerfil } from './perfil/editar-perfil/editar-perfil';
 import { Perfil } from './perfil/perfil/perfil';
+import { Biblioteca } from './biblioteca/biblioteca';
 
 
 export const routes: Routes = [
@@ -40,6 +41,10 @@ export const routes: Routes = [
       {
         path: 'feed',
         component: Feed
+      },
+      {
+        path: 'biblioteca',
+        component: Biblioteca
       }
     ]
   }
