@@ -1,153 +1,219 @@
 USE litfeed_base;
+-- =====================================================
+-- CADASTROS BASE (Autor, Gênero, Editora)
+-- =====================================================
 
--- Autor
+-- AUTOR
 INSERT INTO Autor (nome)
 VALUES ('Lynn Painter');
 
--- Editora
+-- GÊNERO
+INSERT INTO Genero (nome)
+VALUES ('Romance');
+
+-- EDITORA
 INSERT INTO Editora (nome)
 VALUES ('Intrínseca');
+-- =====================================================
+-- LIVRO 1: Melhor do que nos filmes
+-- =====================================================
 
--- Gênero
-INSERT INTO Genero (nome)
-VALUES ('Comédia Romântica');
-
--- Gênero
-INSERT INTO Genero (nome)
-VALUES ('Suspense');
-
--- Gênero
-INSERT INTO Genero (nome)
-VALUES ('Comédia');
-
--- Livro 1
+-- LIVRO
 INSERT INTO Livro (
     titulo,
-    isbn,
     sinopse,
     capa,
     autor_id,
     genero_id
-)
-VALUES (
-    'Confusões do amor',
-    '978-8551014974',
-    'A faxineira Abi Mariano precisa de um lugar para ficar durante uma semana e acaba se envolvendo em uma situação inesperada ao ser confundida com a namorada de Declan Powell, um executivo que precisa de uma namorada de mentira para um evento importante.',
-    '\assets\DataBase\livros\confusoes-do-amor',
-    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
-    (SELECT id FROM Genero WHERE nome = 'Comédia Romântica')
-);
-
--- Edição
-INSERT INTO Edicao (
-    livro_id,
-    editora_id,
-    capa,
-    total_paginas,
-    ano
-)
-VALUES (
-    (SELECT id FROM Livro WHERE isbn = '978-8551014974'),
-    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
-    '\assets\DataBase\livros\confusoes-do-amor',
-    331,
-    2026
-);
-
--- Livro 2
-INSERT INTO Livro (
-    titulo,
-    isbn,
-    sinopse,
-    capa,
-    autor_id,
-    genero_id
-)
-VALUES (
-    'Sorte no amor: Quem se apaixonar primeiro ganha',
-    '978-8551010525',
-    'Após términos recentes, Hallie Piper e Jack se conhecem em uma festa de casamento e acabam se reencontrando em um aplicativo de relacionamentos. Os dois decidem fazer uma aposta para descobrir quem encontrará o amor primeiro, mas a amizade entre eles faz com que seus sentimentos se tornem cada vez mais difíceis de ignorar.',
-    '\assets\DataBase\livros\sorte-no-amor-quem-se-apaixonar-primeiro-ganha',
-    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
-    (SELECT id FROM Genero WHERE nome = 'Comédia Romântica')
-);
-
-INSERT INTO Edicao (
-    livro_id,
-    editora_id,
-    capa,
-    total_paginas,
-    ano
-)
-VALUES (
-    (SELECT id FROM Livro WHERE isbn = '978-8551010525'),
-    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
-    '\assets\DataBase\livros\sorte-no-amor-quem-se-apaixonar-primeiro-ganha',
-    291,
-    2025
-);
-
--- livro 3
-INSERT INTO Livro (
-    titulo,
-    isbn,
-    sinopse,
-    capa,
-    autor_id,
-    genero_id
-) VALUES (
-    'Nada é por acaso',
-    '978-8551018842',
-    'Isabella Shay consegue o emprego dos seus sonhos, mas no primeiro dia, após uma confusão com um café, conhece Blake Phillips. A atração entre os dois é imediata, mas eles descobrem que trabalham na mesma empresa, o que torna o relacionamento entre eles complicado.',
-    'assets\DataBase\livros\nada-e-por-acaso',
-    1,
-    1
-);
-
--- livro 4
-INSERT INTO Livro (
-    titulo,
-    isbn,
-    sinopse,
-    autor_id
-)
-VALUES (
-    'Patinando no amor',
-    '978-8551016435',
-    'Dani e Alec eram melhores amigos desde a infância, mas perderam o contato quando ela se mudou de cidade. Anos depois, Dani retorna para o último ano do ensino médio e reencontra Alec, agora uma estrela do hóquei. Quando acontecimentos inesperados os aproximam e os dois precisam fingir ser um casal, antigos segredos e sentimentos começam a vir à tona.',
-    (SELECT id FROM Autor WHERE nome = 'Lynn Painter')
-);
-
-INSERT INTO Edicao (
-    idLivro,
-    idEditora,
-    isbn,
-    data_publicacao,
-    paginas,
-    idioma,
-    capa
-)
-VALUES (
-    (SELECT id FROM Livro WHERE titulo = 'Patinando no amor'),
-    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
-    '978-8551016435',
-    '2026-02-02',
-    440,
-    'Português',
-    '\assets\DataBase\livros\patinando-no-amor'
-);
-
--- livro 5
-INSERT INTO Livro (
-    titulo,
-    isbn,
-    sinopse,
-    autor_id
 )
 VALUES (
     'Melhor do que nos filmes',
-    '978-6555607253',
-    'Elizabeth Buxbaum sempre acreditou que seu vizinho Wesley Bennett não seria um bom namorado. Quando seu amor de infância, Michael Young, retorna à cidade, Liz decide conquistar o garoto dos seus sonhos com a ajuda do vizinho que tanto detesta. Porém, à medida que os dois se aproximam, Liz começa a questionar tudo o que sabe sobre o amor e percebe que seu final feliz pode ser diferente do que imaginava.',
-    (SELECT id FROM Autor WHERE nome = 'Lynn Painter')
+    'Elizabeth Buxbaum sempre soube que seu vizinho não seria um bom namorado. Apesar de todos acharem Wesley Bennett simpático e muito bonito, Liz tinha certeza de que, na verdade, ele era um chato de galochas. Mas Michael Young era diferente. O amor de infância de Liz estava à altura dos protagonistas das comédias românticas que ela tanto gostava, só que havia se mudado para longe quando os dois ainda eram crianças. Dez anos depois, ele estava de volta, mais lindo e charmoso do que nunca. Esbarrar com o garoto na escola foi como um sinal do universo. O último ano do ensino médio clamava por acontecimentos grandiosos, um baile inesquecível e momentos apaixonantes. Por isso, como uma boa romântica incurável, Liz estava determinada a fazer qualquer coisa para conquistar o verdadeiro amor. Até mesmo pedir ajuda ao vizinho irritante. O plano era fazer com que Michael notasse sua existência e a convidasse para o baile de formatura. Mas, à medida que Wes e Liz se aproximam, ela vai questionar tudo o que sabe sobre o amor e descobrir que talvez seu felizes para sempre seja surpreendente e melhor do que ela poderia imaginar.',
+    'assets\\DataBase\\melhor-do-que-nos-filmes.jpg',
+    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
+    (SELECT id FROM Genero WHERE nome = 'Romance')
 );
 
+-- EDIÇÃO (eBook)
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Melhor do que nos filmes'),
+    '978-6555607253',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    'assets\\DataBase\\melhor-do-que-nos-filmes.jpg',
+    354,
+    2023,
+    'eBook Kindle'
+);
+
+
+-- =====================================================
+-- LIVRO 2: Amor por engano
+-- =====================================================
+
+-- LIVRO
+INSERT INTO Livro (
+    titulo,
+    sinopse,
+    capa,
+    autor_id,
+    genero_id
+)
+VALUES (
+    'Amor por engano',
+    'Depois de ser demitida e descobrir que seu namorado estava tendo um caso com uma colega de trabalho, Olivia decide fechar esse ciclo desastroso queimando as cartas que seu ex lhe escrevia. Ela só não esperava que, ao fazer isso, acabaria incendiando o prédio inteiro. Sem emprego, sem casa e sem namorado, Olivia vai morar com o irmão e o amigo irritante e extremamente gato dele, Colin Beck. Tudo parece estar dando errado, mas, quando ela recebe uma mensagem de um número desconhecido, sua vida começa a ficar mais emocionante. O que deveria ter sido um engano acaba se transformando em um relacionamento envolvente, mesmo que ela não saiba a identidade do Cara do Número Desconhecido. Colin Beck sempre considerou Olivia a irmã mais nova e insuportável do seu melhor amigo. Mas aquela garotinha destrambelhada que ele conhecia se tornou uma mulher atraente e divertida. Quando Olivia se muda para seu apartamento e uma vontade incontrolável de ficar cada vez mais perto dela começa a surgir, a preocupação toma conta de Colin. Ele tem certeza de que consegue manter distância de Olivia, até descobrir que ela é a garota anônima com quem vem tendo conversas há semanas, desde que mandou uma mensagem sem querer para o número dela. Olivia e Colin não se suportam, mas a química entre eles é inegável e, por mais que tentem, não conseguem ficar longe um do outro. Será que um engano pode fazer esse casal improvável dar certo?',
+    'assets\\DataBase\\amor-por-engano.jpg',
+    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
+    (SELECT id FROM Genero WHERE nome = 'Romance')
+);
+
+-- EDIÇÃO (Física)
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Amor por engano'),
+    '978-6555606300',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    'assets\\DataBase\\amor-por-engano.jpg',
+    304,
+    2023,
+    'Capa comum'
+);
+
+
+-- =====================================================
+-- LIVRO 3: Não é como nos filmes (Melhor do que nos filmes – vol. 2)
+-- =====================================================
+
+-- LIVRO
+INSERT INTO Livro (
+    titulo,
+    sinopse,
+    capa,
+    autor_id,
+    genero_id
+)
+VALUES (
+    'Não é como nos filmes (Melhor do que nos filmes – vol. 2)',
+    'Dois anos depois de terminarem, Wes volta para a universidade decidido a reconquistar Liz, sua grande paixão. Mas ela não pretende facilitar as coisas: além de um namorado novo, tem aulas, trabalho e um estágio para dar conta, e o reencontro com Wes só complica ainda mais sua vida. Entre memórias do passado e referências à cultura pop, os dois precisam decidir se ainda há espaço para um final feliz.',
+    'assets\\DataBase\\nao-e-como-nos-filmes.jpg',
+    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
+    (SELECT id FROM Genero WHERE nome = 'Romance')
+);
+
+-- EDIÇÃO
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Não é como nos filmes (Melhor do que nos filmes – vol. 2)'),
+    '978-8551014158',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    'assets\\DataBase\\nao-e-como-nos-filmes.jpg',
+    416,
+    2024,
+    'Capa comum'
+);
+
+
+-- =====================================================
+-- LIVRO 4: Patinando no amor
+-- =====================================================
+
+-- LIVRO
+INSERT INTO Livro (
+    titulo,
+    sinopse,
+    capa,
+    autor_id,
+    genero_id
+)
+VALUES (
+    'Patinando no amor',
+    'Dani e Alec eram melhores amigos de infância, até que ela se mudou de cidade. Anos depois, ela volta para cursar o último ano do ensino médio e reencontra Alec, agora uma estrela do hóquei local, bem diferente do garoto que ela conhecia. Após um mal-entendido os reaproximar, os dois precisam fingir namorar, e a farsa acaba reacendendo sentimentos antigos, expondo segredos de família e revelando o verdadeiro motivo pelo qual Alec se afastou dela.',
+    'assets\\DataBase\\patinando-no-amor.jpg',
+    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
+    (SELECT id FROM Genero WHERE nome = 'Romance')
+);
+
+-- EDIÇÃO
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Patinando no amor'),
+    '978-8551016428',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    'assets\\DataBase\\patinando-no-amor.jpg',
+    416,
+    2026,
+    'Capa comum'
+);
+
+
+-- =====================================================
+-- LIVRO 5: Apostando no amor
+-- =====================================================
+
+-- LIVRO
+INSERT INTO Livro (
+    titulo,
+    sinopse,
+    capa,
+    autor_id,
+    genero_id
+)
+VALUES (
+    'Apostando no amor',
+    'Bailey e Charlie se conhecem no aeroporto, um garoto implicante que não para de puxar assunto com ela durante o voo. Anos depois, o destino os reaproxima: primeiro no cinema, depois como colegas de trabalho. Apesar de tudo que os diferencia, uma aproximação inesperada surge entre os dois quando fazem uma aposta sobre se homens e mulheres podem ser apenas amigos. Para complicar ainda mais, eles combinam de fingir um namoro para irritar o namorado da mãe de Bailey, e o que era só um jogo começa a mexer com os sentimentos de ambos.',
+    'assets\\DataBase\\apostando-no-amor.jpg',
+    (SELECT id FROM Autor WHERE nome = 'Lynn Painter'),
+    (SELECT id FROM Genero WHERE nome = 'Romance')
+);
+
+-- EDIÇÃO
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Apostando no amor'),
+    '978-8551009734',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    NULL,
+    368,
+    2024,
+    'Capa comum'
+);

@@ -29,35 +29,37 @@ CREATE TABLE Genero (
 CREATE TABLE Livro (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
-    isbn VARCHAR(20) UNIQUE,
-    sinopse TEXT,
+    sinopse TEXT NOT NULL,
     capa VARCHAR(255),
     autor_id BIGINT NOT NULL,
     genero_id BIGINT NOT NULL,
 
     CONSTRAINT id_autor
         FOREIGN KEY (autor_id)
-        REFERENCES autor(id),
+        REFERENCES Autor(id),
 
     CONSTRAINT id_genero
         FOREIGN KEY (genero_id)
         REFERENCES Genero(id)
 );
+
 CREATE TABLE Edicao (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     livro_id BIGINT NOT NULL,
+    isbn VARCHAR(20) UNIQUE,
     editora_id BIGINT NOT NULL,
     capa VARCHAR(255),
     total_paginas INT NOT NULL,
     ano INT NOT NULL,
+    formato VARCHAR(255),
 
     CONSTRAINT id_livro
         FOREIGN KEY (livro_id)
-        REFERENCES livro(id),
+        REFERENCES Livro(id),
 
     CONSTRAINT id_editora
         FOREIGN KEY (editora_id)
-        REFERENCES editora(id)
+        REFERENCES Editora(id)
 );
 
 CREATE TABLE Publicacao (
@@ -82,6 +84,3 @@ CREATE TABLE Publicacao (
         FOREIGN KEY (idGenero)
         REFERENCES Genero(id)
 );
-
-
-

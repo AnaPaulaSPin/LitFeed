@@ -28,6 +28,8 @@ public class Edicao {
     Editora editora;
 
     String capa;
+    String formato;
+    String isbn;
     Integer ano;
     Integer total_paginas;
 

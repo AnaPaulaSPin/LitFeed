@@ -20,7 +20,6 @@ public class Livro {
     private Long id;
 
     private String titulo;
-    private String isbn;
     private String sinopse;
     private String capa;
 
