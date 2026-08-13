@@ -1,5 +1,6 @@
 .book-cover-card {
   position: relative;
+  width: 130px;        // <- estava faltando essa linha
   aspect-ratio: 2 / 3;
   border-radius: 10px;
   overflow: hidden;

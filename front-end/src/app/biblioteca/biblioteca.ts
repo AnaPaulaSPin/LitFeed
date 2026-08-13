@@ -27,15 +27,6 @@ export class Biblioteca {
   }
 
   carregarEdicoes() {
-    this.services.listarEdicoes().subscribe({
-      next: (edicoes) => {
-        this.edicoes = edicoes;
-        this.quantidadeEdicoes = edicoes.length;
-        this.cdr.detectChanges();
-      },
-      error: (erro) => {
-        console.error('Erro ao carregar edições:', erro);
-      }
-    });
+    
   }
 }

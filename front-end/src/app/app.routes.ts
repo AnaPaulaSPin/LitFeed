@@ -7,6 +7,7 @@ import { Login } from './login/login';
 import { EditarPerfil } from './perfil/editar-perfil/editar-perfil';
 import { Perfil } from './perfil/perfil/perfil';
 import { Biblioteca } from './biblioteca/biblioteca';
+import { Inicial } from './Navegacao/inicial/inicial';
 
 
 export const routes: Routes = [
@@ -45,6 +46,10 @@ export const routes: Routes = [
       {
         path: 'biblioteca',
         component: Biblioteca
+      },
+      {
+        path: 'navegacao',
+        component: Inicial
       }
     ]
   }
