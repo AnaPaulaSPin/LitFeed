@@ -19,4 +19,8 @@ public class EdicaoService {
     public List<Edicao> buscarPorLivro(Long idLivro) {
         return repository.findByLivroId(idLivro);
     }
+
+    public List<Edicao> listarTodas() {
+     return repository.findAll();
+    }
 }

@@ -4,7 +4,8 @@ $color-bg: #fff;
 $color-border: #e8e4de;
 $color-text: #4CC9F0;
 $color-text-muted: #3B82F6;
-//
+
+// Abas da biblioteca
 .library-tabs-wrapper {
   position: sticky;
   z-index: 10;
@@ -13,8 +14,6 @@ $color-text-muted: #3B82F6;
   padding: 90px 24px 0;
   width: 700px;
   margin: 0 auto;
-
-
 }
 
 .library-tabs {
@@ -64,4 +63,19 @@ $color-text-muted: #3B82F6;
       transition: background 0.2s ease, color 0.2s ease;
     }
   }
+}
+
+// Cards dos livros
+.book-cards {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px; // espaço entre os cards na mesma linha
+  row-gap: 20px;    // espaço entre uma linha e outra
+  margin-top: 30px;
+}
+
+.book-cards app-book-cover-card {
+  width: 150px;
+  height: 225px;
+  display: block;
 }

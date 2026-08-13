@@ -24,4 +24,9 @@ public class EdicaoController {
     public List<Edicao> buscarPorLivro(@PathVariable Long idLivro) {
         return service.buscarPorLivro(idLivro);
     }
+
+    @GetMapping
+    public List<Edicao> listarTodas() {
+     return service.listarTodas();
+    }
 }
