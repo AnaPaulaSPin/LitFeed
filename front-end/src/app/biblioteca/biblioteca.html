@@ -1,1 +1,20 @@
-<p>biblioteca works!</p>
+
+<div class="library-tabs-wrapper">
+  <ul class="library-tabs" role="tablist">
+    <li class="tab active" role="tab" (click)="setFilter('todos')">
+      Todos <span class="count">32</span>
+    </li>
+    <li class="tab" role="tab" (click)="setFilter('lendo')">
+      Lendo <span class="count">4</span>
+    </li>
+    <li class="tab" role="tab" (click)="setFilter('ler-mais-tarde')">
+      Ler mais tarde <span class="count">9</span>
+    </li>
+    <li class="tab" role="tab" (click)="setFilter('abandonado')">
+      Abandonado <span class="count">2</span>
+    </li>
+    <li class="tab" role="tab" (click)="setFilter('pausado')">
+      Pausado <span class="count">3</span>
+    </li>
+  </ul>
+</div>

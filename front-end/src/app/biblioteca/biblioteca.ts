@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './biblioteca.html',
   styleUrl: './biblioteca.scss',
 })
-export class Biblioteca {}
+export class Biblioteca {
+  activeFilter = 'todos';
+
+setFilter(filter: string) {
+  this.activeFilter = filter;
+}
+}
