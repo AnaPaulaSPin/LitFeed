@@ -46,7 +46,7 @@ CREATE TABLE Livro (
 CREATE TABLE Edicao (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     livro_id BIGINT NOT NULL,
-    isbn VARCHAR(20) UNIQUE,
+    isbn VARCHAR(50) UNIQUE,
     editora_id BIGINT NOT NULL,
     capa VARCHAR(255),
     total_paginas INT NOT NULL,

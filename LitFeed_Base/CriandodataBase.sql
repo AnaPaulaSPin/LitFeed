@@ -54,6 +54,26 @@ VALUES (
     'eBook Kindle'
 );
 
+-- EDIÇÃO (Capa comum)
+INSERT INTO Edicao (
+    livro_id,
+    isbn,
+    editora_id,
+    capa,
+    total_paginas,
+    ano,
+    formato
+)
+VALUES (
+    (SELECT id FROM Livro WHERE titulo = 'Melhor do que nos filmes'),
+    '978-6555607284',
+    (SELECT id FROM Editora WHERE nome = 'Intrínseca'),
+    'assets\\DataBase\\livros\\melhor-do-que-nos-filmes.jpg',
+    352,
+    2023,
+    'Capa comum'
+);
+
 
 -- =====================================================
 -- LIVRO 2: Amor por engano
