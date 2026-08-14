@@ -3,6 +3,7 @@ import { BookCoverCard } from '../../../Card/book-cover-card/book-cover-card';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Edicao } from '../../../models/edicao';
 import { Edicoes } from '../../../Services/edicoes/edicoes';
+import { Autor } from '../../../models/autor';
 
 @Component({
   selector: 'app-todos-livros',
@@ -12,8 +13,10 @@ import { Edicoes } from '../../../Services/edicoes/edicoes';
 })
 export class TodosLivros {
   edicoes: Edicao[] = [];
+  autores : Autor[] = [];
 
-  constructor(private services: Edicoes, private cdr: ChangeDetectorRef) {
+  constructor(private services: Edicoes,
+    private cdr: ChangeDetectorRef) {
     this.carregarLivros()
   }
 

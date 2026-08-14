@@ -48,9 +48,10 @@
       <span class="see-all">Ver tudo</span>
     </div>
     <div class="trending-row">
-      <!-- componente entity-card (autor) aqui -->
-      <!-- componente entity-card (autor) aqui -->
-      <!-- componente entity-card (autor) aqui -->
+      <a href="" *ngFor="let autor of autores | slice:0:10">
+        <app-autor
+            [autor]="autor"> </app-autor>
+        </a>
     </div>
   </section>
    <section class="trending-section">

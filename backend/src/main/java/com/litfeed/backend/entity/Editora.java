@@ -17,4 +17,5 @@ public class Editora {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String nome;
+    String foto;
 }
