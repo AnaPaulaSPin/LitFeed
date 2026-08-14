@@ -7,9 +7,9 @@ UPDATE Edicao SET capa = 'assets\\DataBase\\livros\\melhor-do-que-nos-filmes.jpg
 UPDATE Edicao SET capa = 'assets\\DataBase\\livros\\amor-por-engano.jpg' WHERE livro_id = (SELECT id FROM Livro WHERE titulo = 'Amor por engano');
 
 SELECT * FROM livro;
-SELECT * FROM edicao;
+SELECT * FROM genero;
 
-DELETE FROM Edicao WHERE id = 6;
+DELETE FROM genero WHERE id = 6;
 
 
 UPDATE Edicao SET capa = 'assets\\DataBase\\livros\\nao-e-como-nos-filmes.jpg' WHERE id = 3;
