@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
 import { BookCoverCard } from '../../../Card/book-cover-card/book-cover-card';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Edicao } from '../../../models/edicao';
 import { Edicoes } from '../../../Services/edicoes/edicoes';
 
@@ -13,15 +13,14 @@ import { Edicoes } from '../../../Services/edicoes/edicoes';
 export class TodosLivros {
   edicoes: Edicao[] = [];
 
-  constructor(private services: Edicoes) {
+  constructor(private services: Edicoes, private cdr: ChangeDetectorRef) {
     this.carregarLivros()
   }
 
   carregarLivros() {
     this.services.listarEdicoes().subscribe((edicoes) => {
     this.edicoes = edicoes;
-
-    console.log('Edições:', edicoes);
-  });
-}
+    this.cdr.detectChanges();
+    });
+  }
 }

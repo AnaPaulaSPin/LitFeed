@@ -9,10 +9,10 @@
     </div>
   </div>
 
-     <div class="book-cards">
-  <a href="">
+<div class="book-cards">
+
+  <a href="" *ngFor="let livro of edicoes">
     <app-book-cover-card
-      *ngFor="let livro of edicoes"
       [livro]="livro">
     </app-book-cover-card>
   </a>
