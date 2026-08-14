@@ -64,6 +64,9 @@
       <span class="see-all">Ver tudo</span>
     </div>
     <div class="trending-row">
+      <a href="" *ngFor = "let usuario of usuarios">
+        <app-usuario-card [usuario]="usuario"> </app-usuario-card>
+      </a>
 
     </div>
   </section>

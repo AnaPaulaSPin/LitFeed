@@ -11,11 +11,14 @@ import { AutorCard } from '../../Card/Autor/autor/autor';
 import { Editora } from '../../models/editora';
 import { Editoras } from '../../Services/editoras/editoras';
 import { EditoraCard } from '../../Card/EditoraCard/editora-card/editora-card';
+import { User } from '../../models/users';
+import { UsuariosAuth } from '../../Services/Usuarios/UsuariosAuth';
+import { UsuarioCard } from '../../Card/UsuarioCard/usuario-card/usuario-card';
 
 
 @Component({
   selector: 'app-inicial',
-  imports: [BookCoverCard, NgFor,SlicePipe, RouterLink, AutorCard,  EditoraCard],
+  imports: [BookCoverCard, NgFor,SlicePipe, RouterLink, AutorCard,  EditoraCard, UsuarioCard],
   templateUrl: './inicial.html',
   styleUrl: './inicial.scss',
 })
@@ -23,13 +26,16 @@ export class Inicial {
 
   livros: Edicao[] = [];
   autores: Autor[] = [];
-  editoras: Editora[] = []
+  editoras: Editora[] = [];
+  usuarios: User[] = []
 
   constructor(private serviceLivros: Edicoes, private cdr: ChangeDetectorRef,
-    private serviceAutores: Autores, private serviceEditoras: Editoras) {
+    private serviceAutores: Autores, private serviceEditoras: Editoras,
+    private serviceUsuarios: UsuariosAuth) {
     this.carregarLivros();
     this.carregarAutores();
     this.carregarEditoras();
+    this.carregarUsuarios();
   }
 
   carregarLivros() {
@@ -63,6 +69,18 @@ export class Inicial {
       },
       error: (erro) => {
         console.log('Erro ao carregar editoras:', erro);
+      }
+    });
+  }
+
+  carregarUsuarios() {
+    this.serviceUsuarios.listarUsuarios().subscribe({
+      next: (usuarios) =>{
+        this.usuarios = usuarios,
+        this.cdr.detectChanges();
+      },
+      error: (erro) => {
+        console.log('Erro ao carregar editoras:',erro);
       }
     });
   }

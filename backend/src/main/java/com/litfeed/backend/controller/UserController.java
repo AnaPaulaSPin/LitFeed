@@ -1,5 +1,7 @@
 package com.litfeed.backend.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,8 @@ public class UserController {
     }
 
     @GetMapping
-    public void listarUsuarios() {
-
-
+    public List<UserResponseDTO> listarUsuarios() {
+        return service.listaTodos();
     }
 
     @GetMapping("/{id}")

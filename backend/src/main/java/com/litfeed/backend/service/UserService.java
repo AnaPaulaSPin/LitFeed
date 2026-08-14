@@ -1,5 +1,7 @@
 package com.litfeed.backend.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.litfeed.backend.dto.LoginDTO;
@@ -19,6 +21,20 @@ public class UserService {
         this.repository = repository;
     }
 
+    public List<UserResponseDTO> listaTodos() {
+      return repository.findAll()
+        .stream()
+        .map(user -> new UserResponseDTO(
+            user.getId(),
+            user.getNome(),
+            user.getUsername(),
+            user.getEmail(),
+            user.getFotoPerfil(),
+            user.getBanner(),
+            user.getBiografia()
+         ))
+         .toList();
+      }
 
  public UserResponseDTO cadastrar(User user){
 
@@ -151,5 +167,6 @@ public class UserService {
             usuario.getBiografia()
     );
 }
+
 
 }
