@@ -5,11 +5,12 @@ import { Livro } from '../../models/livro';
 import { Livros } from '../../Services/Livros/livros';
 import { Edicao } from '../../models/edicao';
 import { Edicoes } from '../../Services/edicoes/edicoes';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-inicial',
-  imports: [BookCoverCard, NgFor,SlicePipe],
+  imports: [BookCoverCard, NgFor,SlicePipe, RouterLink],
   templateUrl: './inicial.html',
   styleUrl: './inicial.scss',
 })

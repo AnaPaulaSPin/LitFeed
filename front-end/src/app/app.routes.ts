@@ -8,6 +8,7 @@ import { EditarPerfil } from './perfil/editar-perfil/editar-perfil';
 import { Perfil } from './perfil/perfil/perfil';
 import { Biblioteca } from './biblioteca/biblioteca';
 import { Inicial } from './Navegacao/inicial/inicial';
+import { TodosLivros } from './Navegacao/Pesquisa/todos-livros/todos-livros';
 
 
 export const routes: Routes = [
@@ -50,6 +51,10 @@ export const routes: Routes = [
       {
         path: 'navegacao',
         component: Inicial
+      },
+      {
+        path: 'todos-livros',
+        component: TodosLivros
       }
     ]
   }
