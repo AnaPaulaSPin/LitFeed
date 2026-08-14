@@ -1,8 +1,8 @@
 $navbar-height: 64px;
-$color-accent: #7a2e3a;
+$color-accent: #6C63FF;
 $color-bg: #ffffff;
-$color-border: #e8e4de;
-$color-text: #2b2b2b;
+$color-border: #3B82F6;
+$color-text: #1c2025;
 $color-text-muted: #8a8a8a;
 $color-input-bg: #fafafa;
 
@@ -18,12 +18,14 @@ $color-input-bg: #fafafa;
     display: flex;
     align-items: center;
     gap: 10px;
-    max-width: 480px;
+    max-width: 10000px;
     padding: 10px 16px;
     border-radius: 999px;
     border: 1px solid $color-border;
     background: $color-input-bg;
     transition: border-color 0.2s ease, background 0.2s ease;
+    width: 700px;
+    margin: 0 auto;
 
     &:focus-within {
       border-color: $color-accent;
