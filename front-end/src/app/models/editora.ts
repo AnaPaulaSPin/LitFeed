@@ -1,5 +1,5 @@
 export interface Editora{
   id: number;
   nome: string;
-  foto: string;
+  logo: string;
 }

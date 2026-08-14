@@ -37,9 +37,11 @@
       <h2>Editoras em alta</h2>
       <span class="see-all">Ver tudo</span>
     </div>
-    <div class="trending-row ">
-      <!-- componente entity-card (editora) aqui -->
-    </div>
+    <div class="trending-row">
+  <a href="" *ngFor="let editora of editoras">
+    <app-editora-card [editora]="editora"></app-editora-card>
+  </a>
+</div>
   </section>
 
   <section class="trending-section">
@@ -54,15 +56,15 @@
         </a>
     </div>
   </section>
+
+
    <section class="trending-section">
     <div class="section-header">
       <h2>Usuários mais seguidos</h2>
       <span class="see-all">Ver tudo</span>
     </div>
     <div class="trending-row">
-      <!-- componente user-card aqui -->
-      <!-- componente user-card aqui -->
-      <!-- componente user-card aqui -->
+
     </div>
   </section>
 </div>
