@@ -71,11 +71,7 @@ $color-input-bg: #fafafa;
     .see-all {
       font-size: 13px;
       color: $color-accent;
-      cursor: pointer;
-
-      &:hover {
-        text-decoration: underline;
-      }
+      text-decoration: none;
     }
   }
 

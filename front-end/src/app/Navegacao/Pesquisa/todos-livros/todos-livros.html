@@ -5,18 +5,20 @@
         <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
         <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <input type="text" placeholder="Buscar na sua biblioteca" />
+      <input type="text"
+      [(ngModel)] = "search"
+      (input)="filtrarLivros()"
+      placeholder="Buscar na sua biblioteca" />
     </div>
   </div>
 
 <div class="book-cards">
-
-  <a href="" *ngFor="let livro of edicoes">
+  <a href="" *ngFor="let livro of livrosFiltrados">
     <app-book-cover-card
       [livro]="livro">
     </app-book-cover-card>
   </a>
-
 </div>
+ <p *ngIf="nenhumLivro" class="nenhum"> Nenhum Livro Encontrado</p>
 
 </div>

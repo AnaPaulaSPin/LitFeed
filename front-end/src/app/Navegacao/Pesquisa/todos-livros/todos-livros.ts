@@ -1,19 +1,23 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { BookCoverCard } from '../../../Card/book-cover-card/book-cover-card';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Edicao } from '../../../models/edicao';
 import { Edicoes } from '../../../Services/edicoes/edicoes';
 import { Autor } from '../../../models/autor';
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-todos-livros',
-  imports: [BookCoverCard, NgFor],
+  imports: [BookCoverCard, NgFor, FormsModule, NgIf],
   templateUrl: './todos-livros.html',
   styleUrl: './todos-livros.scss',
 })
 export class TodosLivros {
   edicoes: Edicao[] = [];
+  livrosFiltrados: Edicao[] = [];
   autores : Autor[] = [];
+  search: String = '';
+  nenhumLivro = false;
 
   constructor(private services: Edicoes,
     private cdr: ChangeDetectorRef) {
@@ -22,8 +26,26 @@ export class TodosLivros {
 
   carregarLivros() {
     this.services.listarEdicoes().subscribe((edicoes) => {
+    this.livrosFiltrados = edicoes;
     this.edicoes = edicoes;
     this.cdr.detectChanges();
     });
+  }
+
+  filtrarLivros() {
+    if (this.search.trim() === '') {
+      this.livrosFiltrados = this.edicoes;
+      this.nenhumLivro = false;
+      return;
+    }
+
+    this.livrosFiltrados = this.livrosFiltrados.filter(livro =>
+    livro.livro.titulo
+      .toLowerCase()
+      .includes(this.search.toLowerCase())
+    );
+    if(this.livrosFiltrados.length === 0) {
+      this.nenhumLivro = true;
+    }
   }
 }

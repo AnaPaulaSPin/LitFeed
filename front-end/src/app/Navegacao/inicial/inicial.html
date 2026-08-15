@@ -12,7 +12,7 @@
   <section class="trending-section">
     <div class="section-header">
       <h2>Assuntos em alta</h2>
-      <span class="see-all">Ver tudo</span>
+      <a class="see-all" routerLink="/todos-trendings">Ver tudo</a>
     </div>
     <div class="tag-cloud">
       <span class="tag-pill">Trendings aqui</span>
@@ -35,7 +35,7 @@
   <section class="trending-section">
     <div class="section-header">
       <h2>Editoras em alta</h2>
-      <span class="see-all">Ver tudo</span>
+      <a class="see-all" routerLink="/todas-editoras">Ver tudo</a>
     </div>
     <div class="trending-row">
   <a href="" *ngFor="let editora of editoras">
@@ -47,7 +47,7 @@
   <section class="trending-section">
     <div class="section-header">
       <h2>Autores em alta</h2>
-      <span class="see-all">Ver tudo</span>
+      <a class="see-all" routerLink="/todos-autores">Ver tudo</a>
     </div>
     <div class="trending-row">
       <a href="" *ngFor="let autor of autores | slice:0:10">
@@ -61,7 +61,7 @@
    <section class="trending-section">
     <div class="section-header">
       <h2>Usuários mais seguidos</h2>
-      <span class="see-all">Ver tudo</span>
+      <a class="see-all" routerLink="/todos-usuarios">Ver tudo</a>
     </div>
     <div class="trending-row">
       <a href="" *ngFor = "let usuario of usuarios">
