@@ -5,10 +5,11 @@ import { Edicao } from '../../../models/edicao';
 import { Edicoes } from '../../../Services/edicoes/edicoes';
 import { Autor } from '../../../models/autor';
 import { FormsModule } from "@angular/forms";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-todos-livros',
-  imports: [BookCoverCard, NgFor, FormsModule, NgIf],
+  imports: [BookCoverCard, NgFor, FormsModule, NgIf, RouterLink],
   templateUrl: './todos-livros.html',
   styleUrl: './todos-livros.scss',
 })

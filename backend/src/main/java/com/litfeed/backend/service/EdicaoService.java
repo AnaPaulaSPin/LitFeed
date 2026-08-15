@@ -23,4 +23,8 @@ public class EdicaoService {
     public List<Edicao> listarTodas() {
      return repository.findAll();
     }
+
+    public Edicao buscarPorId(Long id) {
+       return repository.getById(id);
+    }
 }

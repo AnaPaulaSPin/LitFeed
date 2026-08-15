@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.litfeed.backend.entity.Edicao;
 import com.litfeed.backend.service.EdicaoService;
 
+
 @RestController
 @RequestMapping("/edicoes")
 public class EdicaoController {
@@ -19,6 +20,13 @@ public class EdicaoController {
     public EdicaoController(EdicaoService service) {
         this.service = service;
     }
+
+    @GetMapping("/{id}")
+    public Edicao buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+   
+    
 
     @GetMapping("/livro/{idLivro}")
     public List<Edicao> buscarPorLivro(@PathVariable Long idLivro) {

@@ -13,6 +13,7 @@ import { TodosAutores } from './Navegacao/Pesquisa/todos-autores/todos-autores';
 import { TodasEditoras } from './Navegacao/Pesquisa/todas-editoras/todas-editoras';
 import { TodosUsuarios } from './Navegacao/Pesquisa/todos-usuarios/todos-usuarios';
 import { Trendings } from './Navegacao/Pesquisa/trendings/trendings';
+import { LivrosDetalhes } from './Detalhes/livros-detalhes/livros-detalhes';
 
 
 export const routes: Routes = [
@@ -75,6 +76,10 @@ export const routes: Routes = [
       {
         path: 'trendings',
         component: Trendings
+      },
+      {
+        path: 'detalhesLivro/:id',
+        component: LivrosDetalhes
       }
 
     ]

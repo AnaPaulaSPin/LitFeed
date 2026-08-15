@@ -15,4 +15,8 @@ export class Edicoes {
   listarEdicoes(): Observable<Edicao[]> {
     return this.http.get<Edicao[]>(this.apiUrl);
   }
+
+  getEdicao(id: number) {
+   return this.http.get<Edicao>(`${this.apiUrl}/${id}`);
+ }
 }

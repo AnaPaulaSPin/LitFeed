@@ -13,7 +13,7 @@
   </div>
 
 <div class="book-cards">
-  <a href="" *ngFor="let livro of livrosFiltrados">
+  <a href="" *ngFor="let livro of livrosFiltrados" [routerLink]="['/detalhesLivro', livro.id]">
     <app-book-cover-card
       [livro]="livro">
     </app-book-cover-card>

@@ -23,4 +23,6 @@ export class Livros {
     return this.http.get<Edicao[]>(`http://localhost:8080/edicoes/livro/${idLivro}`)
   }
 
+  
+
 }

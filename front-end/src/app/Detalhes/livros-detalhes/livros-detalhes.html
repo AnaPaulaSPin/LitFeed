@@ -1,1 +1,167 @@
-<p>livros-detalhes works!</p>
+<div class="livro-page">
+
+  <!-- VOLTAR -->
+  <button class="btn-voltar" (click)="voltar()">
+    <span>←</span>
+    Voltar
+  </button>
+
+
+  <!-- INFORMAÇÕES PRINCIPAIS -->
+  <section class="livro-header">
+
+    <div class="livro-capa">
+      <img
+        [src]="edicao.capa"
+        [alt]="edicao.livro.titulo"
+      />
+    </div>
+
+
+    <div class="livro-info">
+
+      <h1>{{ edicao.livro.titulo }}</h1>
+
+      <a href="" class="livro-autor">
+        {{ edicao.livro.autor.nome }}
+      </a>
+
+      <div class="livro-avaliacao">
+        <span class="estrelas">★★★★★</span>
+        <span>4,7</span>
+        <span class="avaliacoes">(1.245 avaliações)</span>
+      </div>
+
+      <div class="livro-dados">
+
+        <div class="dado">
+          <span>Gênero</span>
+          <strong>Romance</strong>
+        </div>
+
+        <div class="dado">
+          <span>Editora</span>
+          <strong>{{ edicao.editora.nome }}</strong>
+        </div>
+
+        <div class="dado">
+          <span>Publicação</span>
+          <strong>{{ edicao.ano }}</strong>
+        </div>
+
+        <div class="dado">
+          <span>Páginas</span>
+          <strong>{{ edicao.total_paginas }}</strong>
+        </div>
+
+        <div class="dado">
+          <span>Formato</span>
+          <strong>{{ edicao.formato }}</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SOBRE O LIVRO -->
+  <section class="livro-sobre">
+    <h2>Sinopse </h2>
+
+    <p>
+      {{ edicao.livro.sinopse }}
+    </p>
+  </section>
+
+
+  <!-- NAVEGAÇÃO -->
+  <nav class="livro-tabs">
+
+    <button
+      [class.active]="abaAtiva === 'edicoes'"
+      (click)="abaAtiva = 'edicoes'">
+      Edições
+    </button>
+
+    <button
+      [class.active]="abaAtiva === 'resenhas'"
+      (click)="abaAtiva = 'resenhas'">
+      Resenhas
+    </button>
+
+    <button
+      [class.active]="abaAtiva === 'publicacoes'"
+      (click)="abaAtiva = 'publicacoes'">
+      Publicações
+    </button>
+
+  </nav>
+
+
+  <!-- CONTEÚDO DAS ABAS -->
+
+  <section class="aba-conteudo">
+
+
+    <!-- EDIÇÕES -->
+    <div *ngIf="abaAtiva === 'edicoes'">
+
+      <div class="secao-titulo">
+        <h2>Edições</h2>
+        <p>Confira as edições disponíveis deste livro.</p>
+      </div>
+
+
+      <div class="edicoes-lista">
+
+        <div *ngFor="let edicao of edicoesRelacionadas">
+          <a  [routerLink]="['/detalhesLivro', edicao.livro.id]">
+            <app-card-livro [edicao]="edicao"> </app-card-livro>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- RESENHAS -->
+    <div *ngIf="abaAtiva === 'resenhas'">
+
+      <div class="secao-titulo">
+        <h2>Resenhas</h2>
+        <p>Veja o que outros leitores acharam deste livro.</p>
+      </div>
+
+
+
+      <!-- Lista das principais -->
+      <div class="resenhas-lista">
+
+      </div>
+
+    </div>
+
+
+    <!-- PUBLICAÇÕES -->
+    <div *ngIf="abaAtiva === 'publicacoes'">
+
+      <div class="secao-titulo">
+        <h2>Publicações</h2>
+        <p>
+          Veja o que os leitores estão comentando sobre este livro.
+        </p>
+      </div>
+
+
+      <div class="publicacoes-lista">
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
