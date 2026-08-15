@@ -26,7 +26,7 @@
     </div>
     <div class="trending-row book-cards">
   <app-book-cover-card
-    *ngFor="let livro of livros | slice:0:10"
+    *ngFor="let livro of livros | slice:0:5"
     [livro]="livro">
   </app-book-cover-card>
 </div>
@@ -38,7 +38,7 @@
       <a class="see-all" routerLink="/todas-editoras">Ver tudo</a>
     </div>
     <div class="trending-row">
-  <a href="" *ngFor="let editora of editoras">
+  <a href="" *ngFor="let editora of editoras | slice:0:5">
     <app-editora-card [editora]="editora"></app-editora-card>
   </a>
 </div>
@@ -50,7 +50,7 @@
       <a class="see-all" routerLink="/todos-autores">Ver tudo</a>
     </div>
     <div class="trending-row">
-      <a href="" *ngFor="let autor of autores | slice:0:10">
+      <a href="" *ngFor="let autor of autores | slice:0:5">
         <app-autor
             [autor]="autor"> </app-autor>
         </a>
@@ -64,7 +64,7 @@
       <a class="see-all" routerLink="/todos-usuarios">Ver tudo</a>
     </div>
     <div class="trending-row">
-      <a href="" *ngFor = "let usuario of usuarios">
+      <a href="" *ngFor = "let usuario of usuarios | slice:0:5">
         <app-usuario-card [usuario]="usuario"> </app-usuario-card>
       </a>
 

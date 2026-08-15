@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './todos-usuarios.html',
   styleUrl: './todos-usuarios.scss',
 })
-export class TodosUsuarios {}
+export class TodosUsuarios {
+  
+}
