@@ -35,6 +35,7 @@ public class PublicacaoController {
 
     @PostMapping
     public Publicacao salvar(@RequestBody Publicacao publicacao) {
+        System.out.println("USUARIO: " + publicacao.getUsuario());
         return service.salvar(publicacao);
     }
 
@@ -44,9 +45,9 @@ public class PublicacaoController {
     }
 
     @GetMapping("/usuario/{idUsuario}")
-public List<Publicacao> listarPorUsuario(@PathVariable Long idUsuario) {
-    return service.listarPorUsuario(idUsuario);
-}
+    public List<Publicacao> listarPorUsuario(@PathVariable Long idUsuario) {
+     return service.listarPorUsuario(idUsuario);
+    }
 
 
 }
