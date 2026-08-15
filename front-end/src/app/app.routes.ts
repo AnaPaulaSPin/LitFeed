@@ -9,6 +9,10 @@ import { Perfil } from './perfil/perfil/perfil';
 import { Biblioteca } from './biblioteca/biblioteca';
 import { Inicial } from './Navegacao/inicial/inicial';
 import { TodosLivros } from './Navegacao/Pesquisa/todos-livros/todos-livros';
+import { TodosAutores } from './Navegacao/Pesquisa/todos-autores/todos-autores';
+import { TodasEditoras } from './Navegacao/Pesquisa/todas-editoras/todas-editoras';
+import { TodosUsuarios } from './Navegacao/Pesquisa/todos-usuarios/todos-usuarios';
+import { Trendings } from './Navegacao/Pesquisa/trendings/trendings';
 
 
 export const routes: Routes = [
@@ -55,7 +59,24 @@ export const routes: Routes = [
       {
         path: 'todos-livros',
         component: TodosLivros
+      },
+      {
+        path: 'todos-autores',
+        component: TodosAutores
+      },
+      {
+        path: 'todas-editoras',
+        component: TodasEditoras
+      },
+      {
+        path: 'todos-usuarios',
+        component: TodosUsuarios
+      },
+      {
+        path: 'trendings',
+        component: Trendings
       }
+
     ]
   }
 
