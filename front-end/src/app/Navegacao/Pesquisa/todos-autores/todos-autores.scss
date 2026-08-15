@@ -1,0 +1,87 @@
+.library-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 24px 24px;
+}
+
+.library-search {
+  padding-top: 100px;
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 700px;
+    max-width: 100%;
+
+    padding: 10px 16px;
+    margin: 0 auto;
+
+    border-radius: 999px;
+    border: 1px solid #e8e4de;
+    background: #fafafa;
+
+    box-sizing: border-box;
+
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease;
+
+    &:focus-within {
+      border-color: #6C63FF;
+      background: #ffffff;
+    }
+
+    .search-icon {
+      width: 18px;
+      height: 18px;
+      color: #3B82F6;
+      flex-shrink: 0;
+    }
+
+    input {
+      width: 100%;
+
+      border: none;
+      background: transparent;
+      outline: none;
+
+      font-size: 14px;
+      color: #070707;
+
+      &::placeholder {
+        color: #8a8a8a;
+      }
+    }
+  }
+}
+
+.autor-cards {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  );
+
+  row-gap: 20px;
+  column-gap: 10px;
+
+  width: 700px;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+.autor-cards a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nenhum {
+  text-align: center;
+}
