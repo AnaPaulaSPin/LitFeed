@@ -1,1 +1,82 @@
-<p>autores-detalhes works!</p>
+<div class="autor-page">
+
+  <!-- VOLTAR -->
+  <button class="btn-voltar" (click)="voltar()">
+    <span>←</span>
+    Voltar
+  </button>
+
+
+  <!-- INFORMAÇÕES DO AUTOR -->
+  <section class="autor-header">
+
+    <div class="autor-foto">
+      <img
+        [src]="autor?.foto"
+        [alt]="autor?.nome"
+      />
+    </div>
+
+    <div class="autor-info">
+
+      <h1>{{ autor?.nome }}</h1>
+
+      <p>
+        biografia
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDIÇÕES RELACIONADAS -->
+  <section class="autor-edicoes">
+
+    <div class="secao-titulo">
+      <h2>Edições relacionadas</h2>
+
+      <p>
+        Livros e edições deste autor.
+      </p>
+    </div>
+
+
+    <div class="edicoes-grid">
+
+      <a
+        href=""
+        *ngFor="let edicao of edicoes">
+
+        <div class="edicao-card">
+
+          <img
+            [src]="edicao.capa"
+            [alt]="edicao.livro.nome"
+          />
+
+          <div class="edicao-info">
+
+            <h3>
+              {{ edicao.livro.nome }}
+            </h3>
+
+            <p>
+              {{ edicao.editora.nome }}
+            </p>
+
+            <span>
+              {{ edicao.ano }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+</div>

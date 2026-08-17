@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Autor } from '../../models/autor';
+import { Edicao } from '../../models/edicao';
 
 @Component({
   selector: 'app-autores-detalhes',
@@ -6,4 +8,11 @@ import { Component } from '@angular/core';
   templateUrl: './autores-detalhes.html',
   styleUrl: './autores-detalhes.scss',
 })
-export class AutoresDetalhes {}
+export class AutoresDetalhes {
+  autor?: Autor
+  edicoes?: Edicao[] = []
+
+  voltar(){
+
+  }
+}

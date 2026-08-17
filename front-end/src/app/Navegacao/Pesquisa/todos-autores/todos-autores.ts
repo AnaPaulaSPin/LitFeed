@@ -4,10 +4,11 @@ import { Autores } from '../../../Services/autores/autores';
 import { Autor } from './../../../models/autor';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { AutorCard } from '../../../Card/Autor/autor/autor';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-todos-autores',
-  imports: [NgIf, NgFor, AutorCard, FormsModule],
+  imports: [NgIf, NgFor, AutorCard, FormsModule, RouterLink],
   templateUrl: './todos-autores.html',
   styleUrl: './todos-autores.scss',
 })

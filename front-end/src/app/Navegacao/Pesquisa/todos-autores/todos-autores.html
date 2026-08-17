@@ -32,7 +32,7 @@
 
   <div class="autor-cards">
 
-    <a href="" *ngFor="let autor of autoresFiltrados">
+    <a href="" *ngFor="let autor of autoresFiltrados" [routerLink]="['/detalhesAutor', autor.id]">
 
       <app-autor
         [autor]="autor">
