@@ -38,6 +38,24 @@ SET foto = 'assets\\DataBase\\Autores\\c-s-lewis.jpg'
 WHERE nome = 'C.S. Lewis';
 
 
+DROP TABLE publicacao;
+
+SHOW TABLES;
+
+DESCRIBE publicacao;
+
+SHOW CREATE TABLE publicacao;
+
+ALTER TABLE publicacao
+DROP COLUMN id_usuario,
+DROP COLUMN id_edicao,
+DROP COLUMN id_genero;
+
+ALTER TABLE publicacao
+DROP FOREIGN KEY FK1fkvjdmffoiojunm70k71ps4v,
+DROP FOREIGN KEY FK7i496gr45h3rstrg4llkcjn6q,
+DROP FOREIGN KEY FKfmx5o13ybwqeiee1finmwdi48;
+
 -- ATUALIZAR FOTO DAS EDITORAS
 UPDATE Editora
 SET logo = 'assets\\DataBase\\Editoras\\intrinseca.jpg'
