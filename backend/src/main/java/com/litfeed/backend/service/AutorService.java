@@ -1,6 +1,7 @@
 package com.litfeed.backend.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,10 @@ public class AutorService {
 
    public List<Autor> listarAutores(){
      return repository.findAll();
+   }
+   
+   public Optional<Autor> buscarPorId(Long id) {
+     return repository.findById(id);
    }
 
 }

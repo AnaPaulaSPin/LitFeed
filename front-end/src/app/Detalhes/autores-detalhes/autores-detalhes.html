@@ -44,36 +44,11 @@
 
     <div class="edicoes-grid">
 
-      <a
-        href=""
-        *ngFor="let edicao of edicoes">
-
-        <div class="edicao-card">
-
-          <img
-            [src]="edicao.capa"
-            [alt]="edicao.livro.nome"
-          />
-
-          <div class="edicao-info">
-
-            <h3>
-              {{ edicao.livro.nome }}
-            </h3>
-
-            <p>
-              {{ edicao.editora.nome }}
-            </p>
-
-            <span>
-              {{ edicao.ano }}
-            </span>
-
-          </div>
-
+         <div *ngFor="let edicao of edicoes">
+          <a  [routerLink]="['/detalhesLivro', edicao.livro.id]">
+            <app-book-cover-card [livro]="edicao"> </app-book-cover-card>
+          </a>
         </div>
-
-      </a>
 
     </div>
 

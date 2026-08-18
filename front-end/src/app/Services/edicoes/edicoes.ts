@@ -18,5 +18,9 @@ export class Edicoes {
 
   getEdicao(id: number) {
    return this.http.get<Edicao>(`${this.apiUrl}/${id}`);
- }
+  }
+
+  buscarEdicoesPorLivro(livroId: number): Observable<Edicao[]> {
+    return this.http.get<Edicao[]>(`${this.apiUrl}/livro/${livroId}`);
+  }
 }

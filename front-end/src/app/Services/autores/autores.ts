@@ -12,4 +12,8 @@ export class Autores {
   listarAutores() {
     return this.http.get<Autor[]>(this.apiUrl);
   }
+
+  buscarAutorPorId(id: number) {
+    return this.http.get<Autor>(`${this.apiUrl}/${id}`);
+  }
 }

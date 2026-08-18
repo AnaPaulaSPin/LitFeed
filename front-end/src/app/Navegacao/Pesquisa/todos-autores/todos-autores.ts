@@ -45,5 +45,7 @@ export class TodosAutores {
    if(this.autoresFiltrados.length === 0) {
       this.nenhumAutor = true;
     }
- }
+  }
+
+  
 }

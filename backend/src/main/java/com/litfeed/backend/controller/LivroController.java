@@ -2,6 +2,7 @@ package com.litfeed.backend.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,14 @@ public class LivroController {
     public List<Livro> listarLivros() {
         return service.listarLivros();
     }
+    
     @GetMapping("/nome")
-public Livro buscarPorNome(@RequestParam String nome) {
-    return service.buscarPorNome(nome);
-}
+    public Livro buscarPorNome(@RequestParam String nome) {
+        return service.buscarPorNome(nome);
+    }
+    
+    @GetMapping("/autor/{autorId}")
+    public List<Livro> listarPorAutor(@PathVariable Long autorId) {
+        return service.listarLivrosPorAutor(autorId);
+    }
 }

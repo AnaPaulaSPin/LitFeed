@@ -8,21 +8,27 @@ import { Edicao } from '../../models/edicao';
 })
 export class Livros {
 
-  private apiUrl = 'http://localhost:8080/livros'
+  private apiUrl = 'http://localhost:8080/livros';
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   listarLivros() {
-  return this.http.get<Livro[]>(this.apiUrl);
-}
+    return this.http.get<Livro[]>(this.apiUrl);
+  }
+
   buscarPorNome(nome: string) {
     return this.http.get<Livro>(`${this.apiUrl}/nome?nome=${nome}`);
   }
 
   buscarEdicoes(idLivro: number) {
-    return this.http.get<Edicao[]>(`http://localhost:8080/edicoes/livro/${idLivro}`)
+    return this.http.get<Edicao[]>(
+      `http://localhost:8080/edicoes/livro/${idLivro}`
+    );
   }
 
-  
-
+  listarLivrosPorAutor(idAutor: number) {
+    return this.http.get<Livro[]>(
+      `${this.apiUrl}/autor/${idAutor}`
+    );
+  }
 }
