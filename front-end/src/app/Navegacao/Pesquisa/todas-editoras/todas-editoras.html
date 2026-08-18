@@ -32,7 +32,7 @@
 
   <div class="editora-cards">
 
-    <a href="" *ngFor="let editora of editorasFiltradas">
+    <a *ngFor="let editora of editorasFiltradas" [routerLink]="['/detalhesEditora', editora.id]">
 
       <app-editora-card
         [editora]="editora">

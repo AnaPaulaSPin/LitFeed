@@ -4,10 +4,11 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { EditoraCard } from '../../../Card/EditoraCard/editora-card/editora-card';
 import { FormsModule } from '@angular/forms';
 import { Editoras } from '../../../Services/editoras/editoras';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-todas-editoras',
-  imports: [EditoraCard, FormsModule, NgFor, NgIf],
+  imports: [EditoraCard, FormsModule, NgFor, NgIf, RouterLink],
   templateUrl: './todas-editoras.html',
   styleUrl: './todas-editoras.scss',
 })
@@ -21,7 +22,7 @@ export class TodasEditoras {
     private cdr: ChangeDetectorRef
   ) {
     this.carregarEditoras()
-  } 
+  }
 
   carregarEditoras() {
     this.service.listarEditoras().subscribe((editoras) => {

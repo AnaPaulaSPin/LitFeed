@@ -85,6 +85,10 @@ export const routes: Routes = [
       {
         path: 'detalhesAutor/:id',
         component: AutoresDetalhes
+      },
+      {
+        path: 'detalhesEditora/:id',
+        component: AutoresDetalhes
       }
 
     ]

@@ -1,1 +1,66 @@
-<p>editoras-detalhes works!</p>
+<div class="editora-page">
+
+  <!-- VOLTAR -->
+  <button class="btn-voltar" (click)="voltar()">
+    <span>←</span>
+    Voltar
+  </button>
+
+
+  <!-- INFORMAÇÕES DA EDITORA -->
+  <section class="editora-header">
+
+    <div class="editora-logo">
+      <img
+        [src]="editora.logo"
+        [alt]="editora.nome"
+      />
+    </div>
+
+    <div class="editora-info">
+
+      <h1>{{ editora.nome }}</h1>
+
+      <p>
+        descrição
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDIÇÕES -->
+  <section class="editora-edicoes">
+
+    <div class="secao-titulo">
+
+      <h2>Edições publicadas</h2>
+
+      <p>
+        Livros publicados por esta editora.
+      </p>
+
+    </div>
+
+
+    <div class="edicoes-grid">
+
+      <a
+        href=""
+        *ngFor="let edicao of edicoes">
+         <div *ngFor="let edicao of edicoes">
+           <a  [routerLink]="['/detalhesLivro', edicao.livro.id]">
+             <app-book-cover-card [livro]="edicao"> </app-book-cover-card>
+           </a>
+         </div>
+
+
+
+      </a>
+
+    </div>
+
+  </section>
+
+</div>
