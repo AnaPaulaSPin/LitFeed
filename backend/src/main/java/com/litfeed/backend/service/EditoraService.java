@@ -1,6 +1,7 @@
 package com.litfeed.backend.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,10 @@ public class EditoraService {
 
     public List<Editora> listarEditoras(){
       return repository.findAll();
+    }
+
+    public Optional<Editora> buscarPorId(Long id) {
+      return repository.findById(id);
     }
 
 }

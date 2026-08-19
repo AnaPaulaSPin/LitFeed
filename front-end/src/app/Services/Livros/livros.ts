@@ -31,4 +31,10 @@ export class Livros {
       `${this.apiUrl}/autor/${idAutor}`
     );
   }
+
+  listarLivrosPorEditora(idEditora: number) {
+    return this.http.get<Livro[]>(
+      `${this.apiUrl}/editora/${idEditora}`
+    );
+  }
 }

@@ -15,6 +15,7 @@ import { TodosUsuarios } from './Navegacao/Pesquisa/todos-usuarios/todos-usuario
 import { Trendings } from './Navegacao/Pesquisa/trendings/trendings';
 import { LivrosDetalhes } from './Detalhes/livros-detalhes/livros-detalhes';
 import { AutoresDetalhes } from './Detalhes/autores-detalhes/autores-detalhes';
+import { EditorasDetalhes } from './Detalhes/editoras-detalhes/editoras-detalhes';
 
 
 export const routes: Routes = [
@@ -88,7 +89,7 @@ export const routes: Routes = [
       },
       {
         path: 'detalhesEditora/:id',
-        component: AutoresDetalhes
+        component: EditorasDetalhes
       }
 
     ]

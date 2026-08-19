@@ -12,4 +12,8 @@ export class Editoras {
   listarEditoras() {
     return this.http.get<Editora[]>(this.apiUrl);
   }
+
+    buscarPorId(id: number){
+      return this.http.get<Editora>(`${this.apiUrl}/${id}`);
+    }
 }

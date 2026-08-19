@@ -33,4 +33,10 @@ public class LivroService {
     public List<Livro> listarLivrosPorAutor(Long autorId) {
         return repository.findByAutorId(autorId);
     } 
+
+    public List<Livro> listarLivrosPorEditora(Long editoraId) {
+        return repository.findByEditoraId(editoraId);
+    }
+
+    
 }

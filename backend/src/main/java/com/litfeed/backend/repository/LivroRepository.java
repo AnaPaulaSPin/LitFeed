@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.litfeed.backend.entity.Autor;
@@ -17,5 +18,8 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
     List<Livro> findByAutor(Autor autor);
     
     List<Livro> findByAutorId(Long autorId);
+
+    @Query("select distinct e.livro from Edicao e where e.editora.id = :editoraId")
+    List<Livro> findByEditoraId(Long editoraId);
 
 }

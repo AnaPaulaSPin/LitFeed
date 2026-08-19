@@ -33,4 +33,11 @@ public class LivroController {
     public List<Livro> listarPorAutor(@PathVariable Long autorId) {
         return service.listarLivrosPorAutor(autorId);
     }
+
+    @GetMapping("/editora/{editoraId}")
+    public List<Livro> listarPorEditora(@PathVariable Long editoraId) {
+        return service.listarLivrosPorEditora(editoraId);
+    }
+
+    
 }

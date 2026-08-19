@@ -12,14 +12,14 @@
 
     <div class="editora-logo">
       <img
-        [src]="editora.logo"
-        [alt]="editora.nome"
+        [src]="editora?.logo"
+        [alt]="editora?.nome"
       />
     </div>
 
     <div class="editora-info">
 
-      <h1>{{ editora.nome }}</h1>
+      <h1>{{ editora?.nome }}</h1>
 
       <p>
         descrição
@@ -46,18 +46,11 @@
 
     <div class="edicoes-grid">
 
-      <a
-        href=""
-        *ngFor="let edicao of edicoes">
-         <div *ngFor="let edicao of edicoes">
-           <a  [routerLink]="['/detalhesLivro', edicao.livro.id]">
-             <app-book-cover-card [livro]="edicao"> </app-book-cover-card>
-           </a>
-         </div>
-
-
-
-      </a>
+      <div *ngFor="let edicao of edicoes">
+        <a [routerLink]="['/detalhesLivro', edicao.livro.id]">
+          <app-book-cover-card [livro]="edicao"></app-book-cover-card>
+        </a>
+      </div>
 
     </div>
 
