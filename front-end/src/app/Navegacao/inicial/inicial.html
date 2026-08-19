@@ -25,10 +25,10 @@
       <a class="see-all" routerLink="/todos-livros">Ver tudo</a>
     </div>
     <div class="trending-row book-cards">
-  <app-book-cover-card
-    *ngFor="let livro of livros | slice:0:5"
-    [livro]="livro">
-  </app-book-cover-card>
+  <a *ngFor="let livro of livros | slice:0:5"
+     [routerLink]="['/detalhesLivro', livro.id]">
+    <app-book-cover-card [livro]="livro"></app-book-cover-card>
+  </a>
 </div>
   </section>
 
@@ -38,7 +38,8 @@
       <a class="see-all" routerLink="/todas-editoras">Ver tudo</a>
     </div>
     <div class="trending-row">
-  <a href="" *ngFor="let editora of editoras | slice:0:5">
+    <a *ngFor="let editora of editoras | slice:0:5"
+      [routerLink]="['/detalhesEditora', editora.id]">
     <app-editora-card [editora]="editora"></app-editora-card>
   </a>
 </div>
@@ -50,7 +51,8 @@
       <a class="see-all" routerLink="/todos-autores">Ver tudo</a>
     </div>
     <div class="trending-row">
-      <a href="" *ngFor="let autor of autores | slice:0:5">
+      <a *ngFor="let autor of autores | slice:0:5"
+        [routerLink]="['/detalhesAutor', autor.id]">
         <app-autor
             [autor]="autor"> </app-autor>
         </a>
