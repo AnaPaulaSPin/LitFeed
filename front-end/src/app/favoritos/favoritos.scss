@@ -1,0 +1,30 @@
+.perfil-favoritos {
+  width: 100%;
+}
+
+.favoritos-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+
+  h2 {
+    margin: 0;
+    color: #2E3440;
+  }
+
+  a {
+    color: #6C63FF;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+.favoritos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 15px;
+}
