@@ -7,7 +7,7 @@ import { Edicoes } from '../../Services/edicoes/edicoes';
 import { RouterLink } from '@angular/router';
 import { Autor } from '../../models/autor';
 import { Autores } from '../../Services/autores/autores';
-import { AutorCard } from '../../Card/Autor/autor/autor';
+import { AutorCard } from '../../Card/Card-Autor/autor-card';
 import { Editora } from '../../models/editora';
 import { Editoras } from '../../Services/editoras/editoras';
 import { EditoraCard } from '../../Card/EditoraCard/editora-card/editora-card';

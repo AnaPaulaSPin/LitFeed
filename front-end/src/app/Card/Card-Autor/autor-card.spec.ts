@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutorCard } from './autor';
+import { AutorCard } from './autor-card';
 
 describe('Autor', () => {
   let component: AutorCard;

@@ -3,7 +3,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { Autores } from '../../../Services/autores/autores';
 import { Autor } from './../../../models/autor';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { AutorCard } from '../../../Card/Autor/autor/autor';
+import { AutorCard } from '../../../Card/Card-Autor/autor-card';
 import { RouterLink } from "@angular/router";
 
 @Component({

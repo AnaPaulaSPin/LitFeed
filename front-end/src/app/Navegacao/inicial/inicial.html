@@ -53,8 +53,8 @@
     <div class="trending-row">
       <a *ngFor="let autor of autores | slice:0:5"
         [routerLink]="['/detalhesAutor', autor.id]">
-        <app-autor
-            [autor]="autor"> </app-autor>
+        <app-autor-card
+            [autor]="autor"> </app-autor-card>
         </a>
     </div>
   </section>
