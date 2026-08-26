@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Autor } from '../../models/autor';
+import { Autor } from '../../../Models/autor';
 
 @Component({
   selector: 'app-autor-card',
@@ -8,5 +8,5 @@ import { Autor } from '../../models/autor';
   styleUrl: './autor-card.scss',
 })
 export class AutorCard {
-  @Input() autor: any;
+  @Input() autor?: Autor;
 }
