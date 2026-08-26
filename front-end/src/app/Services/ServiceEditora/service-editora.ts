@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Editora } from '../../models/editora';
+import { Editora } from '../../Models/editora';
 
 @Injectable({
   providedIn: 'root',

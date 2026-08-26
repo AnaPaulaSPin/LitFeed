@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Genero } from '../../models/genero';
+import { Genero } from '../../Models/genero';
 
 @Injectable({
   providedIn: 'root',

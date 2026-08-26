@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Publicacao } from '../../models/publicacao';
+import { Publicacao } from '../../Models/publicacao';
 
 
 @Injectable({
