@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { User } from '../../../models/users';
 
 @Component({
-  selector: 'app-usuario-card',
+  selector: 'app-card-usuario',
   imports: [],
-  templateUrl: './usuario-card.html',
-  styleUrl: './usuario-card.scss',
+  templateUrl: './card-usuario.html',
+  styleUrl: './card-usuario.scss',
 })
-export class UsuarioCard {
+export class CardUsuario {
   @Input () usuario!: User;
 }
