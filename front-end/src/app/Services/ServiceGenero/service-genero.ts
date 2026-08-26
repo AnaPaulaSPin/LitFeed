@@ -5,7 +5,7 @@ import { Genero } from '../../models/genero';
 @Injectable({
   providedIn: 'root',
 })
-export class Generos {
+export class ServiceGenero {
 
   private apiUrl = 'http://localhost:8080/generos';
 

@@ -5,7 +5,7 @@ import { Editora } from '../../models/editora';
 @Injectable({
   providedIn: 'root',
 })
-export class Editoras {
+export class ServiceEditora {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:8080/editoras';
 

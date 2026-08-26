@@ -5,7 +5,7 @@ import { Autor } from '../../models/autor';
 @Injectable({
   providedIn: 'root',
 })
-export class Autores {
+export class ServiceAutor {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:8080/autores';
 

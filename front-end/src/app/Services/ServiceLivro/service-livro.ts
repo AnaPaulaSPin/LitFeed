@@ -6,7 +6,7 @@ import { Edicao } from '../../models/edicao';
 @Injectable({
   providedIn: 'root',
 })
-export class Livros {
+export class ServiceLivro {
 
   private apiUrl = 'http://localhost:8080/livros';
 

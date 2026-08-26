@@ -7,7 +7,7 @@ import { Edicao } from '../../models/edicao';
   providedIn: 'root',
 })
 
-export class Edicoes {
+export class ServiceEdicao {
   private apiUrl = 'http://localhost:8080/edicoes';
 
   constructor(private http: HttpClient) {}

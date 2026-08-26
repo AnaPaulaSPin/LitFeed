@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Generos } from './generos';
+import { ServiceEditora } from './service-editora';
 
-describe('Generos', () => {
-  let service: Generos;
+describe('ServiceEditora', () => {
+  let service: ServiceEditora;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Generos);
+    service = TestBed.inject(ServiceEditora);
   });
 
   it('should be created', () => {
