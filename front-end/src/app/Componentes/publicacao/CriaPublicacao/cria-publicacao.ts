@@ -16,7 +16,7 @@ import { CardPesquisarLivro } from '../PesquisaLivroPublicacao/pesquisa-livro-pu
   templateUrl: './criar-publicacao.html',
   styleUrl: './criar-publicacao.scss',
 })
-export class CriarPublicacao {
+export class CriaPublicacao {
 
   user: any;
   listaGeneros: Genero[] = [];
