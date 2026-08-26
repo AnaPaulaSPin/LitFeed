@@ -1,0 +1,49 @@
+<div class="library-page">
+
+  <div class="library-search">
+    <div class="search-bar">
+
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+        <circle
+          cx="11"
+          cy="11"
+          r="7"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+
+        <path
+          d="M21 21l-4.3-4.3"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+
+      <input
+        type="text"
+        [(ngModel)]="search"
+        (input)="filtrarAutores()"
+        placeholder="Buscar autores"
+      />
+
+    </div>
+  </div>
+
+  <div class="autor-cards">
+
+    <a href="" *ngFor="let autor of autoresFiltrados" [routerLink]="['/detalhesAutor', autor.id]">
+
+      <app-autor-card
+        [autor]="autor">
+      </app-autor-card>
+
+    </a>
+
+  </div>
+
+  <p *ngIf="nenhumAutor" class="nenhum">
+    Nenhum Autor Encontrado
+  </p>
+
+</div>
