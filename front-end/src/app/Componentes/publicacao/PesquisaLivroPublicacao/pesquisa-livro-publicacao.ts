@@ -1,7 +1,7 @@
 import { NgIf, NgFor } from '@angular/common';
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { Edicao } from '../../models/edicao';
-import { CardLivro } from '../../Card/CardInformacaoLivro/card-informacao-livro';
+import { CardLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
 import { NgModel } from '@angular/forms';
 import { Livros } from '../../Services/Livros/livros';
 

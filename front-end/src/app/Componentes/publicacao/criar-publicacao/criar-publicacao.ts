@@ -4,7 +4,7 @@ import { Generos } from '../../Services/Generos/generos';
 import { NgFor, NgIf } from '@angular/common';
 import { Livro } from '../../models/livro';
 import { Genero } from '../../models/genero';
-import { CardLivro } from '../../Card/CardInformacaoLivro/card-informacao-livro';
+import { CardLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
 import { FormsModule } from '@angular/forms';
 import { Edicao } from '../../models/edicao';
 import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';

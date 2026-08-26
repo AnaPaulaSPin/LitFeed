@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Editora } from '../../../models/editora';
 
 @Component({
-  selector: 'app-editora-card',
+  selector: 'app-card-editora',
   imports: [],
-  templateUrl: './editora-card.html',
-  styleUrl: './editora-card.scss',
+  templateUrl: './card-editora.html',
+  styleUrl: './card-editora.scss',
 })
-export class EditoraCard {
+export class CardEditora {
   @Input() editora!: Editora;
 }
