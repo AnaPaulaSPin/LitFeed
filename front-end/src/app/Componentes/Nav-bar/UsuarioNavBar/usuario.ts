@@ -4,12 +4,12 @@ import { RouterLink } from '@angular/router';
 
 
 @Component({
-  selector: 'app-usuario',
+  selector: 'app-Us',
   imports: [NgIf, RouterLink],
   templateUrl: './usuario.html',
   styleUrl: './usuario.scss',
 })
-export class Usuario {
+export class UsuarioNavBar {
   user: any;
   menuAberto = false;
 

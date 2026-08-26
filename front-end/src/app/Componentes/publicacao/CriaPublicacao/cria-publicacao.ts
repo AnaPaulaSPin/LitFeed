@@ -3,18 +3,18 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PesquisaLivroPublicacao } from '../PesquisaLivroPublicacao/pesquisa-livro-publicacao';
 import { CardInformacaoLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
-import { Genero } from '../../../models/genero';
 import { Edicao } from '../../../Models/edicao';
 import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
 import { ServiceGenero } from '../../../Services/ServiceGenero/service-genero';
 import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-publicacao';
+import { Genero } from '../../../Models/genero';
 
 
 @Component({
   selector: 'app-criar-publicacao',
   imports: [NgFor, NgIf, FormsModule,PesquisaLivroPublicacao, CardInformacaoLivro],
-  templateUrl: './criar-publicacao.html',
-  styleUrl: './criar-publicacao.scss',
+  templateUrl: './cria-publicacao.html',
+  styleUrl: './cria-publicacao.scss',
 })
 export class CriaPublicacao {
 
