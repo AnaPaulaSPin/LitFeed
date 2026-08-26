@@ -6,7 +6,7 @@ import { User } from '../../models/users';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuariosAuth {
+export class ServiceUsuario {
   // verifica se o usuário
   //  existe no array de usuários falsos
 
