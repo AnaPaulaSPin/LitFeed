@@ -1,18 +1,18 @@
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
-import { Livros } from '../../Services/Livros/livros';
-import { Generos } from '../../Services/Generos/generos';
 import { NgFor, NgIf } from '@angular/common';
-import { Livro } from '../../models/livro';
-import { Genero } from '../../models/genero';
-import { CardLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
 import { FormsModule } from '@angular/forms';
-import { Edicao } from '../../models/edicao';
-import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';
-import { CardPesquisarLivro } from '../PesquisaLivroPublicacao/pesquisa-livro-publicacao';
+import { PesquisaLivroPublicacao } from '../PesquisaLivroPublicacao/pesquisa-livro-publicacao';
+import { CardInformacaoLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
+import { Genero } from '../../../models/genero';
+import { Edicao } from '../../../Models/edicao';
+import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
+import { ServiceGenero } from '../../../Services/ServiceGenero/service-genero';
+import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-publicacao';
+
 
 @Component({
   selector: 'app-criar-publicacao',
-  imports: [NgFor, CardLivro, NgIf, FormsModule, CardPesquisarLivro],
+  imports: [NgFor, NgIf, FormsModule,PesquisaLivroPublicacao, CardInformacaoLivro],
   templateUrl: './criar-publicacao.html',
   styleUrl: './criar-publicacao.scss',
 })
@@ -33,8 +33,8 @@ export class CriaPublicacao {
   @Output() fechar = new EventEmitter<void>();
 
   constructor(
-    private livroService: Livros,
-    private generoService: Generos,
+    private livroService: ServiceLivro,
+    private generoService: ServiceGenero,
     private publicacaoService: ServicePublicacao,
     private cdr: ChangeDetectorRef
   ) {

@@ -1,15 +1,14 @@
 import { NgIf, NgFor } from '@angular/common';
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
-import { Edicao } from '../../models/edicao';
-import { CardLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
-import { NgModel } from '@angular/forms';
-import { Livros } from '../../Services/Livros/livros';
+import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
+import { CardInformacaoLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
+import { Edicao } from '../../../Models/edicao';
 
 @Component({
   selector: 'app-pesquisa-livro-publicacao',
-  imports: [CardLivro, NgIf, NgFor],
-  templateUrl: './card-informacao-livro.html',
-  styleUrl: './card-informacao-livro.scss',
+  imports: [CardInformacaoLivro, NgIf, NgFor],
+  templateUrl: './pesquisa-livro-publicacao.html',
+  styleUrl: './pesquisa-livro-publicacao.scss',
 })
 export class PesquisaLivroPublicacao {
   @Output() fechar = new EventEmitter<void>();
@@ -17,7 +16,7 @@ export class PesquisaLivroPublicacao {
   pesquisaLivroAberta = false;
   listaEdicoes: Edicao[] = [];
 
-  constructor(private livrosService: Livros,
+  constructor(private livrosService: ServiceLivro,
     private cdr: ChangeDetectorRef
   ) {}
 

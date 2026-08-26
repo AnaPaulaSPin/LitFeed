@@ -59,10 +59,10 @@
 
 <!-- Prévia do Livro -->
 <div *ngIf="edicaoSelecionada">
-  <app-card-livro
+  <app-card-informacao-livro
     *ngIf="edicaoSelecionada"
     [edicao]="edicaoSelecionada">
-  </app-card-livro>
+  </app-card-informacao-livro>
 
 </div>
 
@@ -92,10 +92,10 @@
   </div>
   <!-- MODAL DE PESQUISA -->
   <div class="overlay-pesquisa" *ngIf="pesquisaLivroAberta">
-    <app-card-pesquisar-livro
+    <app-pesquisa-livro-publicacao
   *ngIf="pesquisaLivroAberta"
   (fechar)="fecharPesquisaLivro()"
   (edicaoSelecionada)="selecionarEdicao($event)">
-</app-card-pesquisar-livro>
+</app-pesquisa-livro-publicacao'>
   </div>
 </div>
