@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Edicao } from '../../models/edicao';
+import { Edicao } from '../../../Models/edicao';
 
 @Component({
   selector: 'app-card-livro',
@@ -7,6 +7,6 @@ import { Edicao } from '../../models/edicao';
   templateUrl: './card-livro.html',
   styleUrl: './card-livro.scss',
 })
-export class CardLivro {
+export class CardInformacaoLivro {
   @Input() edicao!: Edicao
 }

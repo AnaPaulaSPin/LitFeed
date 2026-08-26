@@ -1,17 +1,17 @@
 import { NgIf, NgFor } from '@angular/common';
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { Edicao } from '../../models/edicao';
-import { CardLivro } from '../../Card/CardInformacaoLivro/card-informacao-livro';
+import { CardLivro } from '../CardInformacaoLivro/card-informacao-livro';
 import { NgModel } from '@angular/forms';
 import { Livros } from '../../Services/Livros/livros';
 
 @Component({
-  selector: 'app-pesquisa-livro-publicacao',
+  selector: 'app-card-informacao-livro',
   imports: [CardLivro, NgIf, NgFor],
   templateUrl: './card-informacao-livro.html',
   styleUrl: './card-informacao-livro.scss',
 })
-export class PesquisaLivroPublicacao {
+export class CardInformacaoLivro {
   @Output() fechar = new EventEmitter<void>();
   @Output() edicaoSelecionada  = new EventEmitter<Edicao>();
   pesquisaLivroAberta = false;

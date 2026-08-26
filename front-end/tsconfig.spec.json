@@ -11,5 +11,5 @@
   "include": [
     "src/**/*.d.ts",
     "src/**/*.spec.ts"
-  ]
+, "src/app/Componentes/Card/CardInformacaoLivro/card-informacao-livro.spec.ts"  ]
 }
