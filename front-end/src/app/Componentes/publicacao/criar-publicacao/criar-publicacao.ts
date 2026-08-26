@@ -8,7 +8,7 @@ import { CardLivro } from '../../Card/card-livro/card-livro';
 import { FormsModule } from '@angular/forms';
 import { Edicao } from '../../models/edicao';
 import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';
-import { CardPesquisarLivro } from '../../Card/card-pesquisar-livro/card-pesquisar-livro';
+import { CardPesquisarLivro } from '../PesquisaLivroPublicacao/pesquisa-livro-publicacao';
 
 @Component({
   selector: 'app-criar-publicacao',
