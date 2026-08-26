@@ -1,8 +1,8 @@
 import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Usuario } from '../../Nav-bar/usuario/usuario';
-import { Publicacao } from '../../models/publicacao';
-import { CardLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
+import { Publicacao } from '../../Models/publicacao';
+import { CardLivro } from '../Card-InformacaoLivro/card-informacao-livro';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { CardPublicacao } from '../card-publicacao/card-publicacao';
+import { CardPublicacao } from '../../Card/Card-Publicacao/card-publicacao';
 import { Publicacao } from '../../models/publicacao';
 import { NgFor, NgIf } from '@angular/common';
 import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';
