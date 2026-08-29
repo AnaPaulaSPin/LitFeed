@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Visitante } from "../../Nav-bar/visitante/visitante";
+import { Visitante } from "../../Nav-bar/VisitanteNavBar/visitante-nav-bar";
 import { RouterOutlet } from "@angular/router";
 
 @Component({
