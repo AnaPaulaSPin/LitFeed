@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Usuario } from "../../Nav-bar/UsuarioNavBar/usuario-nav-bar";
 import { RouterOutlet } from "@angular/router";
+import { UsuarioNavBar } from '../../Nav-bar/UsuarioNavBar/usuario-nav-bar';
 
 @Component({
   selector: 'app-user-layout',
-  imports: [Usuario, RouterOutlet],
+  imports: [RouterOutlet, UsuarioNavBar],
   templateUrl: './user-layout.html',
   styleUrl: './user-layout.scss',
 })
