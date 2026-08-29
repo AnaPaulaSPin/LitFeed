@@ -1,13 +1,12 @@
 import { Edicao } from "./edicao";
 import { Genero } from "./genero";
-import { User } from "./Usuario";
-
+import { Usuario } from "./Usuario";
 
 export class Publicacao {
   id?: number;
-  usuario: any;
-  edicao?: any;
-  genero?: any;
+  usuario!: Usuario;
+  edicao?: Edicao;
+  genero?: Genero;
   titulo?: string;
   conteudo?: string;
   midia?: string;
