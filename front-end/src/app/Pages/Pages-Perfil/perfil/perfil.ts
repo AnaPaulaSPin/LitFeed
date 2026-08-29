@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { CriaPublicacao } from '../../../Componentes/Publicacao/CriaPublicacao/cria-publicacao';
 import { Favoritos } from '../favoritos/favoritos';
 import { Listas } from '../listas/listas';
+import { AreaPublicacoes } from '../publicacao/area-publicacoes';
 
 
 @Component({
   selector: 'app-perfil',
-  imports: [PublicacaoModel, CommonModule, CriaPublicacao, Listas, Favoritos],
+  imports: [AreaPublicacoes, CommonModule, CriaPublicacao, Listas, Favoritos],
   templateUrl: './perfil.html',
   styleUrl: './perfil.scss',
 })

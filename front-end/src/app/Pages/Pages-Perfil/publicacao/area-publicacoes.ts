@@ -7,12 +7,12 @@ import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-p
 
 
 @Component({
-  selector: 'app-publicacao',
+  selector: 'app-area-publicacoes',
   imports: [CardPublicacao, NgFor, NgIf],
-  templateUrl: './publicacao.html',
-  styleUrl: './publicacao.scss',
+  templateUrl: './area-publicacoes.html',
+  styleUrl: './area-publicacoes.scss',
 })
-export class PublicacaoModel {
+export class AreaPublicacoes {
 
   listaPublicacoes: Publicacao[] = [];
   carregandoPublicacoes = true;
