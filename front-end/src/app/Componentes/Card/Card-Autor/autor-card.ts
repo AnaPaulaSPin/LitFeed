@@ -8,5 +8,5 @@ import { Autor } from '../../../Models/autor';
   styleUrl: './autor-card.scss',
 })
 export class AutorCard {
-  @Input() autor?: Autor;
+  @Input() autor: any;
 }
