@@ -4,10 +4,10 @@ import { RouterLink } from '@angular/router';
 
 
 @Component({
-  selector: 'app-Us',
+  selector: 'app-usuario-nav-bar',
   imports: [NgIf, RouterLink],
-  templateUrl: './usuario.html',
-  styleUrl: './usuario.scss',
+  templateUrl: './usuario-nav-bar.html',
+  styleUrl: './usuario-nav-bar.scss',
 })
 export class UsuarioNavBar {
   user: any;
