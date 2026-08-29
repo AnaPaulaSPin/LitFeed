@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Footer } from '../footer/footer';
-import { Visitante } from '../Nav-bar/visitante/visitante';
+import { Footer } from '../../Componentes/Footer/footer';
+
 
 @Component({
   selector: 'app-home',
-  imports: [Footer,Visitante],
+  imports: [Footer],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
