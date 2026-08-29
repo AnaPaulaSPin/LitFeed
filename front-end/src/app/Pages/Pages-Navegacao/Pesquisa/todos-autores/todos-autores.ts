@@ -1,10 +1,11 @@
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
-import { Autores } from '../../../Services/autores/autores';
-import { Autor } from './../../../models/autor';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { AutorCard } from '../../../Card/Card-Autor/autor-card';
 import { RouterLink } from "@angular/router";
+import { AutorCard } from '../../../../Componentes/Card/Card-Autor/autor-card';
+import { Autor } from '../../../../Models/autor';
+import { ServiceAutor } from '../../../../Services/ServiceAutor/service-autor';
+
 
 @Component({
   selector: 'app-todos-autores',
@@ -18,7 +19,7 @@ export class TodosAutores {
   nenhumAutor = false
   autoresFiltrados: Autor[] = []
 
-  constructor(private services: Autores,
+  constructor(private services: ServiceAutor,
     private cdr: ChangeDetectorRef) {
       this.carregarAutores()
   }
@@ -47,5 +48,5 @@ export class TodosAutores {
     }
   }
 
-  
+
 }

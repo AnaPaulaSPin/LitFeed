@@ -1,24 +1,24 @@
+import { ServiceAutor } from './../../../Services/ServiceAutor/service-autor';
 
 import { NgFor, SlicePipe } from '@angular/common';
 import { ChangeDetectorRef, Component  } from '@angular/core';
-import { BookCoverCard } from '../../Card/book-cover-card/book-cover-card';
-import { Edicao } from '../../models/edicao';
-import { Edicoes } from '../../Services/edicoes/edicoes';
+import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
 import { RouterLink } from '@angular/router';
-import { Autor } from '../../models/autor';
-import { Autores } from '../../Services/autores/autores';
-import { AutorCard } from '../../Card/Card-Autor/autor-card';
-import { Editora } from '../../models/editora';
-import { Editoras } from '../../Services/editoras/editoras';
-import { EditoraCard } from '../../Card/EditoraCard/editora-card/editora-card';
-import { User } from '../../models/users';
-import { UsuariosAuth } from '../../Services/Usuarios/UsuariosAuth';
-import { UsuarioCard } from '../../Card/UsuarioCard/usuario-card/usuario-card';
+import { AutorCard } from '../../../Componentes/Card/Card-Autor/autor-card';
+import { CardEditora } from '../../../Componentes/Card/Card-Editora/card-editora';
+import { CardUsuario } from '../../../Componentes/Card/CardUsuario/card-usuario';
+import { Edicao } from '../../../Models/edicao';
+import { Autor } from '../../../Models/autor';
+import { Editora } from '../../../Models/editora';
+import { Usuario } from '../../../Models/Usuario';
+import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
+import { ServiceEditora } from '../../../Services/ServiceEditora/service-editora';
+import { ServiceUsuario } from '../../../Services/ServiceUsuario/service-usuario';
 
 
 @Component({
   selector: 'app-inicial',
-  imports: [BookCoverCard, NgFor,SlicePipe, RouterLink, AutorCard,  EditoraCard, UsuarioCard],
+  imports: [CardCapaLivro, NgFor,SlicePipe, RouterLink, AutorCard,  CardEditora, CardUsuario],
   templateUrl: './inicial.html',
   styleUrl: './inicial.scss',
 })
@@ -27,11 +27,11 @@ export class Inicial {
   livros: Edicao[] = [];
   autores: Autor[] = [];
   editoras: Editora[] = [];
-  usuarios: User[] = []
+  usuarios: Usuario[] = []
 
-  constructor(private serviceLivros: Edicoes, private cdr: ChangeDetectorRef,
-    private serviceAutores: Autores, private serviceEditoras: Editoras,
-    private serviceUsuarios: UsuariosAuth) {
+  constructor(private serviceLivros: ServiceEdicao, private cdr: ChangeDetectorRef,
+    private serviceAutores: ServiceAutor, private serviceEditoras: ServiceEditora,
+    private serviceUsuarios: ServiceUsuario) {
     this.carregarLivros();
     this.carregarAutores();
     this.carregarEditoras();

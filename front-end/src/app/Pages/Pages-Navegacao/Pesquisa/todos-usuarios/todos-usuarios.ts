@@ -1,23 +1,23 @@
 import { NgIf, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { User } from '../../../models/users';
-import { UsuariosAuth } from '../../../Services/Usuarios/UsuariosAuth';
 import { FormsModule } from '@angular/forms';
-import { UsuarioCard } from '../../../Card/UsuarioCard/usuario-card/usuario-card';
+import { Usuario } from '../../../../Models/Usuario';
+import { CardUsuario } from '../../../../Componentes/Card/CardUsuario/card-usuario';
+import { ServiceUsuario } from '../../../../Services/ServiceUsuario/service-usuario';
 
 @Component({
   selector: 'app-todos-usuarios',
-  imports: [FormsModule, NgIf, NgFor, UsuarioCard],
+  imports: [FormsModule, NgIf, NgFor, CardUsuario],
   templateUrl: './todos-usuarios.html',
   styleUrl: './todos-usuarios.scss',
 })
 export class TodosUsuarios {
-  usuarios: User[] = []
-  usuariosfiltrados: User[] = []
+  usuarios: Usuario[] = []
+  usuariosfiltrados: Usuario[] = []
   search: string = ''
   nenhumUsuario = false
 
-  constructor(private service: UsuariosAuth,
+  constructor(private service: ServiceUsuario,
     private cdr: ChangeDetectorRef
   ) {
     this.carregarEditoras()

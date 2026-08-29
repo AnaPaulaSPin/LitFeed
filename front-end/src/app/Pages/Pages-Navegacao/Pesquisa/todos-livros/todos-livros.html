@@ -14,9 +14,9 @@
 
 <div class="book-cards">
   <a href="" *ngFor="let livro of livrosFiltrados" [routerLink]="['/detalhesLivro', livro.id]">
-    <app-book-cover-card
+    <app-card-capa-livro
       [livro]="livro">
-    </app-book-cover-card>
+    </app-card-capa-livro>
   </a>
 </div>
  <p *ngIf="nenhumLivro" class="nenhum"> Nenhum Livro Encontrado</p>

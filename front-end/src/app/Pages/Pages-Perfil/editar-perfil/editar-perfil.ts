@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UsuariosAuth } from '../../Services/Usuarios/UsuariosAuth';
+import { ServiceUsuario } from '../../../Services/ServiceUsuario/service-usuario';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class EditarPerfil {
   senhaNova: string = '';
   username: string = '';
   biografia: string = '';
-  constructor(private authService: UsuariosAuth) {
+  constructor(private authService: ServiceUsuario) {
     const userData = localStorage.getItem('user');
 
     if (userData) {

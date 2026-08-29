@@ -1,12 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { Edicoes } from '../Services/edicoes/edicoes';
-import { Edicao } from '../models/edicao';
-import { BookCoverCard } from '../Card/book-cover-card/book-cover-card';
+import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
+import { Edicao } from '../../../Models/edicao';
+import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
 
 @Component({
   selector: 'app-biblioteca',
-  imports: [NgFor, BookCoverCard],
+  imports: [NgFor, CardCapaLivro],
   templateUrl: './biblioteca.html',
   styleUrl: './biblioteca.scss',
 })
@@ -16,7 +16,7 @@ export class Biblioteca {
   quantidadeEdicoes = 0;
 
   constructor(
-    private services: Edicoes,
+    private services: ServiceEdicao,
     private cdr: ChangeDetectorRef
   ) {
     this.carregarEdicoes();
@@ -27,6 +27,6 @@ export class Biblioteca {
   }
 
   carregarEdicoes() {
-    
+
   }
 }

@@ -1,9 +1,10 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { CardPublicacao } from '../../../Componentes/Card/Card-Publicacao/card-publicacao';
-import { Publicacao } from '../../models/publicacao';
 import { NgFor, NgIf } from '@angular/common';
-import { ServicePublicacao } from '../../Services/ServicePublicacao/service-publicacao';
-import { User } from '../../models/users';
+import { Publicacao } from '../../../Models/publicacao';
+import { Usuario } from '../../../Models/Usuario';
+import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-publicacao';
+
 
 @Component({
   selector: 'app-publicacao',
@@ -15,7 +16,7 @@ export class PublicacaoModel {
 
   listaPublicacoes: Publicacao[] = [];
   carregandoPublicacoes = true;
-  user?: User;
+  user?: Usuario;
 
   constructor(private publicacaoService: ServicePublicacao,
     private cdr: ChangeDetectorRef) {

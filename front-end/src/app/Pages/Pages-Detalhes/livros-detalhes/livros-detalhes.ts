@@ -1,14 +1,14 @@
 import { NgIf, NgFor } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Edicao } from '../../models/edicao';
-import { Edicoes } from '../../Services/edicoes/edicoes';
-import { Livros } from '../../Services/Livros/livros';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { CardLivro } from '../../Card/card-livro/card-livro';
+import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
+import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
+import { CardInformacaoLivro } from '../../../Componentes/Card/Card-InformacaoLivro/card-informacao-livro';
+import { Edicao } from '../../../Models/edicao';
 
 @Component({
   selector: 'app-livros-detalhes',
-  imports: [NgIf, NgFor, CardLivro, RouterLink],
+  imports: [NgIf, NgFor, CardInformacaoLivro, RouterLink],
   templateUrl: './livros-detalhes.html',
   styleUrl: './livros-detalhes.scss',
 })
@@ -18,8 +18,8 @@ export class LivrosDetalhes {
   abaAtiva: 'edicoes' | 'resenhas' | 'publicacoes' = 'edicoes';
 
   constructor(
-    private serviceEdicao: Edicoes,
-    private serviceLivro: Livros,
+    private serviceEdicao: ServiceEdicao,
+    private serviceLivro: ServiceLivro,
     private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}

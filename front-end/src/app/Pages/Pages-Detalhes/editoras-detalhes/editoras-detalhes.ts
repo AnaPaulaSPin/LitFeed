@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { BookCoverCard } from '../../Card/book-cover-card/book-cover-card';
-import { Edicao } from '../../models/edicao';
-import { Editora } from '../../models/editora';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { Editoras } from '../../Services/editoras/editoras';
-import { Livros } from '../../Services/Livros/livros';
-import { Edicoes } from '../../Services/edicoes/edicoes';
 import { forkJoin, switchMap } from 'rxjs';
+import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
+import { Edicao } from '../../../Models/edicao';
+import { Editora } from '../../../Models/editora';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ServiceEditora } from '../../../Services/ServiceEditora/service-editora';
+import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
+import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
 
 @Component({
   selector: 'app-editoras-detalhes',
-  imports: [CommonModule, BookCoverCard, RouterLink],
+  imports: [CommonModule, CardCapaLivro, RouterLink],
   templateUrl: './editoras-detalhes.html',
   styleUrl: './editoras-detalhes.scss',
 })
@@ -24,9 +24,9 @@ export class EditorasDetalhes {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private serviceEditora: Editoras,
-    private serviceLivro: Livros,
-    private serviceEdicao: Edicoes,
+    private serviceEditora: ServiceEditora,
+    private serviceLivro: ServiceLivro,
+    private serviceEdicao: ServiceEdicao,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -45,7 +45,7 @@ export class EditorasDetalhes {
       }),
       switchMap((livros) => {
         if (livros.length === 0) {
-          return forkJoin([] as Array<ReturnType<Edicoes['buscarEdicoesPorLivro']>>);
+          return forkJoin([] as Array<ReturnType<ServiceEdicao['buscarEdicoesPorLivro']>>);
         }
 
         return forkJoin(

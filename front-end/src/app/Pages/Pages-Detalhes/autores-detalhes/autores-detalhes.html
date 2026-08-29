@@ -46,7 +46,7 @@
 
          <div *ngFor="let edicao of edicoes">
           <a  [routerLink]="['/detalhesLivro', edicao.livro.id]">
-            <app-book-cover-card [livro]="edicao"> </app-book-cover-card>
+            <app-card-capa-livro [livro]="edicao"> </app-card-capa-livro>
           </a>
         </div>
 

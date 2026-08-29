@@ -1,15 +1,15 @@
 import { NgFor, NgIf } from '@angular/common';
-import { BookCoverCard } from '../../../Card/book-cover-card/book-cover-card';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Edicao } from '../../../models/edicao';
-import { Edicoes } from '../../../Services/edicoes/edicoes';
-import { Autor } from '../../../models/autor';
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from '@angular/router';
+import { CardCapaLivro } from '../../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
+import { Edicao } from '../../../../Models/edicao';
+import { Autor } from '../../../../Models/autor';
+import { ServiceEdicao } from '../../../../Services/ServiceEdicao/service-edicao';
 
 @Component({
   selector: 'app-todos-livros',
-  imports: [BookCoverCard, NgFor, FormsModule, NgIf, RouterLink],
+  imports: [CardCapaLivro, NgFor, FormsModule, NgIf, RouterLink],
   templateUrl: './todos-livros.html',
   styleUrl: './todos-livros.scss',
 })
@@ -20,7 +20,7 @@ export class TodosLivros {
   search: String = '';
   nenhumLivro = false;
 
-  constructor(private services: Edicoes,
+  constructor(private services: ServiceEdicao,
     private cdr: ChangeDetectorRef) {
     this.carregarLivros()
   }

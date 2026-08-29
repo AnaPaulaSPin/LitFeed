@@ -16,13 +16,13 @@
     <li class="tab" role="tab" (click)="setFilter('abandonado')">
       Abandonado <span class="count">0</span>
     </li>
-    
+
   </ul>
   <div class="book-cards">
-  <app-book-cover-card
+  <app-card-capa-livro
     *ngFor="let livro of edicoes"
     [livro]="livro">
-  </app-book-cover-card>
+  </app-card-capa-livro>
 </div>
 </div>
 

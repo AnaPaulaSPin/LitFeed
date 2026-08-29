@@ -1,17 +1,17 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { Autor } from '../../models/autor';
-import { Edicao } from '../../models/edicao';
-import { Edicoes } from '../../Services/edicoes/edicoes';
-import { Livros } from '../../Services/Livros/livros';
-import { Autores } from '../../Services/autores/autores';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { BookCoverCard } from '../../Card/book-cover-card/book-cover-card';
+import { ServiceAutor } from '../../../Services/ServiceAutor/service-autor';
+import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
+import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
+import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
+import { Edicao } from '../../../Models/edicao';
+import { Autor } from '../../../Models/autor';
 
 @Component({
   selector: 'app-autores-detalhes',
-  imports: [CommonModule,NgIf, NgFor, RouterLink, BookCoverCard],
+  imports: [CommonModule,NgIf, NgFor, RouterLink, CardCapaLivro],
   templateUrl: './autores-detalhes.html',
   styleUrl: './autores-detalhes.scss',
 })
@@ -21,9 +21,9 @@ export class AutoresDetalhes {
   edicoes?: Edicao[] = [];
 
   constructor(
-    private serviceAutor: Autores,
-    private serviceEdicao: Edicoes,
-    private serviceLivro: Livros,
+    private serviceAutor: ServiceAutor,
+    private serviceEdicao: ServiceEdicao,
+    private serviceLivro: ServiceLivro,
     private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}
