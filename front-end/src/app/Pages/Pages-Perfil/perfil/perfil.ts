@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CriaPublicacao } from '../../../Componentes/Publicacao/CriaPublicacao/cria-publicacao';
 import { Favoritos } from '../favoritos/favoritos';
 import { Listas } from '../listas/listas';
-import { AreaPublicacoes } from '../publicacao/area-publicacoes';
+import { AreaPublicacoes } from '../AreaPublicacao/area-publicacoes';
 
 
 @Component({
