@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Editora } from '../../../models/editora';
+import { Editora } from '../../../Models/editora';
 
 @Component({
   selector: 'app-card-editora',
