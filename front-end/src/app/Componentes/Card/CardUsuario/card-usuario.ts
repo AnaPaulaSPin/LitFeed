@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../../../models/users';
+import { User } from '../../../Models/Usuario';
 
 @Component({
   selector: 'app-card-usuario',

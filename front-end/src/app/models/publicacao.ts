@@ -1,6 +1,6 @@
 import { Edicao } from "./edicao";
 import { Genero } from "./genero";
-import { User } from "./users";
+import { User } from "./Usuario";
 
 
 export class Publicacao {
