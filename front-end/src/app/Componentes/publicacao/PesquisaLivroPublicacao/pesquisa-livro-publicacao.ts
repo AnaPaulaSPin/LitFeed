@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
 import { CardInformacaoLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
@@ -6,7 +6,7 @@ import { Edicao } from '../../../Models/edicao';
 
 @Component({
   selector: 'app-pesquisa-livro-publicacao',
-  imports: [CardInformacaoLivro, NgIf, NgFor],
+  imports: [CardInformacaoLivro, CommonModule ],
   templateUrl: './pesquisa-livro-publicacao.html',
   styleUrl: './pesquisa-livro-publicacao.scss',
 })

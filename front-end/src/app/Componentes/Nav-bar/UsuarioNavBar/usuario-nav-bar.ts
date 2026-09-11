@@ -1,11 +1,10 @@
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-usuario-nav-bar',
-  imports: [NgIf, RouterLink],
+  imports: [CommonModule ],
   templateUrl: './usuario-nav-bar.html',
   styleUrl: './usuario-nav-bar.scss',
 })
