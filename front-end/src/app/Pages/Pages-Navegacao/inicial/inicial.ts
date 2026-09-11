@@ -1,6 +1,6 @@
 import { ServiceAutor } from './../../../Services/ServiceAutor/service-autor';
 
-import { NgFor, SlicePipe } from '@angular/common';
+import { CommonModule, SlicePipe } from '@angular/common';
 import { ChangeDetectorRef, Component  } from '@angular/core';
 import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
 import { RouterLink } from '@angular/router';
@@ -18,7 +18,7 @@ import { ServiceUsuario } from '../../../Services/ServiceUsuario/service-usuario
 
 @Component({
   selector: 'app-inicial',
-  imports: [CardCapaLivro, NgFor,SlicePipe, RouterLink, AutorCard,  CardEditora, CardUsuario],
+  imports: [CardCapaLivro, CommonModule,SlicePipe, RouterLink, AutorCard,  CardEditora, CardUsuario],
   templateUrl: './inicial.html',
   styleUrl: './inicial.scss',
 })

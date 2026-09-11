@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule  } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from '@angular/router';
@@ -9,7 +9,7 @@ import { ServiceEdicao } from '../../../../Services/ServiceEdicao/service-edicao
 
 @Component({
   selector: 'app-todos-livros',
-  imports: [CardCapaLivro, NgFor, FormsModule, NgIf, RouterLink],
+  imports: [CardCapaLivro, FormsModule, CommonModule , RouterLink],
   templateUrl: './todos-livros.html',
   styleUrl: './todos-livros.scss',
 })

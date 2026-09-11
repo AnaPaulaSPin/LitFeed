@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
@@ -9,7 +9,7 @@ import { ServiceAutor } from '../../../../Services/ServiceAutor/service-autor';
 
 @Component({
   selector: 'app-todos-autores',
-  imports: [NgIf, NgFor, AutorCard, FormsModule, RouterLink],
+  imports: [CommonModule , AutorCard, FormsModule, RouterLink],
   templateUrl: './todos-autores.html',
   styleUrl: './todos-autores.scss',
 })

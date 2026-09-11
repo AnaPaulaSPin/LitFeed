@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { CardPublicacao } from '../../../Componentes/Card/Card-Publicacao/card-publicacao';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Publicacao } from '../../../Models/publicacao';
 import { Usuario } from '../../../Models/Usuario';
 import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-publicacao';
@@ -8,7 +8,7 @@ import { ServicePublicacao } from '../../../Services/ServicePublicacao/service-p
 
 @Component({
   selector: 'app-area-publicacoes',
-  imports: [CardPublicacao, NgFor, NgIf],
+  imports: [CardPublicacao, CommonModule ],
   templateUrl: './area-publicacoes.html',
   styleUrl: './area-publicacoes.scss',
 })

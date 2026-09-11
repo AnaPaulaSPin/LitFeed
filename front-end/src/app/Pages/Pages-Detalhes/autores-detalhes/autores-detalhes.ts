@@ -11,7 +11,7 @@ import { Autor } from '../../../Models/autor';
 
 @Component({
   selector: 'app-autores-detalhes',
-  imports: [CommonModule,NgIf, NgFor, RouterLink, CardCapaLivro],
+  imports: [CommonModule, RouterLink, CardCapaLivro],
   templateUrl: './autores-detalhes.html',
   styleUrl: './autores-detalhes.scss',
 })

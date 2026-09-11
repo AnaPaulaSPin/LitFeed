@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
@@ -8,7 +8,7 @@ import { Edicao } from '../../../Models/edicao';
 
 @Component({
   selector: 'app-livros-detalhes',
-  imports: [NgIf, NgFor, CardInformacaoLivro, RouterLink],
+  imports: [CommonModule, CardInformacaoLivro, RouterLink],
   templateUrl: './livros-detalhes.html',
   styleUrl: './livros-detalhes.scss',
 })

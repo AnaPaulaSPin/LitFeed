@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from "@angular/common"
+import { CommonModule} from "@angular/common"
 import { ChangeDetectorRef, Component } from "@angular/core"
 import { FormsModule } from "@angular/forms"
 import { RouterLink } from "@angular/router"
@@ -9,7 +9,7 @@ import { ServiceEditora } from "../../../../Services/ServiceEditora/service-edit
 
 @Component({
   selector: 'app-todas-editoras',
-  imports: [CardEditora, FormsModule, NgFor, NgIf, RouterLink],
+  imports: [CardEditora, FormsModule, CommonModule, RouterLink],
   templateUrl: './todas-editoras.html',
   styleUrl: './todas-editoras.scss',
 })

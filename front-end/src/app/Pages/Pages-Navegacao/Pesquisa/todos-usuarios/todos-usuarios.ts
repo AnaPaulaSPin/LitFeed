@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+import {CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../../../../Models/Usuario';
@@ -7,7 +7,7 @@ import { ServiceUsuario } from '../../../../Services/ServiceUsuario/service-usua
 
 @Component({
   selector: 'app-todos-usuarios',
-  imports: [FormsModule, NgIf, NgFor, CardUsuario],
+  imports: [FormsModule, CommonModule , CardUsuario],
   templateUrl: './todos-usuarios.html',
   styleUrl: './todos-usuarios.scss',
 })
