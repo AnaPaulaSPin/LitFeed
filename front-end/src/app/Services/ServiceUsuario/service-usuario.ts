@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../Models/Usuario';
+import { Usuario } from '../../Models/Usuario';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ export class ServiceUsuario {
   private apiUrl = 'http://localhost:8080/usuarios';
 
   listarUsuarios(){
-    return this.http.get<User[]>(this.apiUrl);
+    return this.http.get<Usuario[]>(this.apiUrl);
   }
 
 

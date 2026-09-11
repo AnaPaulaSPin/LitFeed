@@ -6,4 +6,5 @@ export interface Usuario {
   senha: string;
   fotoPerfil: string;
   banner: string;
+  biografia: string;
 }
