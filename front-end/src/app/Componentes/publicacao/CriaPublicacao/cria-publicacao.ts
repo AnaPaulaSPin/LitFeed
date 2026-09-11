@@ -67,8 +67,8 @@ export class CriaPublicacao {
 
     const publicacao = {
       usuario: this.user,
-      edicao: this.edicaoSelecionada,
-      genero: this.generoSelecionado,
+      edicao: this.edicaoSelecionada ?? undefined,
+      genero: this.generoSelecionado ?? undefined,
       titulo: this.titulo,
       conteudo: this.conteudo,
       midia: nomeMidia
