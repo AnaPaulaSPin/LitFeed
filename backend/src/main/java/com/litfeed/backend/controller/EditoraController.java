@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.litfeed.backend.dto.EditoraComLivrosEEdicoesDTO;
 import com.litfeed.backend.entity.Editora;
 import com.litfeed.backend.service.EditoraService;
 
@@ -29,6 +30,11 @@ public class EditoraController {
     @GetMapping("/{id}")
     public Optional<Editora> buscarPorId(@PathVariable Long id) {
       return service.buscarPorId(id);
+    }
+
+    @GetMapping("/{id}/detalhes")
+    public EditoraComLivrosEEdicoesDTO buscarEditoraComLivrosEEdicoes(@PathVariable Long id) {
+     return service.buscarEditoraComLivrosEEdicoes(id);
     }
 
 }

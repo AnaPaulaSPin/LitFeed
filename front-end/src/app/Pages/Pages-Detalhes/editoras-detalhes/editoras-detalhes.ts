@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { forkJoin, switchMap } from 'rxjs';
 import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
 import { Edicao } from '../../../Models/edicao';
 import { Editora } from '../../../Models/editora';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ServiceEditora } from '../../../Services/ServiceEditora/service-editora';
-import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
-import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
+import { Livro } from '../../../Models/livro';
 
 @Component({
   selector: 'app-editoras-detalhes',
@@ -18,6 +16,7 @@ import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
 export class EditorasDetalhes {
   edicoes: Edicao[] = [];
   editora?: Editora;
+  livros: Livro[] = [];
 
 
 
@@ -25,43 +24,31 @@ export class EditorasDetalhes {
     private router: Router,
     private route: ActivatedRoute,
     private serviceEditora: ServiceEditora,
-    private serviceLivro: ServiceLivro,
-    private serviceEdicao: ServiceEdicao,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+  const id = this.route.snapshot.paramMap.get('id');
 
-    if (!id) {
-      return;
-    }
-
-    const editoraId = Number(id);
-    this.serviceEditora.buscarPorId(editoraId).pipe(
-      switchMap((editora) => {
-        this.editora = editora;
-        return this.serviceLivro.listarLivrosPorEditora(editoraId);
-      }),
-      switchMap((livros) => {
-        if (livros.length === 0) {
-          return forkJoin([] as Array<ReturnType<ServiceEdicao['buscarEdicoesPorLivro']>>);
-        }
-
-        return forkJoin(
-          livros.map((livro) => this.serviceEdicao.buscarEdicoesPorLivro(livro.id))
-        );
-      })
-    ).subscribe({
-      next: (edicoesPorLivro) => {
-        this.edicoes = edicoesPorLivro
-          .flat()
-          .filter((edicao) => edicao.editora?.id === editoraId);
-        this.cdr.detectChanges();
-      },
-      error: (erro) => console.error('Erro ao carregar detalhes da editora:', erro)
-    });
+  if (!id) {
+    return;
   }
+
+  const editoraId = Number(id);
+
+  this.serviceEditora.buscarEditoraComLivrosEEdicoes(editoraId).subscribe({
+    next: (resultado) => {
+      this.editora = resultado.editora;
+      this.livros = resultado.livros;
+      this.edicoes = resultado.edicoes;
+
+      this.cdr.detectChanges();
+    },
+    error: (erro) => {
+      console.error('Erro ao carregar detalhes da editora:', erro);
+    }
+  });
+}
 
   voltar() {
     this.router.navigate(['/editoras'])
