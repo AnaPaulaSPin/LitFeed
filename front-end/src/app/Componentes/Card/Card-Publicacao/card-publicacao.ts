@@ -1,5 +1,4 @@
-import { Usuario } from './../../../Models/Usuario';
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CardInformacaoLivro } from '../Card-InformacaoLivro/card-informacao-livro';
 import { Publicacao } from '../../../Models/publicacao';
@@ -7,7 +6,7 @@ import { Publicacao } from '../../../Models/publicacao';
 
 @Component({
   selector: 'app-card-publicacao',
-  imports: [CardInformacaoLivro, NgIf],
+  imports: [CardInformacaoLivro, CommonModule],
   templateUrl: './card-publicacao.html',
   styleUrl: './card-publicacao.scss',
 })

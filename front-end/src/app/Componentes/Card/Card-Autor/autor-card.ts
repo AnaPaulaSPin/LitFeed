@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Autor } from '../../../Models/autor';
 
 @Component({
   selector: 'app-autor-card',
