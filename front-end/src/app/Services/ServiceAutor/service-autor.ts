@@ -18,5 +18,11 @@ export class ServiceAutor {
     return this.http.get<Autor>(`${this.apiUrl}/${id}`);
   }
 
-  
+  buscarAutorComLivrosEEdicoes(id: number) {
+   return this.http.get<AutorComLivrosEEdicoes>(
+     `${this.apiUrl}/${id}/detalhes`
+    );
+  }
+
+
 }
