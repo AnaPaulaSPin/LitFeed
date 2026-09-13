@@ -28,7 +28,7 @@ export class LivrosDetalhes {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      this.serviceEdicao.getEdicao(Number(id)).subscribe({
+      this.serviceEdicao.buscarEdicaoPorId(Number(id)).subscribe({
         next: (edicao) => {
           this.edicao = edicao;
 
@@ -44,7 +44,7 @@ export class LivrosDetalhes {
   }
 
   carregarEdicoesRelacionadas() {
-    this.serviceLivro.buscarEdicoes(this.edicao.livro.id).subscribe({
+    this.serviceEdicao.listarEdicoesPorLivro(this.edicao.livro.id).subscribe({
       next: (edicoes) => {
         this.edicoesRelacionadas = edicoes;
         this.cdr.detectChanges();
