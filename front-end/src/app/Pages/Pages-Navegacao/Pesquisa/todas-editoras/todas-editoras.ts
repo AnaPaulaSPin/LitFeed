@@ -22,6 +22,9 @@ export class TodasEditoras {
   constructor(private service: ServiceEditora,
     private cdr: ChangeDetectorRef
   ) {
+  }
+
+  ngOnInit() {
     this.carregarEditoras()
   }
 

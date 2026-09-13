@@ -19,8 +19,10 @@ export class TodosUsuarios {
 
   constructor(private service: ServiceUsuario,
     private cdr: ChangeDetectorRef
-  ) {
-    this.carregarEditoras()
+  ) {}
+
+  ngOnInit(){
+     this.carregarEditoras()
   }
 
   carregarEditoras() {

@@ -2,8 +2,6 @@ import { CommonModule} from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ServiceAutor } from '../../../Services/ServiceAutor/service-autor';
-import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
-import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
 import { CardCapaLivro } from '../../../Componentes/Card/Card-CapaLivro/card-capa-livro';
 import { Edicao } from '../../../Models/edicao';
 import { Autor } from '../../../Models/autor';
@@ -21,8 +19,6 @@ export class AutoresDetalhes {
 
   constructor(
     private serviceAutor: ServiceAutor,
-    private serviceEdicao: ServiceEdicao,
-    private serviceLivro: ServiceLivro,
     private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}

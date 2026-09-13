@@ -1,8 +1,7 @@
-import { NgIf, NgFor, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ServiceEdicao } from '../../../Services/ServiceEdicao/service-edicao';
-import { ServiceLivro } from '../../../Services/ServiceLivro/service-livro';
 import { CardInformacaoLivro } from '../../../Componentes/Card/Card-InformacaoLivro/card-informacao-livro';
 import { Edicao } from '../../../Models/edicao';
 
@@ -19,7 +18,6 @@ export class LivrosDetalhes {
 
   constructor(
     private serviceEdicao: ServiceEdicao,
-    private serviceLivro: ServiceLivro,
     private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}
@@ -31,9 +29,6 @@ export class LivrosDetalhes {
       this.serviceEdicao.buscarEdicaoPorId(Number(id)).subscribe({
         next: (edicao) => {
           this.edicao = edicao;
-
-          console.log(edicao);
-
           this.carregarEdicoesRelacionadas();
         },
         error: (erro) => {

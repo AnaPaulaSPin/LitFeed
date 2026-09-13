@@ -21,7 +21,10 @@ export class TodosAutores {
 
   constructor(private services: ServiceAutor,
     private cdr: ChangeDetectorRef) {
-      this.carregarAutores()
+  }
+
+  ngOnInit(){
+    this.carregarAutores()
   }
 
   carregarAutores(){

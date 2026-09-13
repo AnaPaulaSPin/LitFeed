@@ -22,7 +22,11 @@ export class TodosLivros {
 
   constructor(private services: ServiceEdicao,
     private cdr: ChangeDetectorRef) {
-    this.carregarLivros()
+
+  }
+
+  ngOnInit(){
+   this.carregarLivros()
   }
 
   carregarLivros() {

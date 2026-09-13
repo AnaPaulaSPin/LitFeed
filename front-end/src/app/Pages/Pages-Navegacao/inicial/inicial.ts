@@ -29,13 +29,19 @@ export class Inicial {
   editoras: Editora[] = [];
   usuarios: Usuario[] = []
 
-  constructor(private serviceLivros: ServiceEdicao, private cdr: ChangeDetectorRef,
-    private serviceAutores: ServiceAutor, private serviceEditoras: ServiceEditora,
-    private serviceUsuarios: ServiceUsuario) {
-    this.carregarLivros();
-    this.carregarAutores();
-    this.carregarEditoras();
-    this.carregarUsuarios();
+  constructor(
+  private serviceLivros: ServiceEdicao,
+  private cdr: ChangeDetectorRef,
+  private serviceAutores: ServiceAutor,
+  private serviceEditoras: ServiceEditora,
+  private serviceUsuarios: ServiceUsuario
+) {}
+
+  ngOnInit() {
+   this.carregarLivros();
+   this.carregarAutores();
+   this.carregarEditoras();
+   this.carregarUsuarios();
   }
 
   carregarLivros() {
@@ -61,6 +67,7 @@ export class Inicial {
     }
   });
 }
+
   carregarEditoras() {
     this.serviceEditoras.listarEditoras().subscribe({
       next: (editoras) => {
