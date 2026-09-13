@@ -22,6 +22,9 @@ export class EditarPerfil {
   username: string = '';
   biografia: string = '';
   constructor(private authService: ServiceUsuario) {
+  }
+
+  ngOnInit(){
     const userData = localStorage.getItem('user');
 
     if (userData) {

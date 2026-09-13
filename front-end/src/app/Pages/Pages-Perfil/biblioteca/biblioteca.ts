@@ -18,15 +18,12 @@ export class Biblioteca {
   constructor(
     private services: ServiceEdicao,
     private cdr: ChangeDetectorRef
-  ) {
-    this.carregarEdicoes();
-  }
+  ) {}
+
+
 
   setFilter(filter: string) {
     this.activeFilter = filter;
   }
 
-  carregarEdicoes() {
-
-  }
 }

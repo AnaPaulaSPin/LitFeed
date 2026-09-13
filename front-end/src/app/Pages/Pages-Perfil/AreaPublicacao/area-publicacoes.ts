@@ -20,7 +20,11 @@ export class AreaPublicacoes {
 
   constructor(private publicacaoService: ServicePublicacao,
     private cdr: ChangeDetectorRef) {
-    this.carregarUsuario();
+    
+  }
+
+  ngOnInit(){
+     this.carregarUsuario();
   }
 
   carregarUsuario() {
