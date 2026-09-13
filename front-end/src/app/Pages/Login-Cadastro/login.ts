@@ -27,7 +27,7 @@ export class Login {
 
   constructor(
     private router: Router,
-    private authService: ServiceUsuario
+    private serviceUsuario: ServiceUsuario
   ) {}
 
   changeForm() {
@@ -39,7 +39,7 @@ export class Login {
   }
 
  login() {
-  this.authService.login(
+  this.serviceUsuario.autenticarUsuario(
     this.loginIdentifier,
     this.loginPassword
   ).subscribe({
@@ -58,7 +58,7 @@ export class Login {
 
  cadastrar() {
 
-  this.authService.cadastrar(
+  this.serviceUsuario.cadastrarUsuario(
     this.registerName,
     this.registerUsername,
     this.registerEmail,
