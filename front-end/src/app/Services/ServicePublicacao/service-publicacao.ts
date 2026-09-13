@@ -15,11 +15,11 @@ export class ServicePublicacao {
     return this.http.get<Publicacao[]>(this.apiUrl);
   }
 
-  buscarPublicacao(id: number) {
+  buscarPublicacaoPorId(id: number) {
     return this.http.get<Publicacao>(`${this.apiUrl}/${id}`);
   }
 
-  publicar(publicacao: Publicacao) {
+  criarPublicacao(publicacao: Publicacao) {
     return this.http.post<Publicacao>(this.apiUrl, publicacao);
   }
 

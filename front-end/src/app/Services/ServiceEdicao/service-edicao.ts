@@ -16,11 +16,12 @@ export class ServiceEdicao {
     return this.http.get<Edicao[]>(this.apiUrl);
   }
 
-  getEdicao(id: number) {
+  buscarEdicaoPorId(id: number) {
    return this.http.get<Edicao>(`${this.apiUrl}/${id}`);
   }
 
-  buscarEdicoesPorLivro(livroId: number): Observable<Edicao[]> {
+  listarEdicoesPorLivro(livroId: number): Observable<Edicao[]> {
     return this.http.get<Edicao[]>(`${this.apiUrl}/livro/${livroId}`);
   }
+
 }

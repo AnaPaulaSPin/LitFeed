@@ -7,8 +7,6 @@ import { Usuario } from '../../Models/Usuario';
   providedIn: 'root',
 })
 export class ServiceUsuario {
-  // verifica se o usuário
-  //  existe no array de usuários falsos
 
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:8080/usuarios';
@@ -18,11 +16,11 @@ export class ServiceUsuario {
   }
 
 
-  login(usernameOrEmail: string, password: string) {
+  autenticarUsuario(usernameOrEmail: string, password: string) {
     return this.http.post(`${this.apiUrl}/login`, { usernameOrEmail, password });
   }
 
-  cadastrar(nome: string, username: string, email: string, password: string) {
+  cadastrarUsuario(nome: string, username: string, email: string, password: string) {
    return this.http.post(`${this.apiUrl}`, { nome, username, email, senha: password });
   }
 

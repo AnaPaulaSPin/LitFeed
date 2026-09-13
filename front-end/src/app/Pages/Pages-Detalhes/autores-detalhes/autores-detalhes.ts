@@ -45,7 +45,7 @@ export class AutoresDetalhes {
           if (livros && livros.length > 0) {
             const edicoesRequests = livros.map((livro: any) =>
               this.serviceEdicao.buscarEdicoesPorLivro(livro.id)
-            );
+            ); 
 
             forkJoin(edicoesRequests).subscribe((edicoesArray: any) => {
               // Combina todas as edições em um único array

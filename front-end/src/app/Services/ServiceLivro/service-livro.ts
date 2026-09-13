@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Livro } from '../../Models/livro';
-import { Edicao } from '../../Models/edicao';
 
 @Injectable({
   providedIn: 'root',
@@ -16,14 +15,8 @@ export class ServiceLivro {
     return this.http.get<Livro[]>(this.apiUrl);
   }
 
-  buscarPorNome(nome: string) {
+  buscarLivroPorNome(nome: string) {
     return this.http.get<Livro>(`${this.apiUrl}/nome?nome=${nome}`);
-  }
-
-  buscarEdicoes(idLivro: number) {
-    return this.http.get<Edicao[]>(
-      `http://localhost:8080/edicoes/livro/${idLivro}`
-    );
   }
 
   listarLivrosPorAutor(idAutor: number) {

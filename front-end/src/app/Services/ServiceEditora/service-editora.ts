@@ -13,7 +13,7 @@ export class ServiceEditora {
     return this.http.get<Editora[]>(this.apiUrl);
   }
 
-    buscarPorId(id: number){
-      return this.http.get<Editora>(`${this.apiUrl}/${id}`);
-    }
+  buscarEditoraPorId(id: number){
+    return this.http.get<Editora>(`${this.apiUrl}/${id}`);
+  }
 }
