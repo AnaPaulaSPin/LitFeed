@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Autor } from '../../Models/autor';
+import { AutorComLivrosEEdicoes } from '../../Models/DTO/AutorComLivrosEEdicoes';
 
 @Injectable({
   providedIn: 'root',
@@ -16,4 +17,6 @@ export class ServiceAutor {
   buscarAutorPorId(id: number) {
     return this.http.get<Autor>(`${this.apiUrl}/${id}`);
   }
+
+  
 }

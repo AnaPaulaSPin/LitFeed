@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Livro } from '../../Models/livro';
-import { Edicao } from '../../Models/edicao';
+import { LivroComEdicoes } from '../../Models/DTO/LivroComEdicoes';
 
 
-interface LivroComEdicoes {
-  livro: Livro;
-  edicoes: Edicao[];
-}
+
 
 @Injectable({
   providedIn: 'root',
