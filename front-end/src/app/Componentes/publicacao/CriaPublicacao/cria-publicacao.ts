@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PesquisaLivroPublicacao } from '../PesquisaLivroPublicacao/pesquisa-livro-publicacao';
 import { CardInformacaoLivro } from '../../Card/Card-InformacaoLivro/card-informacao-livro';
@@ -12,7 +12,7 @@ import { Genero } from '../../../Models/genero';
 
 @Component({
   selector: 'app-criar-publicacao',
-  imports: [NgFor, NgIf, FormsModule,PesquisaLivroPublicacao, CardInformacaoLivro],
+  imports: [CommonModule, FormsModule,PesquisaLivroPublicacao, CardInformacaoLivro],
   templateUrl: './cria-publicacao.html',
   styleUrl: './cria-publicacao.scss',
 })
@@ -76,7 +76,7 @@ export class CriaPublicacao {
 
     console.log(publicacao);
 
-    this.publicacaoService.publicar(publicacao).subscribe({
+    this.publicacaoService.criarPublicacao(publicacao).subscribe({
 
       next: (publicacaoCriada) => {
         console.log('Publicação criada:', publicacaoCriada);

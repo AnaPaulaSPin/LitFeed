@@ -26,30 +26,18 @@ export class PesquisaLivroPublicacao {
   }
 
 pesquisarLivro(nome: string) {
-  this.livrosService.buscarPorNome(nome).subscribe({
-    next: (livro) => {
-      if (livro) {
-        console.log('Livro encontrado:', livro);
-
-        this.livrosService.buscarEdicoes(livro.id).subscribe({
-          next: (edicoes) => {
-            this.listaEdicoes = edicoes;
-            console.log('Edições encontradas:', edicoes);
-            this.cdr.detectChanges();
-          },
-          error: (erro) => {
-            console.error('Erro ao buscar edições:', erro);
-          }
-        });
-
+  this.livrosService.buscarLivroPorNome(nome).subscribe({
+    next: (resultado) => {
+      if (resultado) {
+        this.listaEdicoes = resultado.edicoes;
+        this.cdr.detectChanges();
       } else {
-        alert('Livro não encontrado.');
+        this.listaEdicoes = [];
       }
     },
-
     error: (erro) => {
       console.error('Erro ao pesquisar livro:', erro);
-      alert('Livro não encontrado.');
+      this.listaEdicoes = [];
     }
   });
 }

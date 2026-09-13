@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.litfeed.backend.dto.LivroComEdicoesDTO;
 import com.litfeed.backend.entity.Livro;
 import com.litfeed.backend.service.LivroService;
 
@@ -25,8 +26,8 @@ public class LivroController {
     }
     
     @GetMapping("/nome")
-    public Livro buscarPorNome(@RequestParam String nome) {
-        return service.buscarPorNome(nome);
+    public LivroComEdicoesDTO buscarPorNome(@RequestParam String nome) {
+      return service.buscarPorNome(nome);
     }
     
     @GetMapping("/autor/{autorId}")
